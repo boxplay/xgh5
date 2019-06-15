@@ -29,6 +29,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       ],
     },
     hot: true,
+		historyApiFallback: {
+				index: '/index/index.html',
+				admin: '/admin/admin.html',
+				mob: '/mob/mob.html'
+		},
     contentBase: false, // since we use CopyWebpackPlugin.
     compress: true,
     host: HOST || config.dev.host,

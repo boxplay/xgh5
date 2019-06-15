@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Backend from '@/components/Backend'
+import Backend from '@/admin/components/Backend'
+import Backend2 from '@/admin/components/Backend2'
 
 Vue.use(Router)
 
 export default new Router({
+	mode:'history',
   routes: [
     {
       path: '/',
@@ -12,8 +14,9 @@ export default new Router({
       component: Backend
     },
 		{
-		  path: '/index',
-		  redirect:'web'
+		  path: '/web',
+		  name: 'Backend2',
+		  component: Backend2
 		}
   ]
 })

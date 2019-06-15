@@ -15,9 +15,23 @@ module.exports = {
 			target: 'http://dubin.ngrok.wdevelop.cn/back/upload/upload-file', // 设置你调用的接口域名和端口号
 			changeOrigin: true,     // 跨域
 			pathRewrite: {
-			  '^/upload': '/'          
-			}
-		  }
+					'^/upload': ''          
+				}
+		  },
+			'/savedata': {
+				target: 'http://dubin.ngrok.wdevelop.cn/back/upload/save-data', // 设置你调用的接口域名和端口号
+				changeOrigin: true,     // 跨域
+				pathRewrite: {
+						'^/savedata': ''          
+					}
+			  },
+			'/getdata': {
+				target: 'http://dubin.ngrok.wdevelop.cn/back/upload/get-data', // 设置你调用的接口域名和端口号
+				changeOrigin: true,     // 跨域
+				pathRewrite: {
+						'^/getdata': ''          
+					}
+			  },
 	},
 
     // Various Dev Server settings
@@ -41,7 +55,7 @@ module.exports = {
      */
 
     // https://webpack.js.org/configuration/devtool/#development
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'source-map',
 
     // If you have problems debugging vue-files in devtools,
     // set this to false - it *may* help

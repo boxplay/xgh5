@@ -1,7 +1,8 @@
 .main{
 	width: 100%;
-	max-width: 400px;
+	max-width: 1920px;
 	margin: 0 auto;
+	margin-top:3.6rem;
 	/*background-color: black;*/
 }
 .swiper-slide{
@@ -40,8 +41,37 @@
 .hdld-list-left-box-text{
 	font-size: 0.8rem;
 }
-.ylld,.ylld-list{
+.ylld{
 	width: 100%;
+	height: 0;
+	padding-bottom: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.ylld-box{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-grow: 1;
+	flex-wrap: wrap;
+}
+.ylld-list{
+	width: calc(99% / 3);
+	height: calc(99% / 3);
+	box-sizing: border-box;
+	margin-right: 0.5%;
+	margin-bottom: 0.5%;
+	overflow: hidden;
+	
+}
+.ylld-list:nth-of-type(3n){ /* 选择个数是3的倍数的元素 */
+  margin-right: 0;
+}
+.ylld-list:nth-of-type(n+7){  /* 选择倒数的三个元素，n可以取0 */
+  margin-bottom: 0;
 }
 .hdgl{
 	padding: 1rem;
