@@ -2,7 +2,7 @@
 	<div class="main" v-if="complete==true">
 		<!-- 完整信息图片 -->
 		<div class="hdld" v-show="imgList.xgPlayTitle.isShow">
-			<img :src="imgList.xgPlayTitle.val" alt="">
+			<img :src="imgList.xgPlayTitle.val[0]" alt="">
 		</div>
 		<!-- 完整信息图片结束 -->
 		<!-- 轮播图开始 -->
@@ -13,7 +13,7 @@
 		</div>
 		<!-- 信息展示 -->
 		<div class="hdld" v-show="imgList.xgPlayDesc.isShow">
-			<img :src="imgList.xgPlayDesc.val" alt="">
+			<img :src="imgList.xgPlayDesc.val[0]" alt="">
 		</div>
 		<!-- 信息展示 -->
 		<!-- 轮播图结束 -->
@@ -74,7 +74,7 @@
 		<!-- 活动亮点结束 -->
 		<!-- 信息展示 -->
 		<div class="hdld" v-show="imgList.xgPlayHdldBack.isShow">
-			<img :src="imgList.xgPlayHdldBack.val" alt="">
+			<img :src="imgList.xgPlayHdldBack.val[0]" alt="">
 		</div>
 		<!-- 信息展示 -->
 		<!-- 邮轮亮点开始 -->
@@ -82,14 +82,14 @@
 			游轮亮点
 		</div>
 		<div class="ylld" v-show="imgList.xgPlayYlld.isShow">
-			<div class="ylld-list" v-for="(item,index) in imgList.xgPlayYlld.val" v-bind:key="index">
+			<div class="ylld-list" v-for="(item,index) in imgList.xgPlayYlld.val[0]" v-bind:key="index">
 				<img :src="item" alt="">
 			</div>
 		</div>
 		<!-- 邮轮亮点结束 -->
 		<!-- 信息展示 -->
 		<div class="hdld" v-show="imgList.xgPlayYlldBack.isShow">
-			<img :src="imgList.xgPlayYlldBack.val" alt="">
+			<img :src="imgList.xgPlayYlldBack.val[0]" alt="">
 		</div>
 		<!-- 信息展示 -->
 		<!-- 活动概览开始 -->
@@ -136,7 +136,7 @@
 		<!-- 活动日程 -->
 		<!-- 信息展示 -->
 		<div class="hdld" v-show="imgList.xgPlayHdrcBack.isShow">
-			<img :src="imgList.xgPlayHdrcBack.val" alt="">
+			<img :src="imgList.xgPlayHdrcBack.val[0]" alt="">
 		</div>
 		<!-- 信息展示 -->
 		<!-- 规则和日程 -->
@@ -175,7 +175,7 @@
 		<!-- 创作人阵容 -->
 		<!-- 合作商bannner -->
 		<div v-show="imgList.xgPlayHzBanner.isShow">
-			<img width="100%" :src="imgList.xgPlayHzBanner.val">
+			<img width="100%" :src="imgList.xgPlayHzBanner.val[0]">
 		</div>
 		<!-- 合作商<banner></banner> -->
 
@@ -213,12 +213,12 @@
 		<!-- 轮播视频 -->
 		<!-- 合作伙伴LOGO -->
 		<div v-show="imgList.xgPlayHzLogo.isShow">
-			<img width="100%" :src="imgList.xgPlayHzLogo.val">
+			<img width="100%" :src="imgList.xgPlayHzLogo.val[0]">
 		</div>
 		<!-- 合作伙伴 -->
 		<!-- 信息展示 -->
 		<div class="hdld" v-show="imgList.xgPlayHzLogoBack.isShow">
-			<img :src="imgList.xgPlayHzLogoBack.val" alt="">
+			<img :src="imgList.xgPlayHzLogoBack.val[0]" alt="">
 		</div>
 		<!-- 信息展示 -->
 		<!-- 联系方式 -->

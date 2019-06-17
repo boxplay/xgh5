@@ -29,11 +29,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       ],
     },
     hot: true,
-		historyApiFallback: {
-				index: '/index/index.html',
-				admin: '/admin/admin.html',
-				mob: '/mob/mob.html'
-		},
     contentBase: false, // since we use CopyWebpackPlugin.
     compress: true,
     host: HOST || config.dev.host,
@@ -58,23 +53,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: 'mob.html',
-     template: './src/mob/mob.html',
-      inject: true,
-			chunks:['mob']
+      filename: 'index.html',
+      template: 'index.html',
+      inject: true
     }),
-		new HtmlWebpackPlugin({
-		  filename: 'admin.html',
-			template: './src/admin/admin.html',
-		  inject: true,
-			chunks:['admin']
-		}),
-		new HtmlWebpackPlugin({
-		  filename: 'index.html',
-			template: './src/index/index.html',
-		  inject: true,
-			chunks:['index']
-		}),
     // copy custom static assets
     new CopyWebpackPlugin([
       {

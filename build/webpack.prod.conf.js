@@ -64,9 +64,9 @@ const webpackConfig = merge(baseWebpackConfig, {
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: process.env.NODE_ENV === 'testing'
-        ? 'mob.html'
-        : config.build.mob,
-      template: './src/mob/mob.html',
+        ? 'index.html'
+        : config.build.index,
+      template: 'index.html',
       inject: true,
       minify: {
         removeComments: true,
@@ -76,43 +76,8 @@ const webpackConfig = merge(baseWebpackConfig, {
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency',
-			chunks: ['manifest','vendor','mob']
+      chunksSortMode: 'dependency'
     }),
-		new HtmlWebpackPlugin({
-		  filename: process.env.NODE_ENV === 'testing'
-		    ? 'admin.html'
-		    : config.build.admin,
-		  template: './src/admin/admin.html',
-		  inject: true,
-		  minify: {
-		    removeComments: true,
-		    collapseWhitespace: true,
-		    removeAttributeQuotes: true
-		    // more options:
-		    // https://github.com/kangax/html-minifier#options-quick-reference
-		  },
-		  // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-		  chunksSortMode: 'dependency',
-			chunks: ['manifest','vendor','admin']
-		}),
-		new HtmlWebpackPlugin({
-		  filename: process.env.NODE_ENV === 'testing'
-		    ? 'index.html'
-		    : config.build.web,
-		  template: './src/index/index.html',
-		  inject: true,
-		  minify: {
-		    removeComments: true,
-		    collapseWhitespace: true,
-		    removeAttributeQuotes: true
-		    // more options:
-		    // https://github.com/kangax/html-minifier#options-quick-reference
-		  },
-		  // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-		  chunksSortMode: 'dependency',
-			chunks: ['manifest','vendor','web']
-		}),
     // keep module.id stable when vendor modules does not change
     new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
@@ -140,12 +105,12 @@ const webpackConfig = merge(baseWebpackConfig, {
     // This instance extracts shared chunks from code splitted chunks and bundles them
     // in a separate chunk, similar to the vendor chunk
     // see: https://webpack.js.org/plugins/commons-chunk-plugin/#extra-async-commons-chunk
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: 'app',
-    //   async: 'vendor-async',
-    //   children: true,
-    //   minChunks: 3
-    // }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'app',
+      async: 'vendor-async',
+      children: true,
+      minChunks: 3
+    }),
 
     // copy custom static assets
     new CopyWebpackPlugin([

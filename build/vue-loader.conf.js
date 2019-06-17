@@ -5,9 +5,8 @@ const isProduction = process.env.NODE_ENV === 'production'
 const sourceMapEnabled = isProduction
   ? config.build.productionSourceMap
   : config.dev.cssSourceMap
-const cssnext = require('postcss-cssnext')
+
 module.exports = {
-  postcss: [cssnext()],
   loaders: utils.cssLoaders({
     sourceMap: sourceMapEnabled,
     extract: isProduction

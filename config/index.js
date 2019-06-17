@@ -11,29 +11,28 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-		'/upload': {
-			target: 'http://dubin.ngrok.wdevelop.cn/back/upload/upload-file', // 设置你调用的接口域名和端口号
-			changeOrigin: true,     // 跨域
-			pathRewrite: {
-					'^/upload': ''          
-				}
-		  },
-			'/savedata': {
-				target: 'http://dubin.ngrok.wdevelop.cn/back/upload/save-data', // 设置你调用的接口域名和端口号
-				changeOrigin: true,     // 跨域
-				pathRewrite: {
-						'^/savedata': ''          
-					}
-			  },
-			'/getdata': {
-				target: 'http://dubin.ngrok.wdevelop.cn/back/upload/get-data', // 设置你调用的接口域名和端口号
-				changeOrigin: true,     // 跨域
-				pathRewrite: {
-						'^/getdata': ''          
-					}
-			  },
-	},
-
+        '/upload': {
+            target: 'http://dubin.ngrok.wdevelop.cn/back/upload/upload-file', // 设置你调用的接口域名和端口号
+            changeOrigin: true,     // 跨域
+            pathRewrite: {
+                    '^/upload': ''          
+                }
+          },
+            '/savedata': {
+                target: 'http://dubin.ngrok.wdevelop.cn/back/upload/save-data', // 设置你调用的接口域名和端口号
+                changeOrigin: true,     // 跨域
+                pathRewrite: {
+                        '^/savedata': ''          
+                    }
+              },
+            '/getdata': {
+                target: 'http://dubin.ngrok.wdevelop.cn/back/upload/get-data', // 设置你调用的接口域名和端口号
+                changeOrigin: true,     // 跨域
+                pathRewrite: {
+                        '^/getdata': ''          
+                    }
+              },
+    },
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
@@ -55,7 +54,7 @@ module.exports = {
      */
 
     // https://webpack.js.org/configuration/devtool/#development
-    devtool: 'source-map',
+    devtool: 'cheap-module-eval-source-map',
 
     // If you have problems debugging vue-files in devtools,
     // set this to false - it *may* help
@@ -67,9 +66,8 @@ module.exports = {
 
   build: {
     // Template for index.html
-    mob: path.resolve(__dirname, '../dist/mob.html'),
-		admin: path.resolve(__dirname, '../dist/admin.html'),
-		web: path.resolve(__dirname, '../dist/web.html'),
+    index: path.resolve(__dirname, '../dist/index.html'),
+
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
