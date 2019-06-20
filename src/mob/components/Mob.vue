@@ -1,7 +1,24 @@
 <template>
-	<div class="main" style='height: 768rem;' v-if="complete==true">
-		<div>
-			<img src="https://img.someet.cc/xgh5.png" alt="" width="100%">
+	<div class="main" v-if="complete==true">
+		<div class="imgBox">
+			<img src="https://img.someet.cc/xg.png" width="100%" alt="">
+			<div class="videoBox1">
+				<iframe src="https://i.snssdk.com/videofe/xigua/detail?group_id=6661814481565254158" frameborder="0">
+					
+				</iframe>
+			</div>
+			<div class="videoBox2">
+				<iframe src="https://i.snssdk.com/videofe/xigua/detail?group_id=6661814481565254158" frameborder="0">
+					
+				</iframe>
+			</div>
+			<!-- 轮播图开始 -->
+			<div class="swiper1" v-show="imgList.xgPlaySwiper.isShow">
+				<swiper :options="swiperOption">
+					<swiper-slide v-bind:key="index" v-for="(item,index) in imgList.xgPlaySwiper.val"><img width="100%" :src="item"></swiper-slide>
+				</swiper> 
+			</div>
+			<!-- 轮播图结束 -->
 		</div>
 	</div>
 </template>
@@ -81,11 +98,11 @@
 			 	 that.complete = true;
 			 })
 			 //监听页面滚动
-			 window.addEventListener('scroll', this.handleScroll)
+			 // window.addEventListener('scroll', this.handleScroll)
 			 
 		},
 		destroyed () {
-		  window.removeEventListener('scroll', this.handleScroll)
+		  // window.removeEventListener('scroll', this.handleScroll)
 		},
     }
 </script>
