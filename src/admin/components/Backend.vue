@@ -563,14 +563,14 @@
 			this.$axios.get('/static/day.json').then((response)=>{
 				 that.DayList = response.data
 			})
-			 // this.$axios.get('/static/img.json').then((response)=>{
-				//  this.imgList = response.data
-			 // })
-			this.$axios.get('/getdata').then((response)=>{
-				 that.imgList = response.data.data
-				 console.log(this.imgList.xgPlayTitle.isShow)
-				 that.complete = true;
-			})
+			 this.$axios.get('/static/img.json').then((response)=>{
+				 this.imgList = response.data
+			 })
+			// this.$axios.get('/getdata').then((response)=>{
+			// 	 that.imgList = response.data.data
+			// 	 console.log(this.imgList.xgPlayTitle.isShow)
+			// 	 that.complete = true;
+			// })
 			 
 		}
     }
