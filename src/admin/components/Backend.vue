@@ -305,7 +305,7 @@
 	import 'vue-video-player/src/custom-theme.css'
 	import upload from '@/components/upload'
 	import switchTem from '@/components/switchTem'
-	import qs from 'Qs'
+	import qs from 'qs'
     export default {
       name: 'Index',
       data () {
