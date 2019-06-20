@@ -27,6 +27,13 @@
 			</div>
 		</div>
 		<!-- 顶部悬浮框结束 -->
+		<!-- 视频播放 -->
+		<div class="xgvideo">
+			<iframe src="https://i.snssdk.com/videofe/xigua/detail?group_id=6661814481565254158" frameborder="0">
+				
+			</iframe>
+		</div>
+		<!-- 视频播放结束 -->
 		<!-- 完整信息图片 -->
 		<div class="hdld" v-show="imgList.xgPlayTitle.isShow">
 			<img :src="imgList.xgPlayTitle.val[0]" alt="">

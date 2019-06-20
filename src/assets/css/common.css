@@ -20,6 +20,7 @@ a {
 img{
 	width:100%;
 }
+/* html{font-size:62.5%;} body{font-size:12px;font-size:1.2rem ;} p,div{font-size:14px;font-size:1.4rem;} */
 .topMennu{
 	width: 100%;
 	height: 3.6rem;
@@ -64,4 +65,19 @@ img{
 	border:1px solid black;
 	background-color: white;
 	border-radius: 10px;
+}
+.xgvideo {
+position: relative;
+padding-bottom: 56.25%;
+height: 0;
+overflow: hidden;
+}
+.xgvideo iframe,
+.xgvideo object,
+.xgvideo embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
 }

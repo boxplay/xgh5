@@ -1,5 +1,5 @@
 <template>
-	<div class="backend-box" style='max-width: 1280px;' v-if="complete ==true">
+	<div class="backend-box" v-if="complete ==true">
 		<div class="backend-box-left">
 			<el-form ref="ruleForm" label-width="100px" class="demo-ruleForm">
 				<switchTem :status="imgList.xgPlayTitle.isShow" :t="'标题图片'" @changeShow="changeStatus" :type="'xgPlayTitle'"></switchTem>
