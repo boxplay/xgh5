@@ -36,7 +36,7 @@
 			</div> -->
 			<!-- 轮播图结束 -->
 			<!-- 顶部悬浮框 -->
-			<div id='topMennuFormobBox' style="width:100%;max-width:700px;top:12%;background-color: none;position: absolute;">
+			<div id='topMennuFormobBox'>
 				<div id="topMennuFormob" :class="menuTop?'fixedMenu':'relativeMenu'" style="max-width: 700px;">
 					<div class="menu-list-mob">
 						<span style="width: calc(100% / 3);" @click="goPoint('what')">
@@ -53,20 +53,20 @@
 			</div>
 			<!-- 顶部悬浮框结束 -->
 			<!-- 玩什么锚点 -->
-			<div id='what' style="width: 100%;position: absolute;top: 21%;height: 20px;background-color: black;opacity: 0;"></div>
+			<div id='what' style="width: 100%;position: absolute;top: 20%;height: 20px;background-color: black;opacity: 0;"></div>
 			<!-- 玩什么锚点结束 -->
 			<!-- 在哪玩开始 -->
-			<div id='where' style="width: 100%;position: absolute;top: 43.5%;height: 20px;background-color: deeppink;opacity: 0;"></div>
+			<div id='where' style="width: 100%;position: absolute;top: 42.5%;height: 20px;background-color: deeppink;opacity: 0;"></div>
 			<!-- 在哪玩结束 -->
 			<!-- 跟谁玩开始 -->
-			<div id='who' style="width: 100%;position: absolute;top: 76.2%;height: 20px;background-color: greenyellow;opacity: 0;"></div>
+			<div id='who' style="width: 100%;position: absolute;top: 75.2%;height: 20px;background-color: greenyellow;opacity: 0;"></div>
 			<!-- 跟谁玩结束 -->
 		</div>
 	</div>
 </template>
 
 <script>
-    import { swiper, swiperSlide } from "vue-awesome-swiper";
+    import { swiper, swiperSlide } from "vue-awesome-swiper"
 		import { videoPlayer } from 'vue-video-player'
 		import 'swiper/dist/css/swiper.css'
 		import 'video.js/dist/video-js.css'
@@ -111,7 +111,6 @@
 			},
 			goPoint(type){
 				var ele
-				var b = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
 				if(type == 'what'){
 					ele = document.querySelector('#what')
 				}else if(type == 'where'){
@@ -119,25 +118,52 @@
 				}else if(type == 'who'){
 					ele = document.querySelector('#who')
 				}
-				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				let offsetTop = ele.offsetTop - 100
 				this.offsetTop = offsetTop
 				var that = this
-				this.index = setInterval(that.scrollEvent,8)
+				// this.index = setInterval(that.scrollEvent,8)
+				
+				if(this._isMobile()){
+					console.log('手机端')
+					this.scrollEvent(type)
+				}else{
+					console.log('PC端')
+					this.index = setInterval(that.scrollEvent,8)
+				}
 			},
-			scrollEvent(){
-				var top = document.documentElement.scrollTop
-				if(top < this.offsetTop){
-					if(typeof(document.documentElement.scrollTop) != undefined){
-						document.documentElement.scrollTop +=100
-					}else if(typeof(document.body.scrollTop) != undefined){
-						document.body.scrollTop +=100
-					}else if(typeof(window.pageYOffset) != undefined){
-						window.pageYOffset +=100
+			scrollEvent(type){
+				if(this._isMobile()){
+					if(type == 'what'){
+						var anchor = document.getElementById('what');
+						anchor.scrollIntoView(true)
+					}else if(type == 'where'){
+						var anchor = document.getElementById('where');
+						anchor.scrollIntoView(true)
+					}else if(type == 'who'){
+						var anchor = document.getElementById('who');
+						anchor.scrollIntoView(true)
 					}
 				}else{
-					clearInterval(this.index)
+					// console.log('PC端')	
+					var top = document.documentElement.scrollTop
+					if(top < this.offsetTop){
+						if(typeof(document.documentElement.scrollTop) != undefined){
+							document.documentElement.scrollTop +=100
+						}else if(typeof(document.body.scrollTop) != undefined){
+							document.body.scrollTop +=100
+						}else if(typeof(window.pageYOffset) != undefined){
+							window.pageYOffset +=100
+						}
+					}else{
+						clearInterval(this.index)
+					}
 				}
+				
+				
+			},
+			_isMobile() {
+				 let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+				 return flag;
 			}
 		},
 		components:{ 

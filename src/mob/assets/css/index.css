@@ -86,6 +86,11 @@
 	background-color: white;
 	border-radius: 10px;
 	cursor: pointer;
+	z-index:10;
+}
+#topMennuFormobBox{
+	width:100%;max-width:700px;top:12%;background-color: none;position: absolute;
+	z-index:10;
 }
 .hdld{
 	width: 100%;
