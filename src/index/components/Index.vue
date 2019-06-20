@@ -1,5 +1,5 @@
 <template>
-	<div class="main" v-if="complete==true">
+	<div class="mainForPc" v-if="complete==true">
 		<!-- 顶部悬浮框 -->
 		<div class="topMennu">
 			<div class="menu-list">
