@@ -1,6 +1,6 @@
 .main{
 	width: 100%;
-	max-width: 414px;
+	max-width: 700px;
 	margin: 0 auto;
 	/*background-color: black;*/
 /* 	background-image: url('https://img.someet.cc/xgh5.png');
@@ -13,27 +13,28 @@
 }
 .imgBox .videoBox1{
 	position: absolute;
+    top: 13.15%;
+    width: 67%;
     left: 0;
-    right: 13rem;
+    right: 0;
     margin: 0 auto;
-    width: 6rem;
-    top: 59.7rem;
+	padding-bottom: 36.2%;
 }
 .imgBox .videoBox2{
 	position: absolute;
+    bottom: 7.2%;
+    width: 65%;
     left: 0;
-    right: 13rem;
+    right: 0;
     margin: 0 auto;
-    width: 6rem;
-    bottom: 32.5rem;
+    padding-bottom: 36.2%;
 }
 .imgBox .swiper1{
 	position: absolute;
 	left: 0;
-	right: 13rem;
 	margin: 0 auto;
 	width: 100%;
-	bottom: 46.2rem;
+	bottom: 10.16%;
 }
 .swiper-slide{
 	width: 100%;
