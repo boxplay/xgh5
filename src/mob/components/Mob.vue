@@ -1,7 +1,7 @@
 <template>
 	<div class="main" style='height: 768rem;' v-if="complete==true">
-		<div style='height: 200px;padding-bottom: 40rem;width: 400px;background: deeppink;'>
-			
+		<div>
+			<img src="https://img.someet.cc/xgh5.png" alt="" width="100%">
 		</div>
 	</div>
 </template>
