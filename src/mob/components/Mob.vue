@@ -7,18 +7,60 @@
 					
 				</iframe>
 			</div>
-			<div class="videoBox2">
-				<iframe src="https://i.snssdk.com/videofe/xigua/detail?group_id=6661814481565254158" frameborder="0">
-					
-				</iframe>
+			<!-- <div class="swiper1" style="bottom:7.55%;">
+				<swiper  ref='swiperForMedia' :options="swiperOptionForMedia">
+					<swiper-slide class='swiper1-video'>
+						<iframe src="https://i.snssdk.com/videofe/xigua/detail?group_id=6661814481565254158" frameborder="0">
+							
+						</iframe>
+					</swiper-slide>
+				</swiper>
+			</div> -->
+			<div class="swiper2" style="" v-if="imgList.xgPlayMedias" v-show="imgList.xgPlayMedias.isShow">
+				<swiper style="height: 100%;" :options="swiperOptionForMedia">
+					<swiper-slide class='swiper1-video' v-bind:key="index" v-for="(item,index) in imgList.xgPlayMedias.val">
+						<iframe :src="item" frameborder="0">
+							
+						</iframe>
+					</swiper-slide>
+				</swiper> 
+			</div>
+			<div class="swiper1" v-if="imgList.xgPlayHzBanner" v-show="imgList.xgPlayHzBanner.isShow">
+				<img src="https://img.someet.cc/xx.png" alt="" width="100%">
 			</div>
 			<!-- 轮播图开始 -->
-			<div class="swiper1" v-show="imgList.xgPlaySwiper.isShow">
+			<!-- <div class="swiper1" v-if="imgList.xgPlaySwiper" v-show="imgList.xgPlaySwiper.isShow">
 				<swiper :options="swiperOption">
 					<swiper-slide v-bind:key="index" v-for="(item,index) in imgList.xgPlaySwiper.val"><img width="100%" :src="item"></swiper-slide>
 				</swiper> 
-			</div>
+			</div> -->
 			<!-- 轮播图结束 -->
+			<!-- 顶部悬浮框 -->
+			<div id='topMennuFormobBox' style="width:100%;max-width:700px;top:12%;background-color: none;position: absolute;">
+				<div id="topMennuFormob" :class="menuTop?'fixedMenu':'relativeMenu'" style="max-width: 700px;">
+					<div class="menu-list-mob">
+						<span style="width: calc(100% / 3);" @click="goPoint('what')">
+							玩什么
+						</span style="width: calc(100% / 3);">
+						<span style="width: calc(100% / 3);" @click="goPoint('where')">
+							在哪玩
+						</span>
+						<span style="width: calc(100% / 3);"  @click="goPoint('who')">
+							跟谁玩
+						</span>
+					</div>
+				</div>
+			</div>
+			<!-- 顶部悬浮框结束 -->
+			<!-- 玩什么锚点 -->
+			<div id='what' style="width: 100%;position: absolute;top: 21%;height: 20px;background-color: black;opacity: 0;"></div>
+			<!-- 玩什么锚点结束 -->
+			<!-- 在哪玩开始 -->
+			<div id='where' style="width: 100%;position: absolute;top: 43.5%;height: 20px;background-color: deeppink;opacity: 0;"></div>
+			<!-- 在哪玩结束 -->
+			<!-- 跟谁玩开始 -->
+			<div id='who' style="width: 100%;position: absolute;top: 76.2%;height: 20px;background-color: greenyellow;opacity: 0;"></div>
+			<!-- 跟谁玩结束 -->
 		</div>
 	</div>
 </template>
@@ -46,16 +88,9 @@
 				autoplay: true,
 				speed: 1000,
 			},
-			playerOptions : {
-				poster: "https://img.someet.cc/Fg-C6ziVB2wP4dmt0BlxURLR8sMS",
-				aspectRatio: '16:9',
-				// 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
-				sources: [{
-					src: 'https://img.someet.cc/1560426452757245.mp4',  // 路径
-					type: 'video/mp4'  // 类型
-				}]
-			},
-			menuTop:false
+			menuTop:false,
+			index:1,
+			offsetTop:0
         }
       },
 		methods:{
@@ -73,6 +108,36 @@
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				let offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
 				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
+			},
+			goPoint(type){
+				var ele
+				var b = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
+				if(type == 'what'){
+					ele = document.querySelector('#what')
+				}else if(type == 'where'){
+					ele = document.querySelector('#where')
+				}else if(type == 'who'){
+					ele = document.querySelector('#who')
+				}
+				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+				let offsetTop = ele.offsetTop - 100
+				this.offsetTop = offsetTop
+				var that = this
+				this.index = setInterval(that.scrollEvent,8)
+			},
+			scrollEvent(){
+				var top = document.documentElement.scrollTop
+				if(top < this.offsetTop){
+					if(typeof(document.documentElement.scrollTop) != undefined){
+						document.documentElement.scrollTop +=100
+					}else if(typeof(document.body.scrollTop) != undefined){
+						document.body.scrollTop +=100
+					}else if(typeof(window.pageYOffset) != undefined){
+						window.pageYOffset +=100
+					}
+				}else{
+					clearInterval(this.index)
+				}
 			}
 		},
 		components:{ 
@@ -98,11 +163,11 @@
 			 	 that.complete = true;
 			 })
 			 //监听页面滚动
-			 // window.addEventListener('scroll', this.handleScroll)
+			 window.addEventListener('scroll', this.handleScroll)
 			 
 		},
 		destroyed () {
-		  // window.removeEventListener('scroll', this.handleScroll)
+		  window.removeEventListener('scroll', this.handleScroll)
 		},
     }
 </script>

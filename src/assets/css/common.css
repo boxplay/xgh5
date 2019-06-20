@@ -71,35 +71,35 @@ img{
 	border-radius: 10px;
 }
 .xgvideo {
-position: relative;
-padding-bottom: 56.25%;
-height: 0;
-overflow: hidden;
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
 }
 .xgvideo iframe,
 .xgvideo object,
 .xgvideo embed {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 .videoBox1 iframe,
 .videoBox1 object,
 .videoBox1 embed {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
+	position: absolute;
+    top: -1%;
+    left: 0%;
+    width: 100%;
+    height: 104%;
 }
-.videoBox2 iframe,
-.videoBox2 object,
-.videoBox2 embed {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
+.swiper1-video iframe,
+.swiper1-video object,
+.swiper1-video embed {
+	position: absolute;
+    top: 2%;
+    left: 0%;
+    width: 100%;
+    height: 109%;
 }
