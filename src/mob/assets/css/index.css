@@ -4,7 +4,8 @@
 	margin: 0 auto;
 	/*background-color: black;*/
 	background-image: url('https://img.someet.cc/back.svg');
-	background-size: 100%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 }
 .swiper-slide{
 	width: 100%;
