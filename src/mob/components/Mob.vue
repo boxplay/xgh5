@@ -1,6 +1,8 @@
 <template>
 	<div class="main" style='height: 768rem;' v-if="complete==true">
-
+		<div style='height: 200px;padding-bottom: 40rem;'>
+			
+		</div>
 	</div>
 </template>
 
