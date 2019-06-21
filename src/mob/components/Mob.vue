@@ -73,7 +73,6 @@
 				<div class="swiper2" style="" v-if="complete == true" v-show="imgList.xgPlayMedias.isShow">
 					<swiper ref='videoSwiper' style="height: 100%;" :options="swiperOptionForMedia">
 						<swiper-slide class='swiper1-video'>
-							
 							<!-- <iframe :src="item" frameborder="0" allowfullscreen="true">
 							</iframe> -->
 							<video-player class="video-player vjs-custom-skin"
@@ -83,6 +82,10 @@
 							@play="CplayerPlay($event,'swiper')"
 							@pause="CplayerPause($event,'swiper')"
 							></video-player>
+						</swiper-slide>
+						<swiper-slide class='swiper1-video'>
+							<!-- <iframe :src="item" frameborder="0" allowfullscreen="true">
+							</iframe> -->
 							<video-player class="video-player vjs-custom-skin"
 							ref="videoPlayerBottom1"
 							:playsinline="true"
@@ -90,6 +93,10 @@
 							@play="CplayerPlay($event,'swiper')"
 							@pause="CplayerPause($event,'swiper')"
 							></video-player>
+						</swiper-slide>
+						<swiper-slide class='swiper1-video'>
+							<!-- <iframe :src="item" frameborder="0" allowfullscreen="true">
+							</iframe> -->
 							<video-player class="video-player vjs-custom-skin"
 							ref="videoPlayerBottom2"
 							:playsinline="true"
