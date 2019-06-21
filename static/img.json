@@ -1,7 +1,12 @@
 {
 	"xgPlayTitle":{
-		"val":["http://img.someet.cc/Fhe5L1DZvhVvUndWeN-tZ_K8r4WS"],
+		"val":["https://img.someet.cc/head.jpg"],
 		"isShow":1
+	},
+	"xgPlayVideoTop":{
+		"val":["https://i.snssdk.com/videofe/xigua/detail?group_id=6661814481565254158"],
+		"isShow":1,
+		"img":"https://img.someet.cc/video_top.jpg"
 	},
 	"xgPlaySwiper":{
 		"val":[
@@ -11,58 +16,22 @@
 		],
 		"isShow":1
 	},
-	"xgPlayDesc":{
-		"val":["http://img.someet.cc/Fhe5L1DZvhVvUndWeN-tZ_K8r4WS"],
+	"xgPlayWhat":{
+		"val":["https://img.someet.cc/what.jpg"],
 		"isShow":1
 	},
-	"xgPlayHdld":{
-		"val":["http://img.someet.cc/Fhe5L1DZvhVvUndWeN-tZ_K8r4WS"],
+	"xgPlayWhere":{
+		"val":["https://img.someet.cc/where.jpg"],
 		"isShow":1
 	},
-	"xgPlayHdgz":{
-		"val":["http://img.someet.cc/Fhe5L1DZvhVvUndWeN-tZ_K8r4WS"],
+	"xgPlayWho":{
+		"val":["https://img.someet.cc/who.jpg"],
 		"isShow":1
 	},
-	"xgPlayHdldBack":{
-		"val":["http://img.someet.cc/Fhe5L1DZvhVvUndWeN-tZ_K8r4WS"],
-		"isShow":1
-	},
-	"xgPlayYlld":{
+	"xgPlayBanner":{
 		"val":[
-			"http://img.someet.cc/Fhe5L1DZvhVvUndWeN-tZ_K8r4WS",
-			"http://img.someet.cc/Fhe5L1DZvhVvUndWeN-tZ_K8r4WS"
+			"http://img.someet.cc/xx.jpg"
 		],
-		"isShow":1
-	},
-	"xgPlayYlldBack":{
-		"val":["http://img.someet.cc/Fhe5L1DZvhVvUndWeN-tZ_K8r4WS"],
-		"isShow":1
-	},
-	"xgPlayHdrcBack":{
-		"val":["http://img.someet.cc/Fhe5L1DZvhVvUndWeN-tZ_K8r4WS"],
-		"isShow":1
-	},
-	"xgPlayHzhbBack":{
-		"val":["http://img.someet.cc/Fhe5L1DZvhVvUndWeN-tZ_K8r4WS"],
-		"isShow":1
-	},
-	"xgPlayCz":{
-		"val":[
-			"https://img.someet.cc/Fg-3MeOGfal-2u6I4WVP9fb61wCg",
-			"https://img.someet.cc/Fg-3MeOGfal-2u6I4WVP9fb61wCg",
-			"https://img.someet.cc/Fg-3MeOGfal-2u6I4WVP9fb61wCg",
-			"https://img.someet.cc/Fg-3MeOGfal-2u6I4WVP9fb61wCg",
-			"https://img.someet.cc/Fg-3MeOGfal-2u6I4WVP9fb61wCg",
-			"https://img.someet.cc/Fg-3MeOGfal-2u6I4WVP9fb61wCg",
-			"https://img.someet.cc/Fg-3MeOGfal-2u6I4WVP9fb61wCg",
-			"https://img.someet.cc/Fg-3MeOGfal-2u6I4WVP9fb61wCg",
-			"https://img.someet.cc/Fg-3MeOGfal-2u6I4WVP9fb61wCg"
-			
-		],
-		"isShow":1
-	},
-	"xgPlayHzBanner":{
-		"val":["http://img.someet.cc/Fhe5L1DZvhVvUndWeN-tZ_K8r4WS"],
 		"isShow":1
 	},
 	"xgPlayMedias":{
@@ -74,15 +43,7 @@
 		"isShow":1
 	},
 	"xgPlayHzLogo":{
-		"val":["http://img.someet.cc/Fhe5L1DZvhVvUndWeN-tZ_K8r4WS"],
-		"isShow":1
-	},
-	"xgPlayHzLogoBack":{
-		"val":["http://img.someet.cc/Fhe5L1DZvhVvUndWeN-tZ_K8r4WS"],
-		"isShow":1
-	},
-	"xgPlayHdgz":{
-		"val":"",
+		"val":["http://img.someet.cc/foot.jpg"],
 		"isShow":1
 	}
 	

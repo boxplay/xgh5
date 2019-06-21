@@ -1,40 +1,11 @@
 <template>
-	<div class="main" v-if="complete==true">
+	<div class="main" ref='main' v-if="complete==true">
 		<div class="imgBox">
-			<img src="https://img.someet.cc/xg.png" width="100%" alt="">
-			<div class="videoBox1">
-				<iframe src="https://i.snssdk.com/videofe/xigua/detail?group_id=6661814481565254158" frameborder="0">
-					
-				</iframe>
+			<!-- 头图 -->
+			<div class="imgBoxImg" v-show="imgList.xgPlayTitle.isShow">
+				<img :src="imgList.xgPlayTitle.val[0]" alt="" width="100%">
 			</div>
-			<!-- <div class="swiper1" style="bottom:7.55%;">
-				<swiper  ref='swiperForMedia' :options="swiperOptionForMedia">
-					<swiper-slide class='swiper1-video'>
-						<iframe src="https://i.snssdk.com/videofe/xigua/detail?group_id=6661814481565254158" frameborder="0">
-							
-						</iframe>
-					</swiper-slide>
-				</swiper>
-			</div> -->
-			<div class="swiper2" style="" v-if="imgList.xgPlayMedias" v-show="imgList.xgPlayMedias.isShow">
-				<swiper style="height: 100%;" :options="swiperOptionForMedia">
-					<swiper-slide class='swiper1-video' v-bind:key="index" v-for="(item,index) in imgList.xgPlayMedias.val">
-						<iframe :src="item" frameborder="0">
-							
-						</iframe>
-					</swiper-slide>
-				</swiper> 
-			</div>
-			<div class="swiper1" v-if="imgList.xgPlayHzBanner" v-show="imgList.xgPlayHzBanner.isShow">
-				<img src="https://img.someet.cc/xx.png" alt="" width="100%">
-			</div>
-			<!-- 轮播图开始 -->
-			<!-- <div class="swiper1" v-if="imgList.xgPlaySwiper" v-show="imgList.xgPlaySwiper.isShow">
-				<swiper :options="swiperOption">
-					<swiper-slide v-bind:key="index" v-for="(item,index) in imgList.xgPlaySwiper.val"><img width="100%" :src="item"></swiper-slide>
-				</swiper> 
-			</div> -->
-			<!-- 轮播图结束 -->
+			<!-- 头图结束 -->
 			<!-- 顶部悬浮框 -->
 			<div id='topMennuFormobBox'>
 				<div id="topMennuFormob" :class="menuTop?'fixedMenu':'relativeMenu'" style="max-width: 700px;">
@@ -52,15 +23,60 @@
 				</div>
 			</div>
 			<!-- 顶部悬浮框结束 -->
-			<!-- 玩什么锚点 -->
-			<div id='what' style="width: 100%;position: absolute;top: 20%;height: 20px;background-color: black;opacity: 0;"></div>
-			<!-- 玩什么锚点结束 -->
-			<!-- 在哪玩开始 -->
-			<div id='where' style="width: 100%;position: absolute;top: 42.5%;height: 20px;background-color: deeppink;opacity: 0;"></div>
-			<!-- 在哪玩结束 -->
-			<!-- 跟谁玩开始 -->
-			<div id='who' style="width: 100%;position: absolute;top: 75.2%;height: 20px;background-color: greenyellow;opacity: 0;"></div>
-			<!-- 跟谁玩结束 -->
+			<!-- 15秒了解视屏 -->
+			<div class="imgBoxImg relativeBox" v-show="imgList.xgPlayVideoTop.isShow">
+				<img :src="imgList.xgPlayVideoTop.img" alt="" width="100%">
+				<div class="videoBox1">
+					<iframe :src="imgList.xgPlayVideoTop.val[0]" frameborder="0" allowfullscreen="true">
+						
+					</iframe>
+				</div>
+			</div>
+			<!-- 15秒了解视频 -->
+			<!-- what -->
+			<div id='what' class="imgBoxImg" v-show="imgList.xgPlayWhat.isShow">
+				<img :src="imgList.xgPlayWhat.val[0]" alt="" width="100%">
+			</div>
+			<!-- what -->
+			<!-- where -->
+			<div id='where' class="imgBoxImg" v-show="imgList.xgPlayWhere.isShow">
+				<img :src="imgList.xgPlayWhere.val[0]" alt="" width="100%">
+			</div>
+			<!-- where -->
+			<!-- who -->
+			<div id='who' class="imgBoxImg" v-show="imgList.xgPlayWho.isShow">
+				<img :src="imgList.xgPlayWho.val[0]" alt="" width="100%">
+			</div>
+			<!-- who -->
+			<!-- banner -->
+			<div class="imgBoxImg" v-show="imgList.xgPlayBanner.isShow">
+				<img :src="imgList.xgPlayBanner.val[0]" alt="" width="100%">
+			</div>
+			<!-- banner -->
+			<!-- video-swiper -->
+			<div class="imgBoxImg relativeBox" v-show="imgList.xgPlayMedias.isShow">
+				<img src="https://img.someet.cc/video.jpg" alt="" width="100%">
+				<div class="swiper2" style="" v-if="imgList.xgPlayMedias" v-show="imgList.xgPlayMedias.isShow">
+					<swiper style="height: 100%;" :options="swiperOptionForMedia">
+						<swiper-slide class='swiper1-video' v-bind:key="index" v-for="(item,index) in imgList.xgPlayMedias.val">
+							<iframe :src="item" frameborder="0" allowfullscreen="true">
+								
+							</iframe>
+						</swiper-slide>
+					</swiper> 
+				</div>
+			</div>
+			<!-- video-swiper -->
+			<!-- footer -->
+			<div class="imgBoxImg" v-show="imgList.xgPlayHzLogo.isShow">
+				<img :src="imgList.xgPlayHzLogo.val[0]" alt="" width="100%">
+			</div>
+			<!-- footer -->
+			<!-- 预约抢票 -->
+			<div id='goTicket' class='goTicket'>
+			<span style='margin-top:0.6rem;'>预约</span><span>抢票</span>
+			</div>
+			<!-- 预约抢票 -->
 		</div>
 	</div>
 </template>
@@ -69,14 +85,11 @@
     import { swiper, swiperSlide } from "vue-awesome-swiper"
 		import { videoPlayer } from 'vue-video-player'
 		import 'swiper/dist/css/swiper.css'
-		import 'video.js/dist/video-js.css'
-		import 'vue-video-player/src/custom-theme.css'
-		// import '../assets/css/index.css'
     export default {
       name: 'Index',
       data () {
         return {
-			complete:true,
+			complete:false,
 			DayIndex:1,
 			DayList:[],//活动日程
 			imgList:[],//页面图片集合
@@ -90,7 +103,8 @@
 			},
 			menuTop:false,
 			index:1,
-			offsetTop:0
+			offsetTop:0,
+			screenWidth:0
         }
       },
 		methods:{
@@ -118,8 +132,8 @@
 				}else if(type == 'who'){
 					ele = document.querySelector('#who')
 				}
-				let offsetTop = ele.offsetTop - 100
-				this.offsetTop = offsetTop
+				var offsetTop = ele.offsetTop
+				this.offsetTop = offsetTop - 100
 				var that = this
 				// this.index = setInterval(that.scrollEvent,8)
 				
@@ -128,7 +142,8 @@
 					this.scrollEvent(type)
 				}else{
 					console.log('PC端')
-					this.index = setInterval(that.scrollEvent,8)
+					// this.index = setInterval(that.scrollEvent,8)
+					that.scrollEvent(type)
 				}
 			},
 			scrollEvent(type){
@@ -144,19 +159,15 @@
 						anchor.scrollIntoView(true)
 					}
 				}else{
-					// console.log('PC端')	
 					var top = document.documentElement.scrollTop
-					if(top < this.offsetTop){
-						if(typeof(document.documentElement.scrollTop) != undefined){
-							document.documentElement.scrollTop +=100
-						}else if(typeof(document.body.scrollTop) != undefined){
-							document.body.scrollTop +=100
-						}else if(typeof(window.pageYOffset) != undefined){
-							window.pageYOffset +=100
-						}
-					}else{
-						clearInterval(this.index)
-					}
+					window.scrollTo(0,this.offsetTop);
+					// if(typeof(document.documentElement.scrollTop) != undefined){
+					// 	document.documentElement.scrollTop = this.offsetTop
+					// }else if(typeof(document.body.scrollTop) != undefined){
+					// 	document.body.scrollTop = this.offsetTop
+					// }else if(typeof(window.pageYOffset) != undefined){
+					// 	window.pageYOffset = this.offsetTop
+					// }
 				}
 				
 				
@@ -180,17 +191,32 @@
 			}
 		 },
 		 mounted(){
-			 var that = this
-			 this.$axios.get('/static/day.json').then((response)=>{
+			var that = this
+			this.$axios.get('/static/day.json').then((response)=>{
 				 that.DayList = response.data
-			 })
-			 this.$axios.get('/static/img.json').then((response)=>{
-			 	 that.imgList = response.data
-			 	 that.complete = true;
-			 })
+			})
+			this.$axios.get('/static/img.json').then((response)=>{
+			 	that.imgList = response.data
+			 	that.complete = true;
+				 //定位购票的位置
+				this.$nextTick(() => {
+					that.screenWidth = this.$refs.main.clientWidth?this.$refs.main.clientWidth:'414'
+					var w = this.screenWidth - 20
+					document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
+				})
+				window.onresize = () => {
+				  return (() => {
+					this.$nextTick(() => {
+						that.screenWidth = this.$refs.main.clientWidth
+						var w = this.screenWidth - 20
+						document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
+					})
+				  })()
+				}
+			})
 			 //监听页面滚动
-			 window.addEventListener('scroll', this.handleScroll)
-			 
+			window.addEventListener('scroll', this.handleScroll)
+			
 		},
 		destroyed () {
 		  window.removeEventListener('scroll', this.handleScroll)
