@@ -27,9 +27,16 @@
 			<div class="imgBoxImg relativeBox" v-show="imgList.xgPlayVideoTop.isShow">
 				<img :src="imgList.xgPlayVideoTop.img" alt="" width="100%">
 				<div class="videoBox1">
-					<iframe :src="imgList.xgPlayVideoTop.val[0]" frameborder="0" allowfullscreen="true">
+					<!-- <iframe :src="imgList.xgPlayVideoTop.val[0]" frameborder="0" allowfullscreen="true">
 						
-					</iframe>
+					</iframe> -->
+					<video-player  class="video-player vjs-custom-skin"
+					ref="videoPlayerTop"
+					:playsinline="true"
+					:options="imgList.xgPlayVideoTop.options"
+					@play="CplayerPlay($event,'top')"
+					@pause="CplayerPause($event,'top')"
+					></video-player>
 				</div>
 			</div>
 			<!-- 15秒了解视频 -->
@@ -51,24 +58,52 @@
 			<!-- banner -->
 			<div class="imgBoxImg" v-show="imgList.xgPlayBanner.isShow">
 				<img :src="imgList.xgPlayBanner.val[0]" alt="" width="100%">
+				<div class="swiper1" style="" v-if="imgList.xgPlaySwiper" v-show="imgList.xgPlaySwiper.isShow">
+					<swiper style="height: 100%;" :options="swiperOption">
+						<swiper-slide class='swiper1-video' v-bind:key="index" v-for="(item,index) in imgList.xgPlaySwiper.val">
+							<img :src="item" alt="" width="100%">
+						</swiper-slide>
+					</swiper> 
+				</div>
 			</div>
 			<!-- banner -->
 			<!-- video-swiper -->
-			<div class="imgBoxImg relativeBox" v-show="imgList.xgPlayMedias.isShow">
+			<div id='videoBottom' class="imgBoxImg relativeBox" v-show="imgList.xgPlayMedias.isShow">
 				<img src="https://img.someet.cc/video.jpg" alt="" width="100%">
-				<div class="swiper2" style="" v-if="imgList.xgPlayMedias" v-show="imgList.xgPlayMedias.isShow">
-					<swiper style="height: 100%;" :options="swiperOptionForMedia">
-						<swiper-slide class='swiper1-video' v-bind:key="index" v-for="(item,index) in imgList.xgPlayMedias.val">
-							<iframe :src="item" frameborder="0" allowfullscreen="true">
-								
-							</iframe>
+				<div class="swiper2" style="" v-if="complete == true" v-show="imgList.xgPlayMedias.isShow">
+					<swiper ref='videoSwiper' style="height: 100%;" :options="swiperOptionForMedia">
+						<swiper-slide class='swiper1-video'>
+							
+							<!-- <iframe :src="item" frameborder="0" allowfullscreen="true">
+							</iframe> -->
+							<video-player class="video-player vjs-custom-skin"
+							ref="videoPlayerBottom0"
+							:playsinline="true"
+							:options="imgList.xgPlayMedias.options[0]"
+							@play="CplayerPlay($event,'swiper')"
+							@pause="CplayerPause($event,'swiper')"
+							></video-player>
+							<video-player class="video-player vjs-custom-skin"
+							ref="videoPlayerBottom1"
+							:playsinline="true"
+							:options="imgList.xgPlayMedias.options[1]"
+							@play="CplayerPlay($event,'swiper')"
+							@pause="CplayerPause($event,'swiper')"
+							></video-player>
+							<video-player class="video-player vjs-custom-skin"
+							ref="videoPlayerBottom2"
+							:playsinline="true"
+							:options="imgList.xgPlayMedias.options[2]"
+							@play="CplayerPlay($event,'swiper')"
+							@pause="CplayerPause($event,'swiper')"
+							></video-player>
 						</swiper-slide>
 					</swiper> 
 				</div>
 			</div>
 			<!-- video-swiper -->
 			<!-- footer -->
-			<div class="imgBoxImg" v-show="imgList.xgPlayHzLogo.isShow">
+			<div id='bannerAndLogo' class="imgBoxImg" v-show="imgList.xgPlayHzLogo.isShow">
 				<img :src="imgList.xgPlayHzLogo.val[0]" alt="" width="100%">
 			</div>
 			<!-- footer -->
@@ -85,6 +120,8 @@
     import { swiper, swiperSlide } from "vue-awesome-swiper"
 		import { videoPlayer } from 'vue-video-player'
 		import 'swiper/dist/css/swiper.css'
+		import 'video.js/dist/video-js.css'
+		import 'vue-video-player/src/custom-theme.css'
     export default {
       name: 'Index',
       data () {
@@ -101,6 +138,7 @@
 				autoplay: true,
 				speed: 1000,
 			},
+			playerOptions : [],
 			menuTop:false,
 			index:1,
 			offsetTop:0,
@@ -108,20 +146,34 @@
         }
       },
 		methods:{
-			CplayerPlay(player) {
+			CplayerPlay(player,type) {
+				if(type == 'swiper'){
 					this.swiper.autoplay.stop()
+				}
+					
 			},
-			CplayerPause(player){
+			CplayerPause(player,type){
 					
 			},
 			changeDay(index){
 				 this.DayIndex = index
-				 console.log(this.DayList[index])
 			},
 			handleScroll(){
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				let offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
+				var videoTop = document.querySelector('#what').offsetTop
+				var videoBottom = document.querySelector('#videoBottom').clientHeight + document.querySelector('#bannerAndLogo').clientHeight
+				var pauseTop = document.querySelector('#videoBottom').offsetTop - document.querySelector('#videoBottom').clientHeight
 				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
+				if(scrollTop > videoTop){
+					this.playerTop.pause()
+				}
+				if(scrollTop < (pauseTop - videoBottom)){
+					//停止下面的播放器
+					this.player0.pause();
+					this.player1.pause();
+					this.player2.pause();
+				}
 			},
 			goPoint(type){
 				var ele
@@ -183,11 +235,20 @@
 			videoPlayer
 		},
 		computed: {
-			player() {
-				return this.$refs.videoPlayer.player
+			player0() {
+				return this.$refs.videoPlayerBottom0.player
+			},
+			player1() {
+				return this.$refs.videoPlayerBottom1.player
+			},
+			player2() {
+				return this.$refs.videoPlayerBottom2.player
+			},
+			playerTop() {
+				return this.$refs.videoPlayerTop.player
 			},
 			swiper() {
-				return this.$refs.swiperForMedia.swiper
+				return this.$refs.videoSwiper.swiper
 			}
 		 },
 		 mounted(){
