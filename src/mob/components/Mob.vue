@@ -205,7 +205,19 @@
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				let offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
 				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
-				
+				//获取玩什么的高度
+				var whatTop = document.querySelector('#what').offsetTop - 100
+				// 获取去哪玩的高度
+				var whereTop = document.querySelector('#where').offsetTop - 100
+				//获取跟谁玩的高度
+				var whoTop = document.querySelector('#who').offsetTop - 100
+				if(scrollTop > whatTop && scrollTop < whereTop && this.goWhere != 'what'){
+					this.goWhere = 'what'
+				}else if(scrollTop > whereTop && scrollTop < whoTop && this.goWhere != 'where'){
+					this.goWhere = 'where'
+				}else if(scrollTop > whoTop && this.goWhere != 'who'){
+					this.goWhere = 'who'
+				}
 				if(this.imgList.xgPlayMedias.isShow){
 					var videoTop = document.querySelector('#what').offsetTop
 					var videoBottom = document.querySelector('#videoBottom').clientHeight + document.querySelector('#bannerAndLogo').clientHeight
