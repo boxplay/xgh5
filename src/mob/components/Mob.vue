@@ -18,9 +18,9 @@
 					</div>
 				</div>
 				<!-- 头图结束 -->
-				<!-- 顶部悬浮框 -->
-				<div id='topMennuFormobBox'>
-					<div ref='blankBox' style='width:100%;height: 1px;' id='blankBox'>
+				<!-- 顶部悬浮框 如果明天换图则去掉style-->
+				<div id='topMennuFormobBox' style="margin-top:-4%;">
+					<div ref='blankBox' id='blankBox' v-show="menuTop">
 						
 					</div>
 					<div id="topMennuFormob" :class="menuTop?'fixedMenu':'relativeMenu'" style="max-width: 700px;">
@@ -43,8 +43,8 @@
 					</div>
 				</div>
 				<!-- 顶部悬浮框结束 -->
-				<!-- 15秒了解视屏 -->
-				<div class="imgBoxImg relativeBox" v-show="imgList.xgPlayVideoTop.isShow && Imgcomplete==true">
+				<!-- 15秒了解视屏 如果明天换图则去掉style-->
+				<div class="imgBoxImg relativeBox" style="margin-top: -11%;" v-show="imgList.xgPlayVideoTop.isShow && Imgcomplete==true">
 					<img :src="imgList.xgPlayVideoTop.img" alt="" width="100%">
 					<div class="videoBox1">
 						<!-- <iframe :src="imgList.xgPlayVideoTop.val[0]" frameborder="0" allowfullscreen="true">
@@ -199,18 +199,13 @@
 			imgLoad(){
 				this.Imgcomplete = true
 				var h = document.querySelector('#topMennuFormob').offsetHeight
-				// document.querySelector('#blankBox').style.height = h +'px'
+				document.querySelector('#blankBox').style.height = h +'px'
 			},
 			handleScroll(){
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				let offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
-				// scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
-
-				if(scrollTop > offsetTop){
-					document.querySelector('#topMennuFormob').style.position = 'fixed'
-				}else{
-					document.querySelector('#topMennuFormob').style.position = 'relative'
-				}
+				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
+				
 				if(this.imgList.xgPlayMedias.isShow){
 					var videoTop = document.querySelector('#what').offsetTop
 					var videoBottom = document.querySelector('#videoBottom').clientHeight + document.querySelector('#bannerAndLogo').clientHeight
@@ -241,9 +236,6 @@
 				}
 				var offsetTop = ele.offsetTop
 				this.offsetTop = offsetTop - 100
-				if(type == 'what'){
-					this.offsetTop -=48
-				}
 				var that = this
 				// this.index = setInterval(that.scrollEvent,8)
 				
