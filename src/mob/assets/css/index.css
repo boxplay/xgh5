@@ -87,11 +87,11 @@
 }
 .relativeMenu{
 	position: relative;
-	margin-top: 0.6rem;
+	/* margin-top: 0.6rem; */
 }
 .fixedMenu{
 	position: fixed;
-	top:-2px;
+	top:0.6rem;
 }
 #topMennuFormob .menu-list-mob{
 	width: 100%;
