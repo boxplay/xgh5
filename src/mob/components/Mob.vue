@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<!-- <div v-if="complete==false" class='loadingPage'>
+		<div v-if="complete==false" class='loadingPage'>
 			<h2>Loading</h2>
-		</div> -->
+		</div>
 		<div class="main" ref='main' v-if="complete==true">
 			<div class="imgBox">
 				<!-- 头图 -->
