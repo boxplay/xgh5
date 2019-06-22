@@ -1,14 +1,14 @@
 {
 	"xgPlayTitle":{
-		"val":["https://img.someet.cc/head.jpg"],
+		"val":["https://xgh5.someet.cc/head.png"],
 		"isShow":1
 	},
 	"xgPlayVideoTop":{
 		"val":["https://i.snssdk.com/videofe/xigua/detail?group_id=6661814481565254158"],
 		"isShow":1,
-		"img":"https://img.someet.cc/video_top.jpg",
+		"img":"https://xgh5.someet.cc/video_top.png",
 		"options":{
-			"poster": "https://xgh5.someet.cc/poster.jpeg",
+			"poster": "https://xgh5.someet.cc/xgposter.jpg",
 			"aspectRatio": "16:9",
 			"preload":"none",
 			"sources": [{
@@ -29,22 +29,22 @@
 		"isShow":1
 	},
 	"xgPlayWhat":{
-		"val":["https://img.someet.cc/what.jpg"],
+		"val":["https://xgh5.someet.cc/what_detail.png"],
 		"isShow":1
 	},
 	"xgPlayWhere":{
-		"val":["https://img.someet.cc/where.jpg"],
+		"val":["https://xgh5.someet.cc/where_detail.png"],
 		"isShow":1
 	},
 	"xgPlayWho":{
-		"val":["https://img.someet.cc/who.jpg"],
+		"val":["https://xgh5.someet.cc/who_detail.png"],
 		"isShow":1
 	},
 	"xgPlayBanner":{
 		"val":[
 			"http://img.someet.cc/xx.png"
 		],
-		"isShow":1
+		"isShow":0
 	},
 	"xgPlayMedias":{
 		"val":[
@@ -54,7 +54,7 @@
 		],
 		"options":[
 				{
-					"poster": "https://xgh5.someet.cc/poster.jpeg",
+					"poster": "https://xgh5.someet.cc/xgposter.jpg",
 					"aspectRatio": "16:9",
 					"preload":"none",
 					"sources": [{
@@ -63,7 +63,7 @@
 					}]
 				},
 				{
-					"poster": "https://xgh5.someet.cc/poster.jpeg",
+					"poster": "https://xgh5.someet.cc/xgposter.jpg",
 					"aspectRatio": "16:9",
 					"preload":"none",
 					"sources": [{
@@ -72,7 +72,7 @@
 					}]
 				},
 				{
-					"poster": "https://xgh5.someet.cc/poster.jpeg",
+					"poster": "https://xgh5.someet.cc/xgposter.jpg",
 					"aspectRatio": "16:9",
 					"preload":"none",
 					"sources": [{
@@ -81,10 +81,10 @@
 					}]
 				}
 			],
-		"isShow":1
+		"isShow":0
 	},
 	"xgPlayHzLogo":{
-		"val":["http://img.someet.cc/foot.jpg"],
+		"val":["http://xgh5.someet.cc/foot.png"],
 		"isShow":1
 	}
 	

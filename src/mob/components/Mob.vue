@@ -71,13 +71,20 @@
 				</div>
 				<!-- where -->
 				<!-- who -->
-				<div id='who' class="imgBoxImg" v-show="imgList.xgPlayWho.isShow">
+				<div id='who' style="position: relative;" class="imgBoxImg" v-show="imgList.xgPlayWho.isShow">
 					<img :src="imgList.xgPlayWho.val[0]" alt="" width="100%">
+					<!-- 打榜规则 -->
+					<router-link to="/rule">
+						<div class="ruleBox">
+							
+						</div>
+					</router-link>
+					<!-- 打榜规则结束 -->
 				</div>
 				<!-- who -->
 				<!-- banner -->
 				<div class="imgBoxImg" v-show="imgList.xgPlayBanner.isShow">
-					<img :src="imgList.xgPlayBanner.val[0]" alt="" width="100%">
+					<!-- <img :src="imgList.xgPlayBanner.val[0]" alt="" width="100%"> -->
 					<div class="swiper1" style="" v-if="imgList.xgPlaySwiper" v-show="imgList.xgPlaySwiper.isShow">
 						<swiper style="height: 100%;" :options="swiperOption">
 							<swiper-slide class='swiper1-video' v-bind:key="index" v-for="(item,index) in imgList.xgPlaySwiper.val">
@@ -130,7 +137,7 @@
 				</div>
 				<!-- video-swiper -->
 				<!-- footer -->
-				<div id='bannerAndLogo' class="imgBoxImg" v-show="imgList.xgPlayHzLogo.isShow">
+				<div id='bannerAndLogo' style='margin-top: -2px;' class="imgBoxImg" v-show="imgList.xgPlayHzLogo.isShow">
 					<img :src="imgList.xgPlayHzLogo.val[0]" alt="" width="100%">
 				</div>
 				<!-- footer -->
@@ -197,18 +204,21 @@
 			handleScroll(){
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				let offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
-				var videoTop = document.querySelector('#what').offsetTop
-				var videoBottom = document.querySelector('#videoBottom').clientHeight + document.querySelector('#bannerAndLogo').clientHeight
-				var pauseTop = document.querySelector('#videoBottom').offsetTop - document.querySelector('#videoBottom').clientHeight
 				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
-				if(scrollTop > videoTop){
-					this.playerTop.pause()
-				}
-				if(scrollTop < (pauseTop - videoBottom)){
-					//停止下面的播放器
-					this.player0.pause();
-					this.player1.pause();
-					this.player2.pause();
+				
+				if(this.imgList.xgPlayMedias.isShow){
+					var videoTop = document.querySelector('#what').offsetTop
+					var videoBottom = document.querySelector('#videoBottom').clientHeight + document.querySelector('#bannerAndLogo').clientHeight
+					var pauseTop = document.querySelector('#videoBottom').offsetTop - document.querySelector('#videoBottom').clientHeight
+					if(scrollTop > videoTop){
+						this.playerTop.pause()
+					}
+					if(scrollTop < (pauseTop - videoBottom)){
+						//停止下面的播放器
+						this.player0.pause();
+						this.player1.pause();
+						this.player2.pause();
+					}
 				}
 			},
 			goTicket(){

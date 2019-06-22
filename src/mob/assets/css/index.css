@@ -31,8 +31,8 @@
 }
 .imgBox .videoBox1{
 	position: absolute;
-    top: 14.2%;
-    width: 70%;
+    top: 21.2%;
+    width: 74%;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -49,11 +49,11 @@
 	height: 2%;
 }
 .imgBox .swiper1{
-	position: absolute;
-	left: 0;
+	/* position: absolute; */
+	/* left: 0; */
 	margin: 0 auto;
 	width: 100%;
-	bottom: 10.77%;
+	/* bottom: 10.77%; */
 }
 .imgBox .swiper2{
 	position: absolute;
@@ -263,7 +263,7 @@
 	width: 2.6rem;
 	height: 0.57rem;
 	opacity: 1;
-	margin-bottom: 0.7rem;
+	margin-bottom: 0.4rem;
 }
 .chevron:before{
 	content: ' ';
@@ -309,4 +309,16 @@
 	100% {
 		top: calc(0.57rem * 4);
 	}
+}
+.ruleBox{
+	width: 25%;
+    height: 6%;
+    background: red;
+    position: absolute;
+    bottom: 7.5%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    opacity: 0;
+	
 }

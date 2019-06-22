@@ -1,0 +1,2 @@
+webpackJsonp([2],{"5Wxj":function(t,e){},OTv9:function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r={render:function(){this.$createElement;this._self._c;return this._m(0)},staticRenderFns:[function(){var t=this.$createElement,e=this._self._c||t;return e("div",{staticClass:"imgBoxImg normalDiv"},[e("img",{attrs:{src:"https://xgh5.someet.cc/rule.jpg",alt:"",width:"100%"}})])}]};var s=n("C7Lr")({data:function(){return{}}},r,!1,function(t){n("5Wxj")},null,null);e.default=s.exports}});
+//# sourceMappingURL=2.63f802fcfa879c25e53f.js.map
