@@ -4,7 +4,6 @@ import App from './App'
 import router from './router'
 Vue.prototype.$axios = axios
 import '@/assets/css/common.css'
-import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = false
 

@@ -125,10 +125,10 @@
 
 <script>
     import { swiper, swiperSlide } from "vue-awesome-swiper"
-		import { videoPlayer } from 'vue-video-player'
-		import 'swiper/dist/css/swiper.css'
-		import 'video.js/dist/video-js.css'
-		import 'vue-video-player/src/custom-theme.css'
+	import { videoPlayer } from 'vue-video-player'
+	import 'swiper/dist/css/swiper.css'
+	import 'video.js/dist/video-js.css'
+	import 'vue-video-player/src/custom-theme.css'
     export default {
       name: 'Index',
       data () {
