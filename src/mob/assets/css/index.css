@@ -87,6 +87,7 @@
 }
 .relativeMenu{
 	position: relative;
+	margin-top: 0.6rem;
 }
 .fixedMenu{
 	position: fixed;
