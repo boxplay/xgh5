@@ -20,7 +20,7 @@
 				<!-- 头图结束 -->
 				<!-- 顶部悬浮框 -->
 				<div id='topMennuFormobBox'>
-					<div ref='blankBox' style='width:100%;' id='blankBox' v-show="menuTop">
+					<div ref='blankBox' style='width:100%;height: 1px;' id='blankBox'>
 						
 					</div>
 					<div id="topMennuFormob" :class="menuTop?'fixedMenu':'relativeMenu'" style="max-width: 700px;">
@@ -199,13 +199,18 @@
 			imgLoad(){
 				this.Imgcomplete = true
 				var h = document.querySelector('#topMennuFormob').offsetHeight
-				document.querySelector('#blankBox').style.height = h +'px'
+				// document.querySelector('#blankBox').style.height = h +'px'
 			},
 			handleScroll(){
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				let offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
-				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
-				
+				// scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
+
+				if(scrollTop > offsetTop){
+					document.querySelector('#topMennuFormob').style.position = 'fixed'
+				}else{
+					document.querySelector('#topMennuFormob').style.position = 'relative'
+				}
 				if(this.imgList.xgPlayMedias.isShow){
 					var videoTop = document.querySelector('#what').offsetTop
 					var videoBottom = document.querySelector('#videoBottom').clientHeight + document.querySelector('#bannerAndLogo').clientHeight
@@ -236,6 +241,9 @@
 				}
 				var offsetTop = ele.offsetTop
 				this.offsetTop = offsetTop - 100
+				if(type == 'what'){
+					this.offsetTop -=48
+				}
 				var that = this
 				// this.index = setInterval(that.scrollEvent,8)
 				

@@ -75,6 +75,10 @@
 .swiper-slide{
 	width: 100%;
 }
+.fixedMenu{
+	position: fixed;
+	top:0.1rem;
+}
 #topMennuFormob{
 	width: 100%;
 	overflow: hidden;
@@ -84,14 +88,16 @@
     border-radius: 0.5rem;
     border-bottom-right-radius: 1em;
     border-bottom-left-radius: 1em;
+	max-width: 700px;
+    position: absolute;
+    top: 0.2%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 .relativeMenu{
 	position: relative;
 	/* margin-top: 0.6rem; */
-}
-.fixedMenu{
-	position: fixed;
-	top:0.1rem;
 }
 #topMennuFormob .menu-list-mob{
 	width: 100%;
@@ -127,7 +133,7 @@
 #topMennuFormobBox{
 	width:100%;
 	max-width:700px;
-	top:12%;
+	top:0.2%;
 	z-index:10;
 }
 .hdld{
