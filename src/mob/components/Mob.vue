@@ -6,15 +6,26 @@
 		<div class="main" ref='main' v-if="complete==true">
 			<div class="imgBox">
 				<!-- 头图 -->
-				<div class="imgBoxImg" v-show="imgList.xgPlayTitle.isShow">
+				<div class="imgBoxImg" style="position: relative;" v-show="imgList.xgPlayTitle.isShow">
 					<img :src="imgList.xgPlayTitle.val[0]" alt="" width="100%" @load="imgLoad">
+					<div class="slideBox">
+						<div class="slideBoxList">
+							<div class="chevron" style="position: absolute;"></div>
+							<div class="chevron"></div>
+							<div class="chevron"></div>
+							<div class="chevron"></div>
+						</div>
+					</div>
 				</div>
 				<!-- 头图结束 -->
 				<!-- 顶部悬浮框 -->
 				<div id='topMennuFormobBox'>
+					<div ref='blankBox' style='width:100%;' id='blankBox' v-show="menuTop">
+						
+					</div>
 					<div id="topMennuFormob" :class="menuTop?'fixedMenu':'relativeMenu'" style="max-width: 700px;">
 						<div style="width: 100%;position: relative;">
-							<img v-show="goWhere == 'who'" src="https://xgh5.someet.cc/who.png" alt="" width="100%">
+							<img id='imgHeight' v-show="goWhere == 'who'" src="https://xgh5.someet.cc/who.png" alt="" width="100%" ref='imgHeight'>
 							<img v-show="goWhere == 'where'" src="https://xgh5.someet.cc/where.png" alt="" width="100%">
 							<img v-show="goWhere == 'what'" src="https://xgh5.someet.cc/what.png" alt="" width="100%">
 							<div class="menu-list-mob" style="position: absolute;opacity: 0;">
@@ -125,7 +136,8 @@
 				<!-- footer -->
 				<!-- 预约抢票 -->
 				<div id='goTicket' class='goTicket' v-show='Imgcomplete==true'>
-				<span style='margin-top:0.6rem;'>预约</span><span>抢票</span>
+				<!-- <span style='margin-top:0.6rem;'>预约</span><span>抢票</span> -->
+					<img src="https://xgh5.someet.cc/goTicket.png" width="100%" alt="">
 				</div>
 				<!-- 预约抢票 -->
 			</div>
@@ -179,6 +191,8 @@
 			},
 			imgLoad(){
 				this.Imgcomplete = true
+				var h = document.querySelector('#topMennuFormob').offsetHeight
+				document.querySelector('#blankBox').style.height = h +'px'
 			},
 			handleScroll(){
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
@@ -300,7 +314,6 @@
 			})
 			 //监听页面滚动
 			window.addEventListener('scroll', this.handleScroll)
-			
 		},
 		destroyed () {
 		  window.removeEventListener('scroll', this.handleScroll)

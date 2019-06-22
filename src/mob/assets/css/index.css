@@ -227,8 +227,8 @@
 	position: fixed;
 	right:calc(50% - 320px);
 	width: 4rem;
-	height: 4rem;
-	border-radius: 50%;
+	/* height: 4rem; */
+	border-radius: 3rem;
 	/* line-height: 4rem; */
 	text-align: center;
 	border:1px solid red;
@@ -237,9 +237,68 @@
 	background-color: white;
 	z-index:400;
 }
-.goTicket span{
-	display: block;
+.goTicket img{
+	vertical-align: middle;
+	border-radius: 2rem;
 }
 .video-js:hover .vjs-big-play-button,.vjs-custom-skin > .video-js .vjs-big-play-button:focus,.vjs-custom-skin > .video-js .vjs-big-play-button:active {
   background-color: rgba(0,0,0,0.45);
+}
+.slideBox{
+	width: 100%;
+	bottom:9%;
+	position: absolute;
+	text-align: center;
+}
+.slideBoxList{
+	margin:0 auto;
+	width: 2.6rem;
+}
+.chevron{
+	position: relative;
+	width: 2.6rem;
+	height: 0.57rem;
+	opacity: 1;
+	margin-bottom: 0.7rem;
+}
+.chevron:before{
+	content: ' ';
+	position: absolute;
+	top: 0;
+	height: 1rem;
+	width: 1.3rem;
+	background-color: rgba(255,255,255,0.35);
+	transform: skew(0deg, 30deg);
+	left:0;
+}
+.chevron:after{
+	content: ' ';
+	position: absolute;
+	top: 0;
+	height: 1rem;
+	width: 1.3rem;
+	background-color: rgba(255,255,255,0.35);
+	right: 0;
+	transform: skew(0deg, -30deg);
+}
+.chevron:first-child:before,.chevron:first-child:after {
+   background-color: rgba(255,255,255,0.9);
+   animation: move 0.7s ease-in-out infinite;
+}
+.chevron:first-child{
+	top:0;
+}
+@keyframes move {
+	25% {
+		top: calc(0.57rem * 1);
+	}
+	50% {
+		top: calc(0.57rem * 2);
+	}
+	75% {
+	   top: calc(0.57rem * 3);
+	}
+	100% {
+		top: calc(0.57rem * 4);
+	}
 }
