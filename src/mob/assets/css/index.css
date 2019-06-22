@@ -7,6 +7,16 @@
 	background-size: contain;
 	background-repeat: no-repeat; */
 }
+.loadingPage{
+	width: 5rem;height: 5rem;
+	position: absolute;
+	left:0;
+	right:0;
+	top:2rem;
+	margin:0 auto;
+	line-height: 5rem;
+	
+}
 .imgBox,.relativeBox{
 	position: relative;
 	width: 100%;
