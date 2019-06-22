@@ -13,16 +13,21 @@
 				<!-- 顶部悬浮框 -->
 				<div id='topMennuFormobBox'>
 					<div id="topMennuFormob" :class="menuTop?'fixedMenu':'relativeMenu'" style="max-width: 700px;">
-						<div class="menu-list-mob">
-							<span style="width: calc(100% / 3);" @click="goPoint('what')">
-								玩什么
-							</span style="width: calc(100% / 3);">
-							<span style="width: calc(100% / 3);" @click="goPoint('where')">
-								在哪玩
-							</span>
-							<span style="width: calc(100% / 3);"  @click="goPoint('who')">
-								跟谁玩
-							</span>
+						<div style="width: 100%;position: relative;">
+							<img v-show="goWhere == 'who'" src="https://xgh5.someet.cc/who.png" alt="" width="100%">
+							<img v-show="goWhere == 'where'" src="https://xgh5.someet.cc/where.png" alt="" width="100%">
+							<img v-show="goWhere == 'what'" src="https://xgh5.someet.cc/what.png" alt="" width="100%">
+							<div class="menu-list-mob" style="position: absolute;opacity: 0;">
+								<span style="width: calc(100% / 3);" @click="goPoint('what')">
+									玩什么
+								</span style="width: calc(100% / 3);">
+								<span style="width: calc(100% / 3);" @click="goPoint('where')">
+									在哪玩
+								</span>
+								<span style="width: calc(100% / 3);"  @click="goPoint('who')">
+									跟谁玩
+								</span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -155,7 +160,8 @@
 			index:1,
 			offsetTop:0,
 			screenWidth:0,
-			Imgcomplete:false
+			Imgcomplete:false,
+			goWhere:"what"
         }
       },
 		methods:{
@@ -192,6 +198,7 @@
 				}
 			},
 			goPoint(type){
+				this.goWhere = type
 				var ele
 				if(type == 'what'){
 					ele = document.querySelector('#what')
@@ -304,4 +311,9 @@
 	
 	@import '../assets/css/index.css'
 	
+</style>
+<style>
+	.video-js:hover .vjs-big-play-button,.vjs-custom-skin > .video-js .vjs-big-play-button:focus,.vjs-custom-skin > .video-js .vjs-big-play-button:active {
+	  background-color: rgba(0,0,0,0.45);
+	}
 </style>

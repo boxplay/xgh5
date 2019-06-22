@@ -110,7 +110,7 @@
 	/* line-height: 4rem; */
 	text-align: center;
 	border:1px solid red;
-	top:40%;
+	bottom:3%;
 	background-color: white;
 	z-index:100;
 }
