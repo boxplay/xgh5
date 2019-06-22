@@ -135,7 +135,7 @@
 				</div>
 				<!-- footer -->
 				<!-- 预约抢票 -->
-				<div id='goTicket' class='goTicket' v-show='Imgcomplete==true'>
+				<div id='goTicket' @click="goTicket" class='goTicket' v-show='Imgcomplete==true'>
 				<!-- <span style='margin-top:0.6rem;'>预约</span><span>抢票</span> -->
 					<img src="https://xgh5.someet.cc/goTicket.png" width="100%" alt="">
 				</div>
@@ -210,6 +210,9 @@
 					this.player1.pause();
 					this.player2.pause();
 				}
+			},
+			goTicket(){
+				window.location.href = 'https://traveldetail.fliggy.com/item.htm?id=596217589260'
 			},
 			goPoint(type){
 				this.goWhere = type
