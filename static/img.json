@@ -8,7 +8,7 @@
 		"isShow":1,
 		"img":"https://img.someet.cc/video_top.jpg",
 		"options":{
-			"poster": "https://xgh5.someet.cc/xgposter.jpg",
+			"poster": "https://xgh5.someet.cc/poster.jpeg",
 			"aspectRatio": "16:9",
 			"preload":"none",
 			"sources": [{
@@ -54,7 +54,7 @@
 		],
 		"options":[
 				{
-					"poster": "https://xgh5.someet.cc/xgposter.jpg",
+					"poster": "https://xgh5.someet.cc/poster.jpeg",
 					"aspectRatio": "16:9",
 					"preload":"none",
 					"sources": [{
@@ -63,7 +63,7 @@
 					}]
 				},
 				{
-					"poster": "https://xgh5.someet.cc/xgposter.jpg",
+					"poster": "https://xgh5.someet.cc/poster.jpeg",
 					"aspectRatio": "16:9",
 					"preload":"none",
 					"sources": [{
@@ -72,7 +72,7 @@
 					}]
 				},
 				{
-					"poster": "https://xgh5.someet.cc/xgposter.jpg",
+					"poster": "https://xgh5.someet.cc/poster.jpeg",
 					"aspectRatio": "16:9",
 					"preload":"none",
 					"sources": [{
