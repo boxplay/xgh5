@@ -32,7 +32,7 @@
 .imgBox .videoBox1{
 	position: absolute;
     top: 14.2%;
-    width: 69%;
+    width: 70%;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -41,7 +41,7 @@
 .imgBox .videoBox2{
 	position: absolute;
     bottom: 7.2%;
-    width: 65%;
+    width: 66%;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -63,10 +63,10 @@
 	bottom: 10.16%;
 }
 .imgBox .swiper2{
-	width:68%;bottom: 7.24%;height: 2%;left:-2px;right:0;
+	width:69%;bottom: 7.24%;height: 2%;left:-2px;right:0;
 }
 .imgBoxImg .swiper2{
-	width: 70%;
+	width: 70.5%;
     bottom: 22.7%;
     height: 56%;
     left: -0.45rem;
