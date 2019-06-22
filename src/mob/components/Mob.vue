@@ -206,11 +206,11 @@
 				let offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
 				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
 				//获取玩什么的高度
-				var whatTop = document.querySelector('#what').offsetTop - 100
+				var whatTop = document.querySelector('#what').offsetTop - 28
 				// 获取去哪玩的高度
-				var whereTop = document.querySelector('#where').offsetTop - 100
+				var whereTop = document.querySelector('#where').offsetTop - 28
 				//获取跟谁玩的高度
-				var whoTop = document.querySelector('#who').offsetTop - 100
+				var whoTop = document.querySelector('#who').offsetTop - 28
 				if(scrollTop > whatTop && scrollTop < whereTop && this.goWhere != 'what'){
 					this.goWhere = 'what'
 				}else if(scrollTop > whereTop && scrollTop < whoTop && this.goWhere != 'where'){
@@ -247,7 +247,7 @@
 					ele = document.querySelector('#who')
 				}
 				var offsetTop = ele.offsetTop
-				this.offsetTop = offsetTop - 100
+				this.offsetTop = offsetTop - 28
 				var that = this
 				// this.index = setInterval(that.scrollEvent,8)
 				
