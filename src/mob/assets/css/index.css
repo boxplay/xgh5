@@ -31,12 +31,12 @@
 }
 .imgBox .videoBox1{
 	position: absolute;
-    top: 21.2%;
-    width: 74%;
+    top: 29.7%;
+    width: 88%;
     left: 0;
     right: 0;
     margin: 0 auto;
-    height: 60%;
+    /* height: 60%; */
 }
 .imgBox .videoBox2{
 	position: absolute;
@@ -243,6 +243,9 @@
 }
 .video-js:hover .vjs-big-play-button,.vjs-custom-skin > .video-js .vjs-big-play-button:focus,.vjs-custom-skin > .video-js .vjs-big-play-button:active {
   background-color: rgba(0,0,0,0.45);
+}
+.vjs-custom-skin>.video-js .vjs-big-play-button{
+	font-size: 1.5rem;
 }
 .slideBox{
 	width: 100%;
