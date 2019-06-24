@@ -153,11 +153,11 @@
 </template>
 
 <script>
-    import { swiper, swiperSlide } from "vue-awesome-swiper"
-	import { videoPlayer } from 'vue-video-player'
-	import 'swiper/dist/css/swiper.css'
-	import 'video.js/dist/video-js.css'
-	import 'vue-video-player/src/custom-theme.css'
+    // import { swiper, swiperSlide } from "vue-awesome-swiper"
+	// import { videoPlayer } from 'vue-video-player'
+	// import 'swiper/dist/css/swiper.css'
+	// import 'video.js/dist/video-js.css'
+	// import 'vue-video-player/src/custom-theme.css'
     export default {
       name: 'Index',
       data () {
@@ -218,13 +218,13 @@
 				}else if(scrollTop > whoTop && this.goWhere != 'who'){
 					this.goWhere = 'who'
 				}
+				var videoTop = document.querySelector('#what').offsetTop
+				if(scrollTop > videoTop){
+					this.playerTop.pause()
+				}
 				if(this.imgList.xgPlayMedias.isShow){
-					var videoTop = document.querySelector('#what').offsetTop
 					var videoBottom = document.querySelector('#videoBottom').clientHeight + document.querySelector('#bannerAndLogo').clientHeight
 					var pauseTop = document.querySelector('#videoBottom').offsetTop - document.querySelector('#videoBottom').clientHeight
-					if(scrollTop > videoTop){
-						this.playerTop.pause()
-					}
 					if(scrollTop < (pauseTop - videoBottom)){
 						//停止下面的播放器
 						this.player0.pause();
@@ -290,9 +290,9 @@
 			}
 		},
 		components:{ 
-			swiper,
-			swiperSlide,
-			videoPlayer
+			// swiper,
+			// swiperSlide,
+			// videoPlayer
 		},
 		computed: {
 			player0() {

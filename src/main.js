@@ -6,7 +6,8 @@ Vue.prototype.$axios = axios
 import '@/assets/css/common.css'
 
 Vue.config.productionTip = false
-
+Vue.use(window.VueVideoPlayer)
+Vue.use(window.VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router,

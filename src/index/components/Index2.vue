@@ -9,11 +9,11 @@
 	</div>
 </template>
 <script>
-    import { swiper, swiperSlide } from "vue-awesome-swiper"
-	import { videoPlayer } from 'vue-video-player'
-	import 'swiper/dist/css/swiper.css'
-	import 'video.js/dist/video-js.css'
-	import 'vue-video-player/src/custom-theme.css'
+ //    import { swiper, swiperSlide } from "vue-awesome-swiper"
+	// import { videoPlayer } from 'vue-video-player'
+	// import 'swiper/dist/css/swiper.css'
+	// import 'video.js/dist/video-js.css'
+	// import 'vue-video-player/src/custom-theme.css'
     export default {
       name: 'Index',
       data () {
@@ -74,20 +74,20 @@
 				}else if(scrollTop > whoTop && this.goWhere != 'who'){
 					this.goWhere = 'who'
 				}
-				if(this.imgList.xgPlayMedias.isShow){
-					var videoTop = document.querySelector('#what').offsetTop
-					var videoBottom = document.querySelector('#videoBottom').clientHeight + document.querySelector('#bannerAndLogo').clientHeight
-					var pauseTop = document.querySelector('#videoBottom').offsetTop - document.querySelector('#videoBottom').clientHeight
-					if(scrollTop > videoTop){
-						this.playerTop.pause()
-					}
-					if(scrollTop < (pauseTop - videoBottom)){
-						//停止下面的播放器
-						this.player0.pause();
-						this.player1.pause();
-						this.player2.pause();
-					}
-				}
+				// var videoTop = document.querySelector('#what').offsetTop
+				// if(scrollTop > videoTop){
+				// 	this.playerTop.pause()
+				// }
+				// if(this.imgList.xgPlayMedias.isShow){
+				// 	var videoBottom = document.querySelector('#videoBottom').clientHeight + document.querySelector('#bannerAndLogo').clientHeight
+				// 	var pauseTop = document.querySelector('#videoBottom').offsetTop - document.querySelector('#videoBottom').clientHeight
+				// 	if(scrollTop < (pauseTop - videoBottom)){
+				// 		//停止下面的播放器
+				// 		this.player0.pause();
+				// 		this.player1.pause();
+				// 		this.player2.pause();
+				// 	}
+				// }
 			},
 			goTicket(){
 				window.location.href = 'https://traveldetail.fliggy.com/item.htm?id=596217589260'
@@ -146,9 +146,9 @@
 			}
 		},
 		components:{ 
-			swiper,
-			swiperSlide,
-			videoPlayer
+			// swiper,
+			// swiperSlide,
+			// videoPlayer
 		},
 		computed: {
 			player0() {
@@ -179,23 +179,23 @@
 				this.$nextTick(() => {
 					that.screenWidth = this.$refs.main.clientWidth?this.$refs.main.clientWidth:'414'
 					var w = this.screenWidth - 20
-					document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
+					// document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
 				})
 				window.onresize = () => {
 				  return (() => {
 					this.$nextTick(() => {
 						that.screenWidth = this.$refs.main.clientWidth
 						var w = this.screenWidth - 20
-						document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
+						// document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
 					})
 				  })()
 				}
 			})
 			 //监听页面滚动
-			window.addEventListener('scroll', this.handleScroll)
+			// window.addEventListener('scroll', this.handleScroll)
 		},
 		destroyed () {
-		  window.removeEventListener('scroll', this.handleScroll)
+		  // window.removeEventListener('scroll', this.handleScroll)
 		},
     }
 </script>
