@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<div v-if="complete==false" class='loadingPage'>
+		<div v-show="complete == true" class='loadingPage'>
 			<h2>Loading</h2>
 		</div>
 		<div class="main" ref='main' v-if="complete==true">
 			<div class="imgBox">
 				<!-- 头图 -->
-				<div class="imgBoxImg" style="position: relative;" v-show="imgList.xgPlayTitle.isShow">
+				<div class="imgBoxImg relativeBox" id='menuBox' style="position: relative;" v-show="imgList.xgPlayTitle.isShow">
 					<img :src="imgList.xgPlayTitle.val[0]" alt="" width="100%" @load="imgLoad">
 					<div class="slideBox">
 						<div class="slideBoxList">
@@ -16,30 +16,8 @@
 							<div class="chevron"></div>
 						</div>
 					</div>
-				</div>
-				<!-- 头图结束 -->
-				
-				<!-- 15秒了解视屏 如果明天换图则去掉style-->
-				<div class="imgBoxImg relativeBox" v-show="imgList.xgPlayVideoTop.isShow && Imgcomplete==true">
-					<img :src="imgList.xgPlayVideoTop.img" alt="" width="100%">
-					<div class="videoBox1">
-						<!-- <iframe :src="imgList.xgPlayVideoTop.val[0]" frameborder="0" allowfullscreen="true">
-							
-						</iframe> -->
-						<video-player  class="video-player vjs-custom-skin"
-						ref="videoPlayerTop"
-						:playsinline="true"
-						:options="imgList.xgPlayVideoTop.options"
-						@play="CplayerPlay($event,'top')"
-						@pause="CplayerPause($event,'top')"
-						></video-player>
-					</div>
-				</div>
-				<!-- 15秒了解视频 -->
-				<!-- what -->
-				<div id='what' class="imgBoxImg relativeBox" v-show="imgList.xgPlayWhat.isShow">
 					<!-- 顶部悬浮框 如果明天换图则去掉style-->
-					<div id='topMennuFormobBox' style="position: absolute;">
+					<div ref='topMennuFormobBox' id='topMennuFormobBox' style="position: absolute;">
 						<div id="topMennuFormob" :class="menuTop?'fixedMenu':'relativeMenu'" style="max-width: 700px;">
 							<div style="width: 100%;position: relative;">
 								<img id='imgHeight' v-show="goWhere == 'who'" src="https://xgh5.someet.cc/who.png" alt="" width="100%" ref='imgHeight'>
@@ -60,6 +38,27 @@
 						</div>
 					</div>
 					<!-- 顶部悬浮框结束 -->
+				</div>
+				<!-- 头图结束 -->
+				<!-- 15秒了解视屏 如果明天换图则去掉style-->
+				<div class="imgBoxImg relativeBox" v-show="imgList.xgPlayVideoTop.isShow && Imgcomplete==true">
+					<img :src="imgList.xgPlayVideoTop.img" alt="" width="100%">
+					<div class="videoBox1">
+						<!-- <iframe :src="imgList.xgPlayVideoTop.val[0]" frameborder="0" allowfullscreen="true">
+							
+						</iframe> -->
+						<video-player  class="video-player vjs-custom-skin"
+						ref="videoPlayerTop"
+						:playsinline="true"
+						:options="imgList.xgPlayVideoTop.options"
+						@play="CplayerPlay($event,'top')"
+						@pause="CplayerPause($event,'top')"
+						></video-player>
+					</div>
+				</div>
+				<!-- 15秒了解视频 -->
+				<!-- what -->
+				<div id='what' class="imgBoxImg relativeBox" v-show="imgList.xgPlayWhat.isShow">
 					<img :src="imgList.xgPlayWhat.val[0]" alt="" width="100%">
 				</div>
 				<!-- what -->
@@ -72,7 +71,7 @@
 				<div id='who' style="position: relative;" class="imgBoxImg" v-show="imgList.xgPlayWho.isShow">
 					<img :src="imgList.xgPlayWho.val[0]" alt="" width="100%">
 					<!-- 打榜规则 -->
-					<router-link to="/rule">
+					<router-link to='/rule'>
 						<div class="ruleBox">
 							
 						</div>
@@ -147,6 +146,7 @@
 				<!-- 预约抢票 -->
 			</div>
 		</div>
+		<router-view></router-view>
 	</div>
 </template>
 
@@ -179,7 +179,8 @@
 			offsetTop:0,
 			screenWidth:0,
 			Imgcomplete:false,
-			goWhere:"what"
+			goWhere:"what",
+			isRouterChange:'mob',
         }
       },
 		methods:{
@@ -201,11 +202,12 @@
 				// document.querySelector('#blankBox').style.height = h +'px'
 			},
 			handleScroll(){
+				// console.log(document.querySelector('#topMennuFormobBox'))
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				let offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
 				let menuBoxTop = document.querySelector('#what').offsetTop
 				// console.log(offsetTop + menuBoxTop)
-				scrollTop > offsetTop + menuBoxTop ? this.menuTop = true : this.menuTop = false
+				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
 				//获取玩什么的高度
 				var whatTop = document.querySelector('#what').offsetTop - 28
 				// 获取去哪玩的高度
@@ -236,6 +238,10 @@
 			},
 			goTicket(){
 				window.location.href = 'https://traveldetail.fliggy.com/item.htm?id=596217589260'
+			},
+			goRule(){
+				window.removeEventListener('scroll', this.handleScroll)
+				this.$router.push({'path':'/rule'})
 			},
 			goPoint(type){
 				this.goWhere = type
@@ -269,7 +275,7 @@
 			scrollEvent(type){
 				if(this._isMobile()){
 					if(type == 'what'){
-						var anchor = document.getElementById('topMennuFormobBox');
+						var anchor = document.getElementById('what');
 						anchor.scrollIntoView(true)
 					}else if(type == 'where'){
 						var anchor = document.getElementById('where');
@@ -315,8 +321,16 @@
 			  wxapi.ShareAppMessage(option)
 			}
 		},
-		components:{ 
-			
+		watch:{ 
+			 $route(to,from){
+				if(to.path == '/rule'){
+					window.removeEventListener('scroll', this.handleScroll)
+				}
+				if(to.path == '/mob'){
+					window.addEventListener('scroll', this.handleScroll)
+				}
+				// console.log(from.path);
+			  }
 		},
 		computed: {
 			player0() {
@@ -336,6 +350,8 @@
 			}
 		 },
 		 mounted(){
+			if(this.$route.name == 'Rule') this.isRouterChange = 'rule'; 
+			if(this.$route.name == 'Mob') this.isRouterChange = 'mob'; 
 			var that = this
 			this.$axios.get('/static/img.json').then((response)=>{
 			 	that.imgList = response.data
@@ -345,6 +361,8 @@
 					that.screenWidth = this.$refs.main.clientWidth?this.$refs.main.clientWidth:'414'
 					var w = this.screenWidth - 20
 					document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
+					var h = document.documentElement.clientHeight
+					document.querySelector('#topMennuFormobBox').style.top = h - 32 +'px'
 				})
 				window.onresize = () => {
 				  return (() => {
@@ -365,11 +383,8 @@
 				wxapi.wxRegister(this.wxRegCallback)
 			}
 		},
-		destroyed () {
-		  // window.removeEventListener('scroll', this.handleScroll)
-		  this.$nextTick(function(){
-		  	window.removeEventListener('scroll', this.handleScroll)
-		  })
+		beforeDestroy () {
+		  window.removeEventListener('scroll', this.handleScroll)
 		},
     }
 </script>

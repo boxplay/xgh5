@@ -5,9 +5,9 @@
 			2019年西瓜PLAY全面升级——海上邮轮嘉年华，8月22日-8月26日，将满载数千名视频创作人、明星大咖、行业领袖在上海起航。
 			「2019 西瓜PLAY」与首席共创伙伴「福特领界」一起驾着「创作人方舟，领你看世界」！
 		</div>
-		<transition>
-			<router-view/>
-		</transition>
+		<keep-alive>
+			<router-view />
+		</keep-alive>
   </div>
 </template>
 

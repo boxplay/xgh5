@@ -19,7 +19,16 @@ export default new VueRouter({
 	{
 		path: '/mob',
 		name: 'Mob',
-		component: Mob
+		component: Mob,
+		children: [
+        {
+			name:'Rule',
+          // 当 /user/:id/profile 匹配成功，
+          // UserProfile 会被渲染在 User 的 <router-view> 中
+          path: 'rule',
+          component: Rule
+        }
+      ]
 	},
 	{
 		path: '/rule',
@@ -31,5 +40,12 @@ export default new VueRouter({
 		name: 'Web2',
 		component: Web2, 
 	}
-	]
+	],
+	scrollBehavior (to, from, savedPosition) {
+	  if (savedPosition) {
+		return savedPosition
+	  } else {
+		return { x: 0, y: 0 }
+	  }
+	}
 })
