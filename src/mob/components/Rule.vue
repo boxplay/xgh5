@@ -24,7 +24,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.main{
 		width: 100%;
 		max-width: 700px;
