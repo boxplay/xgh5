@@ -181,7 +181,7 @@
 			Imgcomplete:false,
 			goWhere:"what",
 			isRouterChange:'mob',
-			menuTopHeight:0
+			menuTopHeight:40
         }
       },
 		methods:{
@@ -201,12 +201,14 @@
 				this.Imgcomplete = true
 				// var h = document.querySelector('#topMennuFormob').offsetHeight
 				// document.querySelector('#blankBox').style.height = h +'px'
+				this.menuTopHeight = document.querySelector('#topMennuFormobBox').clientHeight
+				console.log(this.menuTopHeight)
 			},
 			handleScroll(){
 				// console.log(document.querySelector('#topMennuFormobBox'))
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				let offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
-				if(document.querySelector('#topMennuFormobBox').clientHeight == 0) document.querySelector('#topMennuFormobBox').style.height =this.menuTopHeight +'px'
+				if(document.querySelector('#topMennuFormobBox').clientHeight == 0) document.querySelector('#topMennuFormobBox').style.height =this.menuTop +'px'
 				scrollTop >= offsetTop ? this.menuTop = true : this.menuTop = false
 				//获取玩什么的高度
 				var whatTop = document.querySelector('#what').offsetTop
@@ -362,9 +364,6 @@
 					var w = this.screenWidth - 20
 					document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
 					var h = document.documentElement.clientHeight
-					this.menuTopHeight = document.querySelector('#topMennuFormobBox').clientHeight
-					console.log(this.menuTopHeight)
-					console.log(document.querySelector('#topMennuFormobBox').clientHeight+'----ele')
 					document.querySelector('#topMennuFormobBox').style.top = 'auto';
 					document.querySelector('#topMennuFormobBox').style.bottom = h * 0.01 +'px'
 				})
