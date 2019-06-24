@@ -33,7 +33,7 @@
 		"isShow":1
 	},
 	"xgPlayWhere":{
-		"val":["https://xgh5.someet.cc/where_detail.png"],
+		"val":["https://xgh5.someet.cc/where_detail.jpg"],
 		"isShow":1
 	},
 	"xgPlayWho":{
@@ -89,6 +89,5 @@
 	"xgPlayHzLogo":{
 		"val":["http://xgh5.someet.cc/foot.png"],
 		"isShow":1
-	}
-	
+	}	
 }
