@@ -47,13 +47,13 @@
 								<img v-show="goWhere == 'what'" src="https://xgh5.someet.cc/what.png" alt="" width="100%">
 								<div class="menu-list-mob" style="position: absolute;opacity: 0;">
 									<span style="width: calc(100% / 3);" @click="goPoint('what')">
-										玩什么
+										<!-- 玩什么 -->
 									</span style="width: calc(100% / 3);">
 									<span style="width: calc(100% / 3);" @click="goPoint('where')">
-										在哪玩
+										<!-- 在哪玩 -->
 									</span>
 									<span style="width: calc(100% / 3);"  @click="goPoint('who')">
-										跟谁玩
+										<!-- 跟谁玩 -->
 									</span>
 								</div>
 							</div>
