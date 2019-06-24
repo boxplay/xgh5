@@ -181,6 +181,7 @@
 			Imgcomplete:false,
 			goWhere:"what",
 			isRouterChange:'mob',
+			menuTopHeight:0
         }
       },
 		methods:{
@@ -205,15 +206,14 @@
 				// console.log(document.querySelector('#topMennuFormobBox'))
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				let offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
-				let menuBoxTop = document.querySelector('#what').offsetTop
-				// console.log(offsetTop + menuBoxTop)
-				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
+				if(document.querySelector('#topMennuFormobBox').clientHeight == 0) document.querySelector('#topMennuFormobBox').style.height =this.menuTopHeight +'px'
+				scrollTop >= offsetTop ? this.menuTop = true : this.menuTop = false
 				//获取玩什么的高度
-				var whatTop = document.querySelector('#what').offsetTop - 28
+				var whatTop = document.querySelector('#what').offsetTop
 				// 获取去哪玩的高度
-				var whereTop = document.querySelector('#where').offsetTop - 28
+				var whereTop = document.querySelector('#where').offsetTop
 				//获取跟谁玩的高度
-				var whoTop = document.querySelector('#who').offsetTop - 28
+				var whoTop = document.querySelector('#who').offsetTop
 				if(scrollTop > whatTop && scrollTop < whereTop && this.goWhere != 'what'){
 					this.goWhere = 'what'
 				}else if(scrollTop > whereTop && scrollTop < whoTop && this.goWhere != 'where'){
@@ -259,7 +259,7 @@
 					let menuBoxTopMenu = document.querySelector('#what').offsetTop
 					offsetTop = offsetTopHead + menuBoxTopMenu
 				}
-				this.offsetTop = offsetTop - 28
+				this.offsetTop = offsetTop
 				var that = this
 				// this.index = setInterval(that.scrollEvent,8)
 				
@@ -362,6 +362,7 @@
 					var w = this.screenWidth - 20
 					document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
 					var h = document.documentElement.clientHeight
+					this.menuTopHeight = document.querySelector('#topMennuFormobBox').clientHeight
 					document.querySelector('#topMennuFormobBox').style.top = 'auto';
 					document.querySelector('#topMennuFormobBox').style.bottom = h * 0.01 +'px'
 				})
