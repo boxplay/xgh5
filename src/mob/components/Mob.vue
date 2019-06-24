@@ -240,13 +240,18 @@
 				this.goWhere = type
 				var ele
 				if(type == 'what'){
-					ele = document.querySelector('#what')
+					ele = document.querySelector('#topMennuFormobBox')
 				}else if(type == 'where'){
 					ele = document.querySelector('#where')
 				}else if(type == 'who'){
 					ele = document.querySelector('#who')
 				}
 				var offsetTop = ele.offsetTop
+				if(type == 'what'){
+					let offsetTopHead = document.querySelector('#topMennuFormobBox').offsetTop
+					let menuBoxTopMenu = document.querySelector('#what').offsetTop
+					offsetTop = offsetTopHead + menuBoxTopMenu
+				}
 				this.offsetTop = offsetTop - 28
 				var that = this
 				// this.index = setInterval(that.scrollEvent,8)
@@ -263,7 +268,7 @@
 			scrollEvent(type){
 				if(this._isMobile()){
 					if(type == 'what'){
-						var anchor = document.getElementById('what');
+						var anchor = document.getElementById('topMennuFormobBox');
 						anchor.scrollIntoView(true)
 					}else if(type == 'where'){
 						var anchor = document.getElementById('where');
