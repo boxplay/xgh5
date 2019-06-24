@@ -6,6 +6,7 @@ import wx from 'weixin-js-sdk'
 import axios from 'axios'
 const wxApi = {
 		isweixin () {
+			return true
 			const ua = window.navigator.userAgent.toLowerCase()
 			if (ua.match(/MicroMessenger/i) == 'micromessenger') {
 				return true
