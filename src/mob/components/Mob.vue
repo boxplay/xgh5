@@ -363,6 +363,8 @@
 					document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
 					var h = document.documentElement.clientHeight
 					this.menuTopHeight = document.querySelector('#topMennuFormobBox').clientHeight
+					console.log(this.menuTopHeight)
+					console.log(document.querySelector('#topMennuFormobBox').clientHeight+'----ele')
 					document.querySelector('#topMennuFormobBox').style.top = 'auto';
 					document.querySelector('#topMennuFormobBox').style.bottom = h * 0.01 +'px'
 				})
