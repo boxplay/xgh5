@@ -1,3 +1,7 @@
+	
+.vjs-custom-skin>.video-js .vjs-big-play-button{
+	font-size: 1.5rem;
+}
 .loadingPage{
 	width: 5rem;height: 5rem;
 	position: absolute;
@@ -307,8 +311,4 @@
     margin: 0 auto;
     opacity: 0;
 	
-}
-
-.vjs-custom-skin>.video-js .vjs-big-play-button{
-	font-size: 1.5rem;
 }
