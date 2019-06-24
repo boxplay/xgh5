@@ -179,36 +179,29 @@
 				this.$nextTick(() => {
 					that.screenWidth = this.$refs.main.clientWidth?this.$refs.main.clientWidth:'414'
 					var w = this.screenWidth - 20
-					document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
+					// document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
 				})
 				window.onresize = () => {
 				  return (() => {
 					this.$nextTick(() => {
 						that.screenWidth = this.$refs.main.clientWidth
 						var w = this.screenWidth - 20
-						document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
+						// document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
 					})
 				  })()
 				}
 			})
 			 //监听页面滚动
-			window.addEventListener('scroll', this.handleScroll)
+			// window.addEventListener('scroll', this.handleScroll)
 		},
 		destroyed () {
-		  window.removeEventListener('scroll', this.handleScroll)
+		  // window.removeEventListener('scroll', this.handleScroll)
 		},
     }
 </script>
 <style scoped>
-	
-	@import '../assets/css/index.css'
-	
-</style>
-<style>
-	.video-js:hover .vjs-big-play-button,.vjs-custom-skin > .video-js .vjs-big-play-button:focus,.vjs-custom-skin > .video-js .vjs-big-play-button:active {
-	  background-color: rgba(0,0,0,0.45);
-	}
 	.main{
+		width: 100%;
 		max-width: 100%;
 	}
 </style>
