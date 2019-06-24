@@ -22,10 +22,7 @@
 .child-blank{
 	width: 15%;
 }
-.menu-list-mob{
-	width: 100%;
-}
-.menu-list-mob{
+.menu-list-mob-pc{
 	width: 100%;
 	left: 0;
 	height: 100%;
@@ -33,7 +30,7 @@
 	flex: 1;
 	flex-grow: 1;
 }
-.menu-list-mob span{
+.menu-list-mob-pc span{
 	display: block;
 	box-sizing: border-box;
 	width: calc(100% / 4.7);

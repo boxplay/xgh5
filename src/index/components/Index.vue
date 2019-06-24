@@ -45,7 +45,7 @@
 			</div>
 			<div class="menuChildBox child-right">
 				<!-- 四个选择项 -->
-				<div class="menu-list-mob">
+				<div class="menu-list-mob-pc">
 					<span @click="goPoint('what')">
 						玩什么
 					</span>
