@@ -18,7 +18,7 @@ const wxApi = {
 		wxRegister (callback) {
 				// 这边的接口请换成你们自己的
 				var data = Qs.stringify({'reqUrl':window.location.href})
-				axios.post('/php/gettoken.php',data, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then((res) => {
+				axios.post('/gettoken.php',data, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then((res) => {
 						res = res.data
 						console.log(res)
 						wx.config({
