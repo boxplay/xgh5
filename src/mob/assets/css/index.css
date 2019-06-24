@@ -1,6 +1,11 @@
-	
-.vjs-custom-skin>.video-js .vjs-big-play-button{
-	font-size: 1.5rem;
+
+.vjs-custom-skin > .video-js .vjs-big-play-button {
+  background-color: rgba(0,0,0,0.45);
+  font-size: 2.5em;
+   /*border-radius: 50%;*/
+  height: 2em !important;
+  line-height: 2em !important;
+  margin-top: -1em !important
 }
 .loadingPage{
 	width: 5rem;height: 5rem;
