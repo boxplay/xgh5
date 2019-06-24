@@ -201,11 +201,10 @@
 </script>
 <style scoped>
 	
-	@import '../assets/css/index.css'
-	
-</style>
-<style>
-	.video-js:hover .vjs-big-play-button,.vjs-custom-skin > .video-js .vjs-big-play-button:focus,.vjs-custom-skin > .video-js .vjs-big-play-button:active {
-	  background-color: rgba(0,0,0,0.45);
+	.main{
+		width: 100%;
+		max-width: 1280px;
+		margin: 0 auto;
 	}
+	
 </style>
