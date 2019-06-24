@@ -20,3 +20,6 @@ a {
 img{
 	width:100%;
 }
+.normalDiv{
+	height: 100%;overflow: hidden;
+}

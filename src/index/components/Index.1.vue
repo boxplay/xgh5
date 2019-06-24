@@ -4,10 +4,154 @@
 			<h2>Loading</h2>
 		</div>
 		<div class="main" ref='main' v-if="complete==true">
-			<img src="https://xgh5.someet.cc/pc.jpeg" alt="" width="100%">
+			<div class="imgBox">
+				<!-- 头图 -->
+				<div class="imgBoxImg" style="position: relative;" v-show="imgList.xgPlayTitle.isShow">
+					<img :src="imgList.xgPlayTitle.val[0]" alt="" width="100%" @load="imgLoad">
+					<div class="slideBox">
+						<div class="slideBoxList">
+							<div class="chevron" style="position: absolute;"></div>
+							<div class="chevron"></div>
+							<div class="chevron"></div>
+							<div class="chevron"></div>
+						</div>
+					</div>
+				</div>
+				<!-- 头图结束 -->
+				<!-- 顶部悬浮框 如果明天换图则去掉style-->
+				<div id='topMennuFormobBox' style="margin-top:-4%;">
+					<div ref='blankBox' id='blankBox' v-show="menuTop">
+						
+					</div>
+					<div id="topMennuFormob" :class="menuTop?'fixedMenu':'relativeMenu'" style="max-width: 1980px;">
+						<div style="width: 100%;position: relative;">
+							<img id='imgHeight' v-show="goWhere == 'who'" src="https://xgh5.someet.cc/who.png" alt="" width="100%" ref='imgHeight'>
+							<img v-show="goWhere == 'where'" src="https://xgh5.someet.cc/where.png" alt="" width="100%">
+							<img v-show="goWhere == 'what'" src="https://xgh5.someet.cc/what.png" alt="" width="100%">
+							<div class="menu-list-mob" style="position: absolute;opacity: 0;">
+								<span style="width: calc(100% / 3);" @click="goPoint('what')">
+									玩什么
+								</span style="width: calc(100% / 3);">
+								<span style="width: calc(100% / 3);" @click="goPoint('where')">
+									在哪玩
+								</span>
+								<span style="width: calc(100% / 3);"  @click="goPoint('who')">
+									跟谁玩
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 顶部悬浮框结束 -->
+				<!-- 15秒了解视屏 如果明天换图则去掉style-->
+				<div class="imgBoxImg relativeBox" style="margin-top: -11%;" v-show="imgList.xgPlayVideoTop.isShow && Imgcomplete==true">
+					<img :src="imgList.xgPlayVideoTop.img" alt="" width="100%">
+					<div class="videoBox1">
+						<!-- <iframe :src="imgList.xgPlayVideoTop.val[0]" frameborder="0" allowfullscreen="true">
+							
+						</iframe> -->
+						<video-player  class="video-player vjs-custom-skin"
+						ref="videoPlayerTop"
+						:playsinline="true"
+						:options="imgList.xgPlayVideoTop.options"
+						@play="CplayerPlay($event,'top')"
+						@pause="CplayerPause($event,'top')"
+						></video-player>
+					</div>
+				</div>
+				<!-- 15秒了解视频 -->
+				<!-- what -->
+				<div id='what' class="imgBoxImg" v-show="imgList.xgPlayWhat.isShow">
+					<img :src="imgList.xgPlayWhat.val[0]" alt="" width="100%">
+				</div>
+				<!-- what -->
+				<!-- where -->
+				<div id='where' class="imgBoxImg" v-show="imgList.xgPlayWhere.isShow">
+					<img :src="imgList.xgPlayWhere.val[0]" alt="" width="100%">
+				</div>
+				<!-- where -->
+				<!-- who -->
+				<div id='who' style="position: relative;" class="imgBoxImg" v-show="imgList.xgPlayWho.isShow">
+					<img :src="imgList.xgPlayWho.val[0]" alt="" width="100%">
+					<!-- 打榜规则 -->
+					<router-link to="/rule">
+						<div class="ruleBox">
+							
+						</div>
+					</router-link>
+					<!-- 打榜规则结束 -->
+				</div>
+				<!-- who -->
+				<!-- banner -->
+				<div class="imgBoxImg" v-show="imgList.xgPlayBanner.isShow">
+					<!-- <img :src="imgList.xgPlayBanner.val[0]" alt="" width="100%"> -->
+					<div class="swiper1" style="" v-if="imgList.xgPlaySwiper" v-show="imgList.xgPlaySwiper.isShow">
+						<swiper style="height: 100%;" :options="swiperOption">
+							<swiper-slide class='swiper1-video' v-bind:key="index" v-for="(item,index) in imgList.xgPlaySwiper.val">
+								<img :src="item" alt="" width="100%">
+							</swiper-slide>
+						</swiper> 
+					</div>
+				</div>
+				<!-- banner -->
+				<!-- video-swiper -->
+				<div id='videoBottom' class="imgBoxImg relativeBox" v-show="imgList.xgPlayMedias.isShow  && Imgcomplete==true">
+					<img src="https://img.someet.cc/video.jpg" alt="" width="100%">
+					<div class="swiper2" style="" v-if="complete == true" v-show="imgList.xgPlayMedias.isShow">
+						<swiper ref='videoSwiper' style="height: 100%;" :options="swiperOptionForMedia">
+							<swiper-slide class='swiper1-video'>
+								<!-- <iframe :src="item" frameborder="0" allowfullscreen="true">
+								</iframe> -->
+								<video-player class="video-player vjs-custom-skin"
+								ref="videoPlayerBottom0"
+								:playsinline="true"
+								:options="imgList.xgPlayMedias.options[0]"
+								@play="CplayerPlay($event,'swiper')"
+								@pause="CplayerPause($event,'swiper')"
+								></video-player>
+							</swiper-slide>
+							<swiper-slide class='swiper1-video'>
+								<!-- <iframe :src="item" frameborder="0" allowfullscreen="true">
+								</iframe> -->
+								<video-player class="video-player vjs-custom-skin"
+								ref="videoPlayerBottom1"
+								:playsinline="true"
+								:options="imgList.xgPlayMedias.options[1]"
+								@play="CplayerPlay($event,'swiper')"
+								@pause="CplayerPause($event,'swiper')"
+								></video-player>
+							</swiper-slide>
+							<swiper-slide class='swiper1-video'>
+								<!-- <iframe :src="item" frameborder="0" allowfullscreen="true">
+								</iframe> -->
+								<video-player class="video-player vjs-custom-skin"
+								ref="videoPlayerBottom2"
+								:playsinline="true"
+								:options="imgList.xgPlayMedias.options[2]"
+								@play="CplayerPlay($event,'swiper')"
+								@pause="CplayerPause($event,'swiper')"
+								></video-player>
+							</swiper-slide>
+						</swiper> 
+					</div>
+				</div>
+				<!-- video-swiper -->
+				<!-- footer -->
+				<div id='bannerAndLogo' style='margin-top: -2px;' class="imgBoxImg" v-show="imgList.xgPlayHzLogo.isShow">
+					<img :src="imgList.xgPlayHzLogo.val[0]" alt="" width="100%">
+				</div>
+				<!-- footer -->
+				<!-- 预约抢票 -->
+				<div id='goTicket' @click="goTicket" class='goTicket' v-show='Imgcomplete==true'>
+				<!-- <span style='margin-top:0.6rem;'>预约</span><span>抢票</span> -->
+					<img src="https://xgh5.someet.cc/goTicket.png" width="100%" alt="">
+				</div>
+				<!-- 预约抢票 -->
+			</div>
 		</div>
 	</div>
 </template>
+
 <script>
     import { swiper, swiperSlide } from "vue-awesome-swiper"
 	import { videoPlayer } from 'vue-video-player'

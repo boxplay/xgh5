@@ -3,7 +3,7 @@
 		<div v-if="complete==false" class='loadingPage'>
 			<h2>Loading</h2>
 		</div>
-		<div class="main" ref='main' v-if="complete==true">
+		<div class="main" ref='main' style="max-width: 1280px;" v-if="complete==true">
 			<img src="https://xgh5.someet.cc/pc.jpeg" alt="" width="100%">
 		</div>
 	</div>
