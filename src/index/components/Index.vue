@@ -3,8 +3,65 @@
 		<div v-if="complete==false" class='loadingPage'>
 			<h2>Loading</h2>
 		</div>
-		<div class="main" ref='main' v-if="complete==true">
+		<div class="main relativeBox" ref='main' v-if="complete==true">
 			<img src="https://xgh5.someet.cc/pc.jpeg" alt="" width="100%">
+			<!-- 15秒了解视屏 如果明天换图则去掉style-->
+			<div class="imgBoxImg_pc" v-show="imgList.xgPlayVideoTop.isShow">
+				<div class="videoBox1">
+					<!-- <iframe :src="imgList.xgPlayVideoTop.val[0]" frameborder="0" allowfullscreen="true">
+						
+					</iframe> -->
+					<video-player  class="video-player vjs-custom-skin"
+					ref="videoPlayerTop"
+					:playsinline="true"
+					:options="imgList.xgPlayVideoTop.options"
+					@play="CplayerPlay($event,'top')"
+					@pause="CplayerPause($event,'top')"
+					></video-player>
+				</div>
+			</div>
+			<!-- 15秒了解视频 -->
+			<!-- 玩什么 -->
+			<div class="positionLine" id='what_pc'>
+				这是分界线
+			</div>
+			<!-- 在哪玩 -->
+			<div class='positionLine' id='where_pc'>
+				这是分界线
+			</div>
+			<!-- 跟谁玩 -->
+			<div class='positionLine' id='who_pc'>
+				这是分界线
+			</div>
+			<!-- 详细规则 -->
+			<div class='positionBlock' id='rule_pc'>
+				这是分界线
+			</div>
+		</div>
+		<div id='topMenuForPc'>
+			<!-- 左侧logo -->
+			<div class="menuChildBox child-left">
+				这是Logo
+			</div>
+			<div class="menuChildBox child-right">
+				<!-- 四个选择项 -->
+				<div class="menu-list-mob">
+					<span @click="goPoint('what')">
+						玩什么
+					</span>
+					<span @click="goPoint('where')">
+						在哪玩
+					</span>
+					<span @click="goPoint('who')">
+						跟谁玩
+					</span>
+					<span @click="goTicket">
+						立即购票
+					</span>
+				</div>
+			</div>
+			<div class="menuChildBox child-blank">
+			</div>
 		</div>
 	</div>
 </template>
@@ -62,11 +119,11 @@
 				let offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
 				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
 				//获取玩什么的高度
-				var whatTop = document.querySelector('#what').offsetTop - 28
+				var whatTop = document.querySelector('#what_pc').offsetTop - 28
 				// 获取去哪玩的高度
-				var whereTop = document.querySelector('#where').offsetTop - 28
+				var whereTop = document.querySelector('#where_pc').offsetTop - 28
 				//获取跟谁玩的高度
-				var whoTop = document.querySelector('#who').offsetTop - 28
+				var whoTop = document.querySelector('#who_pc').offsetTop - 28
 				if(scrollTop > whatTop && scrollTop < whereTop && this.goWhere != 'what'){
 					this.goWhere = 'what'
 				}else if(scrollTop > whereTop && scrollTop < whoTop && this.goWhere != 'where'){
@@ -74,20 +131,20 @@
 				}else if(scrollTop > whoTop && this.goWhere != 'who'){
 					this.goWhere = 'who'
 				}
-				// var videoTop = document.querySelector('#what').offsetTop
-				// if(scrollTop > videoTop){
-				// 	this.playerTop.pause()
-				// }
-				// if(this.imgList.xgPlayMedias.isShow){
-				// 	var videoBottom = document.querySelector('#videoBottom').clientHeight + document.querySelector('#bannerAndLogo').clientHeight
-				// 	var pauseTop = document.querySelector('#videoBottom').offsetTop - document.querySelector('#videoBottom').clientHeight
-				// 	if(scrollTop < (pauseTop - videoBottom)){
-				// 		//停止下面的播放器
-				// 		this.player0.pause();
-				// 		this.player1.pause();
-				// 		this.player2.pause();
-				// 	}
-				// }
+				var videoTop = document.querySelector('#what_pc').offsetTop
+				if(scrollTop > videoTop){
+					this.playerTop.pause()
+				}
+				if(this.imgList.xgPlayMedias.isShow){
+					var videoBottom = document.querySelector('#videoBottom').clientHeight + document.querySelector('#bannerAndLogo').clientHeight
+					var pauseTop = document.querySelector('#videoBottom').offsetTop - document.querySelector('#videoBottom').clientHeight
+					if(scrollTop < (pauseTop - videoBottom)){
+						//停止下面的播放器
+						this.player0.pause();
+						this.player1.pause();
+						this.player2.pause();
+					}
+				}
 			},
 			goTicket(){
 				window.location.href = 'https://traveldetail.fliggy.com/item.htm?id=596217589260'
@@ -96,11 +153,11 @@
 				this.goWhere = type
 				var ele
 				if(type == 'what'){
-					ele = document.querySelector('#what')
+					ele = document.querySelector('#what_pc')
 				}else if(type == 'where'){
-					ele = document.querySelector('#where')
+					ele = document.querySelector('#where_pc')
 				}else if(type == 'who'){
-					ele = document.querySelector('#who')
+					ele = document.querySelector('#who_pc')
 				}
 				var offsetTop = ele.offsetTop
 				this.offsetTop = offsetTop - 28
@@ -119,13 +176,13 @@
 			scrollEvent(type){
 				if(this._isMobile()){
 					if(type == 'what'){
-						var anchor = document.getElementById('what');
+						var anchor = document.getElementById('what_pc');
 						anchor.scrollIntoView(true)
 					}else if(type == 'where'){
-						var anchor = document.getElementById('where');
+						var anchor = document.getElementById('where_pc');
 						anchor.scrollIntoView(true)
 					}else if(type == 'who'){
-						var anchor = document.getElementById('who');
+						var anchor = document.getElementById('who_pc');
 						anchor.scrollIntoView(true)
 					}
 				}else{
@@ -136,12 +193,12 @@
 			_isMobile() {
 				 let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
 				 return flag;
-			}
+			},
+			goTicket(){
+				window.location.href = 'https://traveldetail.fliggy.com/item.htm?id=596217589260'
+			},
 		},
 		components:{ 
-			// swiper,
-			// swiperSlide,
-			// videoPlayer
 		},
 		computed: {
 			player0() {
@@ -162,9 +219,6 @@
 		 },
 		 mounted(){
 			var that = this
-			this.$axios.get('/static/day.json').then((response)=>{
-				 that.DayList = response.data
-			})
 			this.$axios.get('/static/img.json').then((response)=>{
 			 	that.imgList = response.data
 			 	that.complete = true;
@@ -192,6 +246,11 @@
 		},
     }
 </script>
+<style scope>
+	
+	@import '../assets/css/index.css'
+	
+</style>
 <style scoped>
 	.main{
 		width: 100%;
