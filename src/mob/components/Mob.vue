@@ -362,7 +362,8 @@
 					var w = this.screenWidth - 20
 					document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
 					var h = document.documentElement.clientHeight
-					document.querySelector('#topMennuFormobBox').style.top = h - 32 +'px'
+					document.querySelector('#topMennuFormobBox').style.top = 'auto';
+					document.querySelector('#topMennuFormobBox').style.bottom = h * 0.01 +'px'
 				})
 				window.onresize = () => {
 				  return (() => {
