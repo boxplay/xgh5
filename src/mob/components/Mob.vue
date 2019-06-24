@@ -18,33 +18,9 @@
 					</div>
 				</div>
 				<!-- 头图结束 -->
-				<!-- 顶部悬浮框 如果明天换图则去掉style-->
-				<div id='topMennuFormobBox' style="margin-top:-4%;">
-					<div ref='blankBox' id='blankBox' v-show="menuTop">
-						
-					</div>
-					<div id="topMennuFormob" :class="menuTop?'fixedMenu':'relativeMenu'" style="max-width: 700px;">
-						<div style="width: 100%;position: relative;">
-							<img id='imgHeight' v-show="goWhere == 'who'" src="https://xgh5.someet.cc/who.png" alt="" width="100%" ref='imgHeight'>
-							<img v-show="goWhere == 'where'" src="https://xgh5.someet.cc/where.png" alt="" width="100%">
-							<img v-show="goWhere == 'what'" src="https://xgh5.someet.cc/what.png" alt="" width="100%">
-							<div class="menu-list-mob" style="position: absolute;opacity: 0;">
-								<span style="width: calc(100% / 3);" @click="goPoint('what')">
-									玩什么
-								</span style="width: calc(100% / 3);">
-								<span style="width: calc(100% / 3);" @click="goPoint('where')">
-									在哪玩
-								</span>
-								<span style="width: calc(100% / 3);"  @click="goPoint('who')">
-									跟谁玩
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- 顶部悬浮框结束 -->
+				
 				<!-- 15秒了解视屏 如果明天换图则去掉style-->
-				<div class="imgBoxImg relativeBox" style="margin-top: -11%;" v-show="imgList.xgPlayVideoTop.isShow && Imgcomplete==true">
+				<div class="imgBoxImg relativeBox" v-show="imgList.xgPlayVideoTop.isShow && Imgcomplete==true">
 					<img :src="imgList.xgPlayVideoTop.img" alt="" width="100%">
 					<div class="videoBox1">
 						<!-- <iframe :src="imgList.xgPlayVideoTop.val[0]" frameborder="0" allowfullscreen="true">
@@ -61,7 +37,29 @@
 				</div>
 				<!-- 15秒了解视频 -->
 				<!-- what -->
-				<div id='what' class="imgBoxImg" v-show="imgList.xgPlayWhat.isShow">
+				<div id='what' class="imgBoxImg relativeBox" v-show="imgList.xgPlayWhat.isShow">
+					<!-- 顶部悬浮框 如果明天换图则去掉style-->
+					<div id='topMennuFormobBox' style="position: absolute;">
+						<div id="topMennuFormob" :class="menuTop?'fixedMenu':'relativeMenu'" style="max-width: 700px;">
+							<div style="width: 100%;position: relative;">
+								<img id='imgHeight' v-show="goWhere == 'who'" src="https://xgh5.someet.cc/who.png" alt="" width="100%" ref='imgHeight'>
+								<img v-show="goWhere == 'where'" src="https://xgh5.someet.cc/where.png" alt="" width="100%">
+								<img v-show="goWhere == 'what'" src="https://xgh5.someet.cc/what.png" alt="" width="100%">
+								<div class="menu-list-mob" style="position: absolute;opacity: 0;">
+									<span style="width: calc(100% / 3);" @click="goPoint('what')">
+										玩什么
+									</span style="width: calc(100% / 3);">
+									<span style="width: calc(100% / 3);" @click="goPoint('where')">
+										在哪玩
+									</span>
+									<span style="width: calc(100% / 3);"  @click="goPoint('who')">
+										跟谁玩
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 顶部悬浮框结束 -->
 					<img :src="imgList.xgPlayWhat.val[0]" alt="" width="100%">
 				</div>
 				<!-- what -->
@@ -198,13 +196,15 @@
 			},
 			imgLoad(){
 				this.Imgcomplete = true
-				var h = document.querySelector('#topMennuFormob').offsetHeight
-				document.querySelector('#blankBox').style.height = h +'px'
+				// var h = document.querySelector('#topMennuFormob').offsetHeight
+				// document.querySelector('#blankBox').style.height = h +'px'
 			},
 			handleScroll(){
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				let offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
-				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
+				let menuBoxTop = document.querySelector('#what').offsetTop
+				// console.log(offsetTop + menuBoxTop)
+				scrollTop > offsetTop + menuBoxTop ? this.menuTop = true : this.menuTop = false
 				//获取玩什么的高度
 				var whatTop = document.querySelector('#what').offsetTop - 28
 				// 获取去哪玩的高度
