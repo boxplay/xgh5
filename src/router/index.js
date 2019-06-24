@@ -19,21 +19,12 @@ export default new VueRouter({
 	{
 		path: '/mob',
 		name: 'Mob',
-		component: Mob,
-		children: [
-        {
-			name:'Rule',
-          // 当 /user/:id/profile 匹配成功，
-          // UserProfile 会被渲染在 User 的 <router-view> 中
-          path: 'rule',
-          component: Rule
-        }
-      ]
+		component: Mob
 	},
 	{
 		path: '/rule',
 		name: 'Rule',
-		component: Rule, 
+		component: Rule
 	},
 	{
 		path: '/web',
