@@ -357,7 +357,9 @@
 				}
 			})
 			 //监听页面滚动
-			window.addEventListener('scroll', this.handleScroll)
+			this.$nextTick(function(){
+				window.addEventListener('scroll', this.handleScroll)
+			})
 			//微信分享
 			if(wxapi.isweixin()){
 				wxapi.wxRegister(this.wxRegCallback)
