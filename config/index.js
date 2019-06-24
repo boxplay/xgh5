@@ -18,20 +18,27 @@ module.exports = {
                     '^/upload': ''          
                 }
           },
-            '/savedata': {
-                target: 'http://dubin.ngrok.wdevelop.cn/back/upload/save-data', // 设置你调用的接口域名和端口号
-                changeOrigin: true,     // 跨域
-                pathRewrite: {
-                        '^/savedata': ''          
-                    }
-              },
-            '/getdata': {
-                target: 'http://dubin.ngrok.wdevelop.cn/back/upload/get-data', // 设置你调用的接口域名和端口号
-                changeOrigin: true,     // 跨域
-                pathRewrite: {
-                        '^/getdata': ''          
-                    }
-              },
+		'/savedata': {
+			target: 'http://dubin.ngrok.wdevelop.cn/back/upload/save-data', // 设置你调用的接口域名和端口号
+			changeOrigin: true,     // 跨域
+			pathRewrite: {
+					'^/savedata': ''          
+				}
+		},
+		'/getdata': {
+			target: 'http://dubin.ngrok.wdevelop.cn/back/upload/get-data', // 设置你调用的接口域名和端口号
+			changeOrigin: true,     // 跨域
+			pathRewrite: {
+					'^/getdata': ''          
+				}
+		  },
+		'/gettoken':{
+			  target: 'http://39.106.151.76/getToken.php', // 设置你调用的接口域名和端口号
+			  changeOrigin: true,     // 跨域
+			  pathRewrite: {
+				'^/gettoken': ''          
+			  }
+		}
     },
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

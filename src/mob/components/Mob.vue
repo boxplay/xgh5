@@ -156,6 +156,7 @@
 	// import 'swiper/dist/css/swiper.css'
 	// import 'video.js/dist/video-js.css'
 	// import 'vue-video-player/src/custom-theme.css'
+	import wxapi from '@/common/js/wechat.js'
     export default {
       name: 'Index',
       data () {
@@ -280,13 +281,6 @@
 				}else{
 					var top = document.documentElement.scrollTop
 					window.scrollTo(0,this.offsetTop);
-					// if(typeof(document.documentElement.scrollTop) != undefined){
-					// 	document.documentElement.scrollTop = this.offsetTop
-					// }else if(typeof(document.body.scrollTop) != undefined){
-					// 	document.body.scrollTop = this.offsetTop
-					// }else if(typeof(window.pageYOffset) != undefined){
-					// 	window.pageYOffset = this.offsetTop
-					// }
 				}
 			},
 			_isMobile() {
@@ -295,9 +289,7 @@
 			}
 		},
 		components:{ 
-			// swiper,
-			// swiperSlide,
-			// videoPlayer
+			
 		},
 		computed: {
 			player0() {
