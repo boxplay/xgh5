@@ -208,7 +208,7 @@
 				// console.log(document.querySelector('#topMennuFormobBox'))
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				let offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
-				if(document.querySelector('#topMennuFormobBox').clientHeight == 0) document.querySelector('#topMennuFormobBox').style.height =this.menuTop +'px'
+				if(document.querySelector('#topMennuFormobBox').clientHeight == 0) document.querySelector('#topMennuFormobBox').style.height =this.menuTopHeight +'px'
 				scrollTop >= offsetTop ? this.menuTop = true : this.menuTop = false
 				//获取玩什么的高度
 				var whatTop = document.querySelector('#what').offsetTop
