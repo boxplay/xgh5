@@ -3,7 +3,7 @@
 * 参考文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
 */
 import wx from 'weixin-js-sdk'
-import axios from 'axios';
+import axios from 'axios'
 const wxApi = {
 		isweixin () {
 			const ua = window.navigator.userAgent.toLowerCase()
@@ -17,8 +17,10 @@ const wxApi = {
 		*/
 		wxRegister (callback) {
 				// 这边的接口请换成你们自己的
-				axios.post('/gettoken', { reqUrl: window.location.href }, { timeout: 5000, withCredentials: true }).then((res) => {
+				var data = Qs.stringify({'reqUrl':window.location.href})
+				axios.post('/gettoken',data, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then((res) => {
 						res = res.data
+						console.log(res)
 						wx.config({
 							debug: false, // 开启调试模式
 							appId: res.appId, // 必填，公众号的唯一标识

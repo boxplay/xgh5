@@ -286,6 +286,33 @@
 			_isMobile() {
 				 let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
 				 return flag;
+			},
+			//微信分享
+			wxRegCallback () {
+			  // 用于微信JS-SDK回调
+			  this.wxShareTimeline()
+			  this.wxShareAppMessage()
+			},
+			wxShareTimeline () {
+				// 微信自定义分享到朋友圈
+				let option = {
+					title: '2019西瓜Play嘉年华', // 分享标题, 请自行替换
+					link: window.location.href, // 分享链接，根据自身项目决定是否需要split
+					imgUrl: 'https://xgh5.someet.cc/xgposter.jpg' // 分享图标, 请自行替换，需要绝对路径
+				}
+				// 将配置注入通用方法
+				wxapi.ShareTimeline(option)
+			},
+			wxShareAppMessage () {
+			  // 微信自定义分享给朋友
+			  let option = {
+				title: '2019西瓜Play嘉年华', // 分享标题, 请自行替换
+				desc: '2019年西瓜PLAY全面升级——海上邮轮嘉年华，8月22日-8月26日，将满载数千名视频创作人、明星大咖、行业领袖在上海起航。「2019 西瓜PLAY」与首席共创伙伴「福特领界」一起驾着「创作人方舟，领你看世界」！', // 分享描述, 请自行替换
+				link: window.location.href, // 分享链接，根据自身项目决定是否需要split
+				imgUrl: 'https://xgh5.someet.cc/xgposter.jpg' // 分享图标, 请自行替换，需要绝对路径
+			  }
+			  // 将配置注入通用方法
+			  wxapi.ShareAppMessage(option)
 			}
 		},
 		components:{ 
@@ -310,9 +337,6 @@
 		 },
 		 mounted(){
 			var that = this
-			this.$axios.get('/static/day.json').then((response)=>{
-				 that.DayList = response.data
-			})
 			this.$axios.get('/static/img.json').then((response)=>{
 			 	that.imgList = response.data
 			 	that.complete = true;
@@ -334,6 +358,10 @@
 			})
 			 //监听页面滚动
 			window.addEventListener('scroll', this.handleScroll)
+			//微信分享
+			if(wxapi.isweixin()){
+				wxapi.wxRegister(this.wxRegCallback)
+			}
 		},
 		destroyed () {
 		  window.removeEventListener('scroll', this.handleScroll)
