@@ -3,7 +3,7 @@
 		<div v-if="complete==false" class='loadingPage'>
 			<h2>Loading</h2>
 		</div>
-		<div class="main relativeBox" ref='main' v-if="complete==true">
+		<div class="main relativeBox" style="min-width: 700px;" ref='main' v-if="complete==true">
 			<img src="https://xgh5.someet.cc/pc.jpeg" alt="" width="100%">
 			<!-- 15秒了解视屏 如果明天换图则去掉style-->
 			<div class="imgBoxImg_pc" v-show="imgList.xgPlayVideoTop.isShow">
