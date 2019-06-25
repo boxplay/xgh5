@@ -211,11 +211,11 @@
 				if(document.querySelector('#topMennuFormobBox').clientHeight == 0) document.querySelector('#topMennuFormobBox').style.height =this.menuTopHeight +'px'
 				scrollTop >= offsetTop ? this.menuTop = true : this.menuTop = false
 				//获取玩什么的高度
-				var whatTop = document.querySelector('#what').offsetTop
+				var whatTop = document.querySelector('#what').offsetTop - 28
 				// 获取去哪玩的高度
-				var whereTop = document.querySelector('#where').offsetTop
+				var whereTop = document.querySelector('#where').offsetTop - 28
 				//获取跟谁玩的高度
-				var whoTop = document.querySelector('#who').offsetTop
+				var whoTop = document.querySelector('#who').offsetTop - 28
 				if(scrollTop > whatTop && scrollTop < whereTop && this.goWhere != 'what'){
 					this.goWhere = 'what'
 				}else if(scrollTop > whereTop && scrollTop < whoTop && this.goWhere != 'where'){
@@ -223,7 +223,7 @@
 				}else if(scrollTop > whoTop && this.goWhere != 'who'){
 					this.goWhere = 'who'
 				}
-				var videoTop = document.querySelector('#what').offsetTop
+				var videoTop = document.querySelector('#what').offsetTop - 28
 				if(scrollTop > videoTop){
 					this.playerTop.pause()
 				}
