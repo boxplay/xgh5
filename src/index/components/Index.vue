@@ -34,9 +34,11 @@
 				这是分界线
 			</div>
 			<!-- 详细规则 -->
-			<div class='positionBlock' id='rule_pc'>
-				这是分界线
-			</div>
+			<router-link to="/prule">
+				<div class='positionBlock' id='rule_pc'>
+					这是分界线
+				</div>
+			</router-link>
 		</div>
 		<div id='topMenuForPc'>
 			<!-- 左侧logo -->

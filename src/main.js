@@ -14,18 +14,23 @@ router.beforeEach((to, from, next) => {
 	// 电脑
 	if (ismobile == 0) {
 		if (to.path != '/') {
-			next('/')
+			if(to.path == '/prule'){
+				next()
+			}else{
+				next('/')
+			}
 		} else {
 			next();
 		}
 	}
 	// 手机
 	if (ismobile == 1) {
+		
 		if (to.path != '/mob') {
-			if(to.path =='rule'){
-				next('/rule')
+			if(to.path == '/rule'){
+				next()
 			}else{
-				next();
+				next('/mob');
 			}
 		} else {
 			next();

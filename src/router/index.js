@@ -7,6 +7,7 @@ const Web = () => import('@/index/components/Index')
 const Web2 = () => import('@/index/components/Index2')
 const Mob = () => import('@/mob/components/Mob')
 const Rule = () => import('@/mob/components/Rule')
+const RuleForPc = () => import('@/index/components/Rule')
 // const Webadmin = () => import('@/admin/components/Backend2')
 export default new VueRouter({
 	mode:'history',
@@ -30,6 +31,11 @@ export default new VueRouter({
 		path: '/web',
 		name: 'Web2',
 		component: Web2, 
+	},
+	{
+		path: '/prule',
+		name: 'RuleForPc',
+		component:RuleForPc
 	}
 	],
 	scrollBehavior (to, from, savedPosition) {
