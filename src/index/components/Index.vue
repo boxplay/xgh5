@@ -4,7 +4,7 @@
 			<h2>Loading</h2>
 		</div>
 		<div class="main relativeBox" style="min-width: 700px;margin-top: 5%;" ref='main' v-if="complete==true">
-			<img src="https://xgh5.someet.cc/pc.jpeg" alt="" width="100%">
+			<img src="https://xgh5.someet.cc/pc.jpeg"  style="display: block;" alt="" width="100%">
 			<!-- 15秒了解视屏 如果明天换图则去掉style-->
 			<div class="imgBoxImg_pc" v-show="imgList.xgPlayVideoTop.isShow">
 				<div class="videoBox1">
@@ -119,8 +119,7 @@
 			},
 			handleScroll(){
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-				let offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
-				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
+				// scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
 				//获取玩什么的高度
 				var whatTop = document.querySelector('#what_pc').offsetTop - 28
 				// 获取去哪玩的高度
@@ -242,10 +241,10 @@
 				}
 			})
 			 //监听页面滚动
-			// window.addEventListener('scroll', this.handleScroll)
+			window.addEventListener('scroll', this.handleScroll)
 		},
 		destroyed () {
-		  // window.removeEventListener('scroll', this.handleScroll)
+		  window.removeEventListener('scroll', this.handleScroll)
 		},
     }
 </script>
