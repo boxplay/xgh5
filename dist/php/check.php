@@ -1,9 +1,10 @@
 <?php
-private function checkSignature()
+define('TOKEN','xiguaplay'); 
+function checkSignature()
 {
-    $signature = $_GET["signature"];
-    $timestamp = $_GET["timestamp"];
-    $nonce = $_GET["nonce"];
+	$signature = $_GET["signature"];
+	$timestamp = $_GET["timestamp"];
+	$nonce = $_GET["nonce"];
 
 	$tmpArr = array($timestamp, $nonce);
 	sort($tmpArr, SORT_STRING);
@@ -14,5 +15,18 @@ private function checkSignature()
 		return true;
 	}else{
 		return false;
+	}
+}
+if(checkSignature())
+ {    
+	//返回echostr
+	$echostr = $_GET['echostr'];
+	if($echostr)   
+	{
+		echo $echostr;
+		exit;
+	}elese{
+		echo 'error';
+		die;
 	}
 }
