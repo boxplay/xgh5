@@ -25,7 +25,7 @@ if(checkSignature())
 	{
 		echo $echostr;
 		exit;
-	}elese{
+	}else{
 		echo 'error';
 		die;
 	}

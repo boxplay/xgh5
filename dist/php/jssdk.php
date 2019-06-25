@@ -33,7 +33,9 @@ class JSSDK {
         "timestamp" => $timestamp,
         "url"       => $url,
         "signature" => $signature,
-        "rawString" => $string
+        "rawString" => $string,
+				'appId' => $this->appId,
+				'appSecret' =>$this->appSecret
         );
         return $signPackage;
     }
@@ -70,7 +72,7 @@ class JSSDK {
           if($ticket) {
             $data->expire_time = time() + 7000;
             $data->jsapi_ticket = $ticket;
-            // $this->set_php_file("jsapi_ticket.php", json_encode($data));
+            $this->set_php_file("jsapi_ticket.php", json_encode($data));
             return $redis->set('ticket',$data->jsapi_ticket);
             $redis->expire('ticket',7000);
           }
