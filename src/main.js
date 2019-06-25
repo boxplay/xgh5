@@ -22,7 +22,11 @@ router.beforeEach((to, from, next) => {
 	// 手机
 	if (ismobile == 1) {
 		if (to.path != '/mob') {
-			next('/mob')
+			if(to.path !='rule'){
+				next('/mob')
+			}else{
+				next();
+			}
 		} else {
 			next();
 		}
