@@ -2,7 +2,7 @@
 * 微信js-sdk
 * 参考文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
 */
-// import wx from 'weixin-js-sdk'
+import wx from 'weixin-js-sdk'
 import axios from 'axios'
 const wxApi = {
 	isweixin () {
