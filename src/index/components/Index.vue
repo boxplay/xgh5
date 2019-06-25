@@ -41,22 +41,25 @@
 		<div id='topMenuForPc'>
 			<!-- 左侧logo -->
 			<div class="menuChildBox child-left">
-				这是Logo
+				<img src="https://xgh5.someet.cc/logo_white.png" alt="" width="100%">	
 			</div>
 			<div class="menuChildBox child-right">
 				<!-- 四个选择项 -->
 				<div class="menu-list-mob-pc">
 					<span @click="goPoint('what')">
-						玩什么
+						<img v-show="goWhere!='what'" src="https://xgh5.someet.cc/btn/what_btn.png" alt="" width="100%">
+						<img v-show="goWhere=='what'" src="https://xgh5.someet.cc/btn/what_btn_blue.png" alt="" width="100%">
 					</span>
 					<span @click="goPoint('where')">
-						在哪玩
+						<img v-show="goWhere!='where'" src="https://xgh5.someet.cc/btn/where_btn.png" alt="" width="100%">
+						<img v-show="goWhere=='where'" src="https://xgh5.someet.cc/btn/where_btn_blue.png" alt="" width="100%">
 					</span>
 					<span @click="goPoint('who')">
-						跟谁玩
+						<img v-show="goWhere!='who'" src="https://xgh5.someet.cc/btn/who_btn.png" alt="" width="100%">
+						<img v-show="goWhere=='who'" src="https://xgh5.someet.cc/btn/who_btn_blue.png" alt="" width="100%">
 					</span>
 					<span @click="goTicket">
-						立即购票
+						<img src="https://xgh5.someet.cc/btn/goTicket_btn_blue.png" alt="" width="100%">
 					</span>
 				</div>
 			</div>
