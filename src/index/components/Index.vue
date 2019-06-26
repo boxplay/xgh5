@@ -258,7 +258,15 @@
 <style scoped>
 	.main{
 		width: 100%;
-		max-width: 100%;
+		min-width:700px;
 		margin: 0 auto;
+	}
+	.vjs-custom-skin > .video-js .vjs-big-play-button {
+	  background-color: rgba(0,0,0,0.45);
+	  font-size: 3.5em;
+	   /*border-radius: 50%;*/
+	  height: 2em !important;
+	  line-height: 2em !important;
+	  margin-top: -1em !important
 	}
 </style>
