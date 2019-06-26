@@ -369,7 +369,7 @@
 		height: 100%;
 		text-align: center;
 		border:none;
-		background-color: red;
+		background-color: white;
 		border-radius: 10px;
 		cursor: pointer;
 		z-index:10;
@@ -380,7 +380,7 @@
 		width: 100%;
 		height: 2rem;
 		position: absolute;
-		background-color: red;
+		background-color: white;
 		text-align: center;
 		line-height:2rem ;
 		color:white;
@@ -390,7 +390,7 @@
 		width: 26%;
 		height: 0.6%;
 		position: absolute;
-		background-color: red;
+		background-color: white;
 		top: 84.3%;
 		left: 0.8%;
 		right: 0;
