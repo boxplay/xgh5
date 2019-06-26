@@ -118,3 +118,40 @@ img{
 .video-js:hover .vjs-big-play-button,.vjs-custom-skin > .video-js .vjs-big-play-button:focus,.vjs-custom-skin > .video-js .vjs-big-play-button:active {
   background-color: rgba(0,0,0,0.45);
 }
+.xiguaCircle{
+		width: 4rem;
+		height: 4rem;
+		margin:0 auto;
+		animation: circle 0.8s linear infinite;
+		
+	}
+	@keyframes circle{
+		25% {
+			transform:rotate(90deg);
+			-ms-transform:rotate(90deg); 	/* IE 9 */
+			-moz-transform:rotate(90deg); 	/* Firefox */
+			-webkit-transform:rotate(90deg); /* Safari 和 Chrome */
+			-o-transform:rotate(90deg); 	/* Opera */
+		}
+		50% {
+			transform:rotate(180deg);
+			-ms-transform:rotate(180deg); 	/* IE 9 */
+			-moz-transform:rotate(180deg); 	/* Firefox */
+			-webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+			-o-transform:rotate(180deg); 	/* Opera */
+		}
+		75% {
+		   transform:rotate(270deg);
+		   -ms-transform:rotate(270deg); 	/* IE 9 */
+		   -moz-transform:rotate(270deg); 	/* Firefox */
+		   -webkit-transform:rotate(270deg); /* Safari 和 Chrome */
+		   -o-transform:rotate(270deg); 	/* Opera */
+		}
+		100% {
+			transform:rotate(360deg);
+			-ms-transform:rotate(360deg); 	/* IE 9 */
+			-moz-transform:rotate(360deg); 	/* Firefox */
+			-webkit-transform:rotate(360deg); /* Safari 和 Chrome */
+			-o-transform:rotate(360deg); 	/* Opera */
+		}
+	}

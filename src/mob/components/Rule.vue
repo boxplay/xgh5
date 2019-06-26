@@ -5,13 +5,13 @@
 		</div>
 		<div class="imgBoxImg normalDiv">
 			<div id='ruleBox'>
-				<img src="https://xgh5.someet.cc/rule_back.jpeg" alt="" width="100%">
+				<img style="display: block;" src="https://xgh5.someet.cc/rule_back.jpeg" alt="" width="100%">
 			</div>
 			<div id='ruleBoxWhite'>
-				<img src="https://xgh5.someet.cc/white_back.png" alt="" width="100%">
+				<img style="display: block;" src="https://xgh5.someet.cc/white_back.png" alt="" width="100%">
 			</div>
 			<div id="ruleBoxImgDiv">
-				<img @load="imageLoaded" src="https://xgh5.someet.cc/rule_text.png" alt="" width="100%">
+				<img style="display: block;" @load="imageLoaded" src="https://xgh5.someet.cc/rule_text.png" alt="" width="100%">
 			</div>
 		</div>
 	</div>
