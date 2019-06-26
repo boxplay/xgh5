@@ -21,7 +21,7 @@
 						<img id='imgHeight' v-show="goWhere == 'who'" src="https://xgh5.someet.cc/who.png" alt="" width="100%" ref='imgHeight'>
 						<img v-show="goWhere == 'where'" src="https://xgh5.someet.cc/where.png" alt="" width="100%">
 						<img v-show="goWhere == 'what'" src="https://xgh5.someet.cc/what.png" alt="" width="100%">
-						<div class="menu-list-mob-pc" style="position: absolute;opacity: 0;top:-9%;">
+						<div class="mob-menu-list-mob-pc" style="position: absolute;opacity: 0;top:-9%;">
 							<span style="width: calc(100% / 3);" @click="goPoint('what')">
 								玩什么
 							</span>
