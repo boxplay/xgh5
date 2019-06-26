@@ -5,18 +5,18 @@
 				<img src="https://xgh5.someet.cc/loading.jpg" alt="" width="100%;">
 			</div>
 		</div>
-		<div class="main relativeBox" ref='main' v-if="complete==true">
+		<div class="mob-main relativeBox mobCss" ref='main' v-if="complete==true">
 			<img src="https://xgh5.someet.cc/mob.jpg" @load="imgLoad" style="display: block;" alt="" width="100%"><!-- 顶部悬浮框 如果明天换图则去掉style-->
-			<div class="slideBox" v-show="Imgcomplete==true">
-				<div class="slideBoxList">
-					<div class="chevron" style="position: absolute;"></div>
-					<div class="chevron"></div>
-					<div class="chevron"></div>
-					<div class="chevron"></div>
+			<div class="mob-slideBox" v-show="Imgcomplete==true">
+				<div class="mob-slideBoxList">
+					<div class="mob-chevron" style="position: absolute;"></div>
+					<div class="mob-chevron"></div>
+					<div class="mob-chevron"></div>
+					<div class="mob-chevron"></div>
 				</div>
 			</div>
 			<div ref='topMennuFormobBox' id='topMennuFormobBox' style="position: absolute;top: 14%">
-				<div id="topMennuFormob" :class="menuTop?'fixedMenu':'relativeMenu'" style="max-width: 700px;">
+				<div id="topMennuFormob" :class="menuTop?'mob-fixedMenu':'mob-relativeMenu'" style="max-width: 700px;">
 					<div style="width: 100%;position: relative;">
 						<img id='imgHeight' v-show="goWhere == 'who'" src="https://xgh5.someet.cc/who.png" alt="" width="100%" ref='imgHeight'>
 						<img v-show="goWhere == 'where'" src="https://xgh5.someet.cc/where.png" alt="" width="100%">
@@ -38,7 +38,7 @@
 			<!-- 顶部悬浮框结束 -->
 			
 			<!-- 15秒了解视屏 如果明天换图则去掉style-->
-			<div class="imgBoxImg_pc" v-show="imgList.xgPlayVideoTop.isShow && Imgcomplete==true">
+			<div class="mob-imgBoxImg_pc" v-show="imgList.xgPlayVideoTop.isShow && Imgcomplete==true">
 				<div class="videoBox1">
 					<!-- <iframe :src="imgList.xgPlayVideoTop.val[0]" frameborder="0" allowfullscreen="true">
 						
@@ -54,19 +54,19 @@
 			</div>
 			<!-- 15秒了解视频 -->
 			<!-- 玩什么 -->
-			<div class="positionLine" id='what_pc'>
+			<div class="mob-positionLine" id='mob-what_pc'>
 				这是分界线
 			</div>
 			<!-- 在哪玩 -->
-			<div class='positionLine' id='where_pc'>
+			<div class='mob-positionLine' id='mob-where_pc'>
 				这是分界线
 			</div>
 			<!-- 跟谁玩 -->
-			<div class='positionLine' id='who_pc'>
+			<div class='mob-positionLine' id='mob-who_pc'>
 				这是分界线
 			</div>
 			<!-- 详细规则 -->
-			<div class='positionBlock' id='rule_pc' @click="goRule">
+			<div class='mob-positionBlock' id='mob-rule_pc' @click="goRule">
 				这是分界线
 			</div>
 		</div>
@@ -129,13 +129,14 @@
 			handleScroll(){
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				var offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
+				console.log(scrollTop+'---'+offsetTop)
 				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
 				//获取玩什么的高度
-				var whatTop = document.querySelector('#what_pc').offsetTop - 28
+				var whatTop = document.querySelector('#mob-what_pc').offsetTop - 28
 				// 获取去哪玩的高度
-				var whereTop = document.querySelector('#where_pc').offsetTop - 28
+				var whereTop = document.querySelector('#mob-where_pc').offsetTop - 28
 				//获取跟谁玩的高度
-				var whoTop = document.querySelector('#who_pc').offsetTop - 28
+				var whoTop = document.querySelector('#mob-who_pc').offsetTop - 28
 				if(scrollTop > whatTop && scrollTop < whereTop && this.goWhere != 'what'){
 					this.goWhere = 'what'
 				}else if(scrollTop > whereTop && scrollTop < whoTop && this.goWhere != 'where'){
@@ -143,7 +144,7 @@
 				}else if(scrollTop > whoTop && this.goWhere != 'who'){
 					this.goWhere = 'who'
 				}
-				var videoTop = document.querySelector('#what_pc').offsetTop
+				var videoTop = document.querySelector('#mob-what_pc').offsetTop
 				if(scrollTop > videoTop){
 					this.playerTop.pause()
 				}
@@ -165,11 +166,11 @@
 				this.goWhere = type
 				var ele
 				if(type == 'what'){
-					ele = document.querySelector('#what_pc')
+					ele = document.querySelector('#mob-what_pc')
 				}else if(type == 'where'){
-					ele = document.querySelector('#where_pc')
+					ele = document.querySelector('#mob-where_pc')
 				}else if(type == 'who'){
-					ele = document.querySelector('#who_pc')
+					ele = document.querySelector('#mob-who_pc')
 				}
 				var offsetTop = ele.offsetTop
 				this.offsetTop = offsetTop - 28
@@ -192,13 +193,13 @@
 				if(this._isMobile()){
 					console.log(type)
 					if(type == 'what'){
-						var anchor = document.getElementById('what_pc');
+						var anchor = document.getElementById('mob-what_pc');
 						anchor.scrollIntoView(true)
 					}else if(type == 'where'){
-						var anchor = document.getElementById('where_pc');
+						var anchor = document.getElementById('mob-where_pc');
 						anchor.scrollIntoView(true)
 					}else if(type == 'who'){
-						var anchor = document.getElementById('who_pc');
+						var anchor = document.getElementById('mob-who_pc');
 						anchor.scrollIntoView(true)
 					}
 				}else{
@@ -335,25 +336,25 @@
 		border-radius: 2rem;
 	}
 	
-	.menu-list-mob-pc span img{
+	.mob-menu-list-mob-pc span img{
 		width: 90%;
 	}
-	.menuChildBox{
+	.mob-menuChildBox{
 		display: inline-block;
 		box-sizing: border-box;
 		height: 100%;
 	}
-	.child-left{
+	.mob-child-left{
 		width:45%;
 		background-color: white;
 	}
-	.child-right{
+	.mob-child-right{
 		width:40%;
 	}
-	.child-blank{
+	.mob-child-blank{
 		width: 15%;
 	}
-	.menu-list-mob-pc{
+	.mob-menu-list-mob-pc{
 		width: 100%;
 		left: 0;
 		height: 69%;
@@ -362,7 +363,7 @@
 		flex-grow: 1;
 		/* padding-top: 0.5rem; */
 	}
-	.menu-list-mob-pc span{
+	.mob-menu-list-mob-pc span{
 		display: block;
 		box-sizing: border-box;
 		width: calc(100% / 3);
@@ -376,7 +377,7 @@
 		/* margin-left: 3%; */
 		cursor: pointer;
 	}
-	.positionLine{
+	.mob-positionLine{
 		width: 100%;
 		height: 2rem;
 		position: absolute;
@@ -386,7 +387,7 @@
 		color:white;
 		opacity: 0;
 	}
-	.positionBlock{
+	.mob-positionBlock{
 		width: 26%;
 		height: 0.6%;
 		position: absolute;
@@ -399,16 +400,16 @@
 		opacity: 0;
 		text-align: center;
 	}
-	#what_pc{
+	#mob-what_pc{
 		top: 28%;
 	}
-	#where_pc{
+	#mob-where_pc{
 		top:47.5%;
 	}
-	#who_pc{
+	#mob-who_pc{
 		top:75.5%;
 	}
-	.imgBoxImg_pc{
+	.mob-imgBoxImg_pc{
 		width: 87.8%;
 		position: absolute;
 		top: 16.5%;
@@ -416,11 +417,11 @@
 		right: 0;
 		margin: 0 auto;
 	}
-	.relativeMenu{
+	.mob-relativeMenu{
 		position: relative;
 		/* margin-top: 0.6rem; */
 	}
-	.fixedMenu{
+	.mob-fixedMenu{
 		position: fixed;
 		top:0.1rem;
 	}
@@ -432,7 +433,7 @@
 	  line-height: 2em !important;
 	  margin-top: -1em !important
 	}
-	.slideBox{
+	.mob-slideBox{
 		width: 100%;
 		top: 13%;
 		position: absolute;
@@ -442,18 +443,18 @@
 		background: -moz-linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.6));
 		background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.6)); */
 	}
-	.slideBoxList{
+	.mob-slideBoxList{
 		margin:0 auto;
 		width: 2.6rem;
 	}
-	.chevron{
+	.mob-chevron{
 		position: relative;
 		width: 2.6rem;
 		height: 0.57rem;
 		opacity: 1;
 		margin-bottom: 0.4rem;
 	}
-	.chevron:before{
+	.mob-chevron:before{
 		content: ' ';
 		position: absolute;
 		top: 0;
@@ -465,7 +466,7 @@
 		border-top-left-radius: 0.5rem;
 	    border-bottom-left-radius: 0.2rem;
 	}
-	.chevron:after{
+	.mob-chevron:after{
 		content: ' ';
 		position: absolute;
 		top: 0;
@@ -477,11 +478,11 @@
 		border-top-right-radius: 0.5rem;
 	    border-bottom-right-radius: 0.2rem;
 	}
-	.chevron:first-child:before,.chevron:first-child:after {
+	.mob-chevron:first-child:before,.mob-chevron:first-child:after {
 	   background-color: rgba(96,64,137,1);
 	   animation: move 0.7s ease-in-out infinite;
 	}
-	.chevron:first-child{
+	.mob-chevron:first-child{
 		top:0;
 	}
 
@@ -501,7 +502,7 @@
 	}
 </style>
 <style scoped>
-	.main{
+	.mob-main{
 		width: 100%;
 		max-width: 700px;
 		margin: 0 auto;
