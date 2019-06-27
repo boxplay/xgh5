@@ -129,7 +129,6 @@
 			handleScroll(){
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				var offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
-				console.log(scrollTop+'---'+offsetTop)
 				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
 				//获取玩什么的高度
 				var whatTop = document.querySelector('#mob-what_pc').offsetTop - 28
