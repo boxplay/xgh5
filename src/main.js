@@ -37,6 +37,9 @@ router.beforeEach((to, from, next) => {
 		}
 	}
 })
+router.afterEach((to, from, next) => { 
+    gtag('config', 'UA-100002932-38', {'page_path': to.fullPath});
+});
 Vue.config.productionTip = false
 Vue.use(window.VueVideoPlayer)
 Vue.use(window.VueAwesomeSwiper)

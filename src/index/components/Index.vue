@@ -1,7 +1,9 @@
 <template>
 	<div>
 		<div v-if="complete==false" class='loadingPage'>
-			<h2>Loading</h2>
+			<div class="xiguaCircle">
+				<img src="https://xgh5.someet.cc/loading.jpg" alt="" width="100%;">
+			</div>
 		</div>
 		<div class="main relativeBox" style="min-width: 700px;margin-top: 5%;" ref='main' v-if="complete==true">
 			<img src="https://xgh5.someet.cc/pc.jpeg"  style="display: block;" alt="" width="100%">
