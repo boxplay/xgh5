@@ -73,7 +73,7 @@ class JSSDK {
             $data->expire_time = time() + 7000;
             $data->jsapi_ticket = $ticket;
             $this->set_php_file("jsapi_ticket.php", json_encode($data));
-            return $redis->set('ticket',$data->jsapi_ticket);
+            $redis->set('ticket',$data->jsapi_ticket);
             $redis->expire('ticket',7000);
           }
         } else {
