@@ -308,12 +308,7 @@
 			 //监听页面滚动
 			this.$nextTick(function(){
 				window.addEventListener('scroll', that.handleScroll)
-				if(that.isInIOS()){
-					console.log('在iOS里')
-					window.addEventListener('touchmove',that.handleScroll)
-				}else{
-					console.log('不在')
-				}
+				window.addEventListener('touchmove',that.handleScroll)
 			})
 			//微信分享
 			if(wxapi.isweixin()){
