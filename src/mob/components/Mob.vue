@@ -1,5 +1,5 @@
 <template>
-	<div style="-webkit-overflow-scrolling: auto;">
+	<div>
 		<div v-if="complete==false" class='loadingPage'>
 			<div class="xiguaCircle">
 				<img src="https://xgh5.someet.cc/loading.jpg" alt="" width="100%;">
@@ -307,8 +307,13 @@
 			})
 			 //监听页面滚动
 			this.$nextTick(function(){
-				window.addEventListener('scroll', that.handleScroll)
-				window.addEventListener('touchmove',that.handleScroll)
+				// window.addEventListener('scroll', that.handleScroll)
+				if(that.isInIOS()){
+					console.log('在iOS里')
+					window.addEventListener('touchmove',that.handleScroll)
+				}else{
+					console.log('不在')
+				}
 			})
 			//微信分享
 			if(wxapi.isweixin()){
