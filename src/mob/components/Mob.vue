@@ -39,7 +39,10 @@
 			
 			<!-- 15秒了解视屏 如果明天换图则去掉style-->
 			<div class="mob-imgBoxImg_pc" v-show="imgList.xgPlayVideoTop.isShow && Imgcomplete==true">
-				<div class="videoBox1">
+				<div class="videoBox1" @click="playVideo">
+					<div class="vPage" style="position: absolute;">
+						
+					</div>
 					<!-- <iframe :src="imgList.xgPlayVideoTop.val[0]" frameborder="0" allowfullscreen="true">
 						
 					</iframe> -->
@@ -107,7 +110,8 @@
 			offsetTop:0,
 			screenWidth:0,
 			Imgcomplete:false,
-			goWhere:"what"
+			goWhere:"what",
+			isPlayTop:0,//是否播放15秒视频
         }
       },
 		methods:{
@@ -119,6 +123,17 @@
 			},
 			CplayerPause(player,type){
 					
+			},
+			playVideo(){
+				console.log('开始播放')
+				if(!this.isPlayTop){
+					this.isPlayTop = 1;
+					this.playerTop.play();
+				}else{
+					this.isPlayTop = 0
+					this.playerTop.pause();
+				}
+				
 			},
 			//活动日程切换
 			changeDay(index){
@@ -213,6 +228,13 @@
 				 var flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
 				 return flag;
 			},
+			isIOS(){
+				return isApp() && navigator.userAgent.indexOf("iOS") > -1
+			},
+			isInIOS(){
+				var u = navigator.userAgent
+				return !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+			},
 			//微信分享
 			wxRegCallback () {
 			  // 用于微信JS-SDK回调
@@ -239,10 +261,7 @@
 			  }
 			  // 将配置注入通用方法
 			  wxapi.ShareAppMessage(option)
-			},
-			goTicket(){
-				window.location.href = 'https://traveldetail.fliggy.com/item.htm?id=596217589260'
-			},
+			}
 		},
 		watch:{ 
 			 $route(to,from){
@@ -274,7 +293,7 @@
 				return this.$refs.videoSwiper.swiper
 			}
 		 },
-		 mounted(){
+		mounted(){
 			var that = this
 			this.$axios.get('/static/img.json').then(function(response){
 			 	that.imgList = response.data
@@ -288,7 +307,14 @@
 			})
 			 //监听页面滚动
 			this.$nextTick(function(){
+				console.log(that)
 				window.addEventListener('scroll', that.handleScroll)
+				if(this.isInIOS()){
+					console.log('在iOS里')
+					window.addEventListener('touchmove',that.handleScroll)
+				}else{
+					console.log('不在')
+				}
 			})
 			//微信分享
 			if(wxapi.isweixin()){
@@ -296,14 +322,22 @@
 				wxapi.wxRegister(this.wxRegCallback)
 			}
 		},
-			beforeDestroy () {
-			  window.removeEventListener('scroll', this.handleScroll)
-			},
+		beforeDestroy(){
+		  window.removeEventListener('scroll', this.handleScroll)
+		}
+
     }
 </script>
 <style scope>
 	#topMennuFormob{
 		z-index:300;
+	}
+	.vPage{
+		position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    z-index: 200;
+	    opacity: 0;
 	}
 	#topMenuForPc{
 		width: 100%;
