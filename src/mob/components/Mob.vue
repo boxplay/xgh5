@@ -210,7 +210,7 @@
 				}
 			},
 			_isMobile() {
-				 let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+				 var flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
 				 return flag;
 			},
 			//微信分享
@@ -221,7 +221,7 @@
 			},
 			wxShareTimeline () {
 				// 微信自定义分享到朋友圈
-				let option = {
+				var option = {
 					title: '2019西瓜PLAY视频嘉年华', // 分享标题, 请自行替换
 					link: window.location.href, // 分享链接，根据自身项目决定是否需要split
 					imgUrl: 'https://xgh5.someet.cc/logo-xigua.png' // 分享图标, 请自行替换，需要绝对路径
@@ -231,7 +231,7 @@
 			},
 			wxShareAppMessage () {
 			  // 微信自定义分享给朋友
-			  let option = {
+			  var option = {
 				title: '2019西瓜PLAY视频嘉年华', // 分享标题, 请自行替换
 				desc: '一艘承载数千创作人的神奇方舟，一个用58天建造的海上世界。8.22-8.26 五天四夜邮轮嘉年华之旅等你来！', // 分享描述, 请自行替换
 				link: window.location.href, // 分享链接，根据自身项目决定是否需要split
