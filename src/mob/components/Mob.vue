@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div style="-webkit-overflow-scrolling: auto;">
 		<div v-if="complete==false" class='loadingPage'>
 			<div class="xiguaCircle">
 				<img src="https://xgh5.someet.cc/loading.jpg" alt="" width="100%;">
@@ -145,7 +145,6 @@
 			},
 			//页面滚动事件
 			handleScroll(){
-				console.log('我在滚动')
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				var offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
 				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
