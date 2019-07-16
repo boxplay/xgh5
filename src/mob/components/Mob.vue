@@ -120,12 +120,15 @@
 			CplayerPause(player,type){
 					
 			},
+			//活动日程切换
 			changeDay(index){
 				 this.DayIndex = index
 			},
+			//图片加载完成
 			imgLoad(){
 				this.Imgcomplete = true
 			},
+			//页面滚动事件
 			handleScroll(){
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				var offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
@@ -188,7 +191,7 @@
 			goRule(){
 				this.$router.push('/rule')
 			},
-			scrollEvent(type){
+			scrollEvent(type){//导航栏滚动事件
 				if(this._isMobile()){
 					console.log(type)
 					if(type == 'what'){
