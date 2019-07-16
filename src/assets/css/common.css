@@ -2,7 +2,7 @@
 	margin:0;
 	padding: 0;
 	/*height: 100%;*/
-	-webkit-overflow-scrolling: touch;
+	-webkit-overflow-scrolling: auto;
 }
 h1, h2 {
   font-weight: normal;

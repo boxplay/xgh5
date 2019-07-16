@@ -145,6 +145,7 @@
 			},
 			//页面滚动事件
 			handleScroll(){
+				console.log('我在滚动')
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 				var offsetTop = document.querySelector('#topMennuFormobBox').offsetTop
 				scrollTop > offsetTop ? this.menuTop = true : this.menuTop = false
