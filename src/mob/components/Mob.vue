@@ -307,9 +307,8 @@
 			})
 			 //监听页面滚动
 			this.$nextTick(function(){
-				console.log(that)
 				window.addEventListener('scroll', that.handleScroll)
-				if(this.isInIOS()){
+				if(that.isInIOS()){
 					console.log('在iOS里')
 					window.addEventListener('touchmove',that.handleScroll)
 				}else{
