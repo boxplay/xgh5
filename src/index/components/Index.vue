@@ -5,7 +5,7 @@
 				<img src="https://xgh5.someet.cc/loading.jpg" alt="" width="100%;">
 			</div>
 		</div>
-		<div class="main relativeBox" style="min-width: 700px;margin-top: 5%;" ref='main' v-if="complete==true">
+		<div class="main relativeBox" style="min-width: 1200px;margin-top: 5%;" ref='main' v-if="complete==true">
 			<img src="https://xgh5.someet.cc/718.jpg" @load="imgLoad" style="display: block;" alt="" width="100%">
 			<!-- 15秒了解视屏 如果明天换图则去掉style-->
 			<div class="imgBoxImg_pc" v-show="imgList.xgPlayVideoTop.isShow">
@@ -40,9 +40,9 @@
 				这是分界线
 			</div>
 			<!-- video-swiper -->
-			<div id='videoBottom' class="imgBoxImg relativeBox" v-show="imgList.xgPlayMedias.isShow  && Imgcomplete==true">
+			<div id='videoBottomForPC' class="imgBoxImg relativeBox" v-show="imgList.xgPlayMedias.isShow  && Imgcomplete==true">
 				<div class="swiper2" v-if="complete == true" v-show="imgList.xgPlayMedias.isShow">
-					<swiper id='videoSwiper' ref='videoSwiper' v-if="imgList.xgPlayMedias.isShow  && complete==true" :options="swiperOptionForMedia">
+					<swiper id='videoSwiper' ref='videoSwiper' v-if="imgList.xgPlayMedias.isShow  && swiperInit==true" :options="swiperOptionForMedia">
 						<swiper-slide class='swiper1-video'>
 							<div class="videoBox1" @click="playVideo('bottom',0)">
 								<div class="vPage" id='vPage' style="position: absolute;">
@@ -51,86 +51,117 @@
 										{{imgList.xgPlayMedias.title[0]}}
 									</div>
 								</div>
-								<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin"
-								ref="videoPlayerBottom0"
-								:playsinline="true"
-								:options="imgList.xgPlayMedias.options[0]"
-								@play="CplayerPlay($event,'top')"
-								@pause="CplayerPause($event,'top')"
-								@ended="onPlayerEnded($event)"
-								></video-player>
+								<div class="videoBackBox">
+									<img src="https://xgh5planb.someet.cc/videoBack.png" alt="" width="100%">
+								</div>
+								<div class="video-vue-box">
+									<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin smallVideo"
+									ref="videoPlayerBottom0"
+									:playsinline="true"
+									:options="imgList.xgPlayMedias.options[0]"
+									@play="CplayerPlay($event,'top')"
+									@pause="CplayerPause($event,'top')"
+									@ended="onPlayerEnded($event)"
+									></video-player>
+								</div>
 							</div>
 						</swiper-slide>
 						<swiper-slide class='swiper1-video'>
 							<div class="videoBox1" @click="playVideo('bottom',1)">
 								<div class="vPage" id='vPage' style="position: absolute;">
+									<!-- 底栏 -->
 									<div :class="videoPlayIndex === 1?'videoPage videoPageHide':'videoPage'">
 										{{imgList.xgPlayMedias.title[1]}}
 									</div>
 								</div>
-								<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin"
-								ref="videoPlayerBottom1"
-								:playsinline="true"
-								:options="imgList.xgPlayMedias.options[1]"
-								@play="CplayerPlay($event,'top')"
-								@pause="CplayerPause($event,'top')"
-								@ended="onPlayerEnded($event)"
-								></video-player>
+								<div class="videoBackBox">
+									<img src="https://xgh5planb.someet.cc/videoBack.png" alt="" width="100%">
+								</div>
+								<div class="video-vue-box">
+									<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin smallVideo"
+									ref="videoPlayerBottom1"
+									:playsinline="true"
+									:options="imgList.xgPlayMedias.options[1]"
+									@play="CplayerPlay($event,'top')"
+									@pause="CplayerPause($event,'top')"
+									@ended="onPlayerEnded($event)"
+									></video-player>
+								</div>
 							</div>
 						</swiper-slide>
 						<swiper-slide class='swiper1-video'>
 							<div class="videoBox1" @click="playVideo('bottom',2)">
 								<div class="vPage" id='vPage' style="position: absolute;">
+									<!-- 底栏 -->
 									<div :class="videoPlayIndex === 2?'videoPage videoPageHide':'videoPage'">
 										{{imgList.xgPlayMedias.title[2]}}
 									</div>
 								</div>
-								<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin"
-								ref="videoPlayerBottom2"
-								:playsinline="true"
-								:options="imgList.xgPlayMedias.options[2]"
-								@play="CplayerPlay($event,'top')"
-								@pause="CplayerPause($event,'top')"
-								@ended="onPlayerEnded($event)"
-								></video-player>
+								<div class="videoBackBox">
+									<img src="https://xgh5planb.someet.cc/videoBack.png" alt="" width="100%">
+								</div>
+								<div class="video-vue-box">
+									<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin smallVideo"
+									ref="videoPlayerBottom2"
+									:playsinline="true"
+									:options="imgList.xgPlayMedias.options[2]"
+									@play="CplayerPlay($event,'top')"
+									@pause="CplayerPause($event,'top')"
+									@ended="onPlayerEnded($event)"
+									></video-player>
+								</div>
 							</div>
 						</swiper-slide>
 						<swiper-slide class='swiper1-video'>
 							<div class="videoBox1" @click="playVideo('bottom',3)">
 								<div class="vPage" id='vPage' style="position: absolute;">
+									<!-- 底栏 -->
 									<div :class="videoPlayIndex === 3?'videoPage videoPageHide':'videoPage'">
 										{{imgList.xgPlayMedias.title[3]}}
 									</div>
 								</div>
-								<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin"
-								ref="videoPlayerBottom3"
-								:playsinline="true"
-								:options="imgList.xgPlayMedias.options[3]"
-								@play="CplayerPlay($event,'top')"
-								@pause="CplayerPause($event,'top')"
-								@ended="onPlayerEnded($event)"
-								></video-player>
+								<div class="videoBackBox">
+									<img src="https://xgh5planb.someet.cc/videoBack.png" alt="" width="100%">
+								</div>
+								<div class="video-vue-box">
+									<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin smallVideo"
+									ref="videoPlayerBottom3"
+									:playsinline="true"
+									:options="imgList.xgPlayMedias.options[3]"
+									@play="CplayerPlay($event,'top')"
+									@pause="CplayerPause($event,'top')"
+									@ended="onPlayerEnded($event)"
+									></video-player>
+								</div>
 							</div>
 						</swiper-slide>
 						<swiper-slide class='swiper1-video'>
 							<div class="videoBox1" @click="playVideo('bottom',4)">
 								<div class="vPage" id='vPage' style="position: absolute;">
+									<!-- 底栏 -->
 									<div :class="videoPlayIndex === 4?'videoPage videoPageHide':'videoPage'">
 										{{imgList.xgPlayMedias.title[4]}}
 									</div>
 								</div>
-								<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin"
-								ref="videoPlayerBottom4"
-								:playsinline="true"
-								:options="imgList.xgPlayMedias.options[4]"
-								@play="CplayerPlay($event,'top')"
-								@pause="CplayerPause($event,'top')"
-								@ended="onPlayerEnded($event)"
-								></video-player>
+								<div class="videoBackBox">
+									<img src="https://xgh5planb.someet.cc/videoBack.png" alt="" width="100%">
+								</div>
+								<div class="video-vue-box">
+									<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin smallVideo"
+									ref="videoPlayerBottom4"
+									:playsinline="true"
+									:options="imgList.xgPlayMedias.options[4]"
+									@play="CplayerPlay($event,'top')"
+									@pause="CplayerPause($event,'top')"
+									@ended="onPlayerEnded($event)"
+									></video-player>
+								</div>
 							</div>
 						</swiper-slide>
 					</swiper> 
 				</div>
+				<div v-show="diySiwperBtnShowleft == true" class="swiper-button-prev diySiwperBtn" style="left:20%;background-image: url(https://xgh5planb.someet.cc/left.svg);min-left: 6rem;"></div>
+				<div v-show="diySiwperBtnShowright == true" class="swiper-button-next diySiwperBtn" style="right:20%;background-image: url(https://xgh5planb.someet.cc/right.svg);min-right:6rem;"></div>
 			</div>
 			<!-- video-swiper -->
 		</div>
@@ -170,6 +201,8 @@
       data () {
 		  var that = this;
         return {
+			diySiwperBtnShowleft:true,
+			diySiwperBtnShowright:true,
 			complete:false,
 			DayIndex:1,
 			DayList:[],//活动日程
@@ -179,6 +212,7 @@
 			  speed: 1000,
 			},
 			swiperOptionForMedia:{
+				init:false,
 				autoplay: false,
 				speed: 1000,
 				effect : 'coverflow',
@@ -190,15 +224,35 @@
 				slideToClickedSlide: false,
 				coverflowEffect: {
 					rotate: 0,
-					stretch: -20,
-					depth: 100,
-					modifier: 1,
+					// stretch: -353,
+					depth: 300,
+					modifier: 2,
 					slideShadows : true
 				},
+				navigation: {
+				  nextEl: '.swiper-button-next',
+				  prevEl: '.swiper-button-prev',
+				},
 				on:{
-					 slideChangeTransitionEnd:function(){
-						 // console.log('停止了')
+					slideChangeTransitionStart:function(){
+						that.diySiwperBtnShowleft = false
+						that.diySiwperBtnShowright = false
 						 that.stopVideo();
+					},
+					 slideChangeTransitionEnd:function(){
+						 var index = that.swiper.activeIndex 
+						 if(index == 0){
+							 that.diySiwperBtnShowleft = false
+							 that.diySiwperBtnShowright = true
+						 }else if(index == 4){
+							 that.diySiwperBtnShowleft = true
+							 that.diySiwperBtnShowright = false
+						 }else{
+							 that.diySiwperBtnShowleft = true
+							 that.diySiwperBtnShowright = true
+						 }
+						 
+						 
 					 }
 				}
 			},
@@ -210,7 +264,8 @@
 			Imgcomplete:false,
 			goWhere:"what",
 			isPlayTop:0,//是否播放15秒视频,
-			videoPlayIndex:''
+			videoPlayIndex:'',
+			swiperInit:false
         }
       },
 		methods:{
@@ -238,8 +293,9 @@
 			},
 			imgLoad(){
 				this.Imgcomplete = true
-				// var h = document.querySelector('#topMennuFormob').offsetHeight
-				// document.querySelector('#blankBox').style.height = h +'px'
+				//获取屏幕宽度
+				this.swiper.init()
+				// this.swiperOptionForMedia.coverflowEffect.stretch = (this.screenWidth/10) * -1
 			},
 			playVideo(pos,index){
 				console.log('开始播放',index+'-----'+pos)
@@ -321,13 +377,15 @@
 					this.playerTop.pause()
 				}
 				if(this.imgList.xgPlayMedias.isShow){
-					var videoBottom = document.querySelector('#videoBottom').clientHeight
-					var pauseTop = document.querySelector('#videoBottom').offsetTop - document.querySelector('#videoBottom').clientHeight
-					if(scrollTop < (pauseTop - videoBottom)){
+					var videoBottom = document.querySelector('#videoBottomForPC').clientHeight
+					var pauseTop = document.querySelector('#videoBottomForPC').offsetTop - document.querySelector('#videoBottomForPC').clientHeight
+					if(scrollTop < (pauseTop - videoBottomForPC)){
 						//停止下面的播放器
 						this.player0.pause();
 						this.player1.pause();
-						this.player2.pause();
+						this.player2.pause()
+						this.player3.pause();
+						this.player4.pause();
 					}
 				}
 			},
@@ -359,7 +417,7 @@
 				}
 			},
 			goRule(){
-				window.location.href='https://www.ixigua.com/';
+				window.location.href='https://d.toutiao.com/k99/';
 			},
 			scrollEvent(type){
 				if(this._isMobile()){
@@ -381,10 +439,7 @@
 			_isMobile() {
 				 let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
 				 return flag;
-			},
-			goTicket(){
-				window.location.href = 'https://traveldetail.fliggy.com/item.htm?id=596217589260'
-			},
+			}
 		},
 		components:{ 
 		},
@@ -409,24 +464,27 @@
 			},
 			swiper() {
 				return this.$refs.videoSwiper.swiper
+				// return this.swiperInit == true ? this.$refs.videoSwiper.swiper:false
 			}
 		 },
 		 mounted(){
 			var that = this
 			this.$axios.get('/static/img.json').then((response)=>{
 			 	that.imgList = response.data
-			 	that.complete = true;
+				that.complete = true;
 				 //定位购票的位置
-				this.$nextTick(() => {
-					that.screenWidth = this.$refs.main.clientWidth?this.$refs.main.clientWidth:'414'
-					var w = this.screenWidth - 20
-					// document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
+				that.$nextTick(() => {
+					that.screenWidth = that.$refs.main.clientWidth?that.$refs.main.clientWidth:'414'
+					that.swiperOptionForMedia.coverflowEffect.stretch = ((this.screenWidth/10) - 50) * -2
+					if(that.swiperOptionForMedia.coverflowEffect.stretch > -120) that.swiperOptionForMedia.coverflowEffect.stretch = -120
+					that.swiperInit = true;
+					
 				})
 				window.onresize = () => {
 				  return (() => {
 					this.$nextTick(() => {
-						that.screenWidth = this.$refs.main.clientWidth
-						var w = this.screenWidth - 20
+						that.screenWidth = that.$refs.main.clientWidth
+						var w = that.screenWidth - 20
 						// document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
 					})
 				  })()
@@ -440,7 +498,7 @@
 		},
     }
 </script>
-<style scope>
+<style scoped>
 	
 	@import '../assets/css/index.css'
 	
@@ -448,15 +506,8 @@
 <style scoped>
 	.main{
 		width: 100%;
-		min-width:700px;
+		min-width:1200px;
 		margin: 0 auto;
 	}
-	.vjs-custom-skin > .video-js .vjs-big-play-button {
-	  background-color: rgba(0,0,0,0.45);
-	  font-size: 3.5em;
-	   /*border-radius: 50%;*/
-	  height: 2em !important;
-	  line-height: 2em !important;
-	  margin-top: -1em !important
-	}
+	
 </style>
