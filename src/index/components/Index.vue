@@ -6,7 +6,7 @@
 			</div>
 		</div>
 		<div class="main relativeBox" style="min-width: 700px;margin-top: 5%;" ref='main' v-if="complete==true">
-			<img src="https://xgh5.someet.cc/pc.jpeg"  style="display: block;" alt="" width="100%">
+			<img src="https://xgh5.someet.cc/718.jpg" @load="imgLoad" style="display: block;" alt="" width="100%">
 			<!-- 15秒了解视屏 如果明天换图则去掉style-->
 			<div class="imgBoxImg_pc" v-show="imgList.xgPlayVideoTop.isShow">
 				<div class="videoBox1">
@@ -36,11 +36,103 @@
 				这是分界线
 			</div>
 			<!-- 详细规则 -->
-			<router-link to="/prule">
-				<div class='positionBlock' id='rule_pc'>
-					这是分界线
+			<div class='positionBlock' id='rule_pc' @click="goRule">
+				这是分界线
+			</div>
+			<!-- video-swiper -->
+			<div id='videoBottom' class="imgBoxImg relativeBox" v-show="imgList.xgPlayMedias.isShow  && Imgcomplete==true">
+				<div class="swiper2" v-if="complete == true" v-show="imgList.xgPlayMedias.isShow">
+					<swiper id='videoSwiper' ref='videoSwiper' v-if="imgList.xgPlayMedias.isShow  && complete==true" :options="swiperOptionForMedia">
+						<swiper-slide class='swiper1-video'>
+							<div class="videoBox1" @click="playVideo('bottom',0)">
+								<div class="vPage" id='vPage' style="position: absolute;">
+									<!-- 底栏 -->
+									<div :class="videoPlayIndex === 0?'videoPage videoPageHide':'videoPage'">
+										{{imgList.xgPlayMedias.title[0]}}
+									</div>
+								</div>
+								<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin"
+								ref="videoPlayerBottom0"
+								:playsinline="true"
+								:options="imgList.xgPlayMedias.options[0]"
+								@play="CplayerPlay($event,'top')"
+								@pause="CplayerPause($event,'top')"
+								@ended="onPlayerEnded($event)"
+								></video-player>
+							</div>
+						</swiper-slide>
+						<swiper-slide class='swiper1-video'>
+							<div class="videoBox1" @click="playVideo('bottom',1)">
+								<div class="vPage" id='vPage' style="position: absolute;">
+									<div :class="videoPlayIndex === 1?'videoPage videoPageHide':'videoPage'">
+										{{imgList.xgPlayMedias.title[1]}}
+									</div>
+								</div>
+								<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin"
+								ref="videoPlayerBottom1"
+								:playsinline="true"
+								:options="imgList.xgPlayMedias.options[1]"
+								@play="CplayerPlay($event,'top')"
+								@pause="CplayerPause($event,'top')"
+								@ended="onPlayerEnded($event)"
+								></video-player>
+							</div>
+						</swiper-slide>
+						<swiper-slide class='swiper1-video'>
+							<div class="videoBox1" @click="playVideo('bottom',2)">
+								<div class="vPage" id='vPage' style="position: absolute;">
+									<div :class="videoPlayIndex === 2?'videoPage videoPageHide':'videoPage'">
+										{{imgList.xgPlayMedias.title[2]}}
+									</div>
+								</div>
+								<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin"
+								ref="videoPlayerBottom2"
+								:playsinline="true"
+								:options="imgList.xgPlayMedias.options[2]"
+								@play="CplayerPlay($event,'top')"
+								@pause="CplayerPause($event,'top')"
+								@ended="onPlayerEnded($event)"
+								></video-player>
+							</div>
+						</swiper-slide>
+						<swiper-slide class='swiper1-video'>
+							<div class="videoBox1" @click="playVideo('bottom',3)">
+								<div class="vPage" id='vPage' style="position: absolute;">
+									<div :class="videoPlayIndex === 3?'videoPage videoPageHide':'videoPage'">
+										{{imgList.xgPlayMedias.title[3]}}
+									</div>
+								</div>
+								<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin"
+								ref="videoPlayerBottom3"
+								:playsinline="true"
+								:options="imgList.xgPlayMedias.options[3]"
+								@play="CplayerPlay($event,'top')"
+								@pause="CplayerPause($event,'top')"
+								@ended="onPlayerEnded($event)"
+								></video-player>
+							</div>
+						</swiper-slide>
+						<swiper-slide class='swiper1-video'>
+							<div class="videoBox1" @click="playVideo('bottom',4)">
+								<div class="vPage" id='vPage' style="position: absolute;">
+									<div :class="videoPlayIndex === 4?'videoPage videoPageHide':'videoPage'">
+										{{imgList.xgPlayMedias.title[4]}}
+									</div>
+								</div>
+								<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin"
+								ref="videoPlayerBottom4"
+								:playsinline="true"
+								:options="imgList.xgPlayMedias.options[4]"
+								@play="CplayerPlay($event,'top')"
+								@pause="CplayerPause($event,'top')"
+								@ended="onPlayerEnded($event)"
+								></video-player>
+							</div>
+						</swiper-slide>
+					</swiper> 
 				</div>
-			</router-link>
+			</div>
+			<!-- video-swiper -->
 		</div>
 		<div id='topMenuForPc'>
 			<!-- 左侧logo -->
@@ -73,14 +165,10 @@
 	</div>
 </template>
 <script>
-    // import { swiper, swiperSlide } from "vue-awesome-swiper"
-	// import { videoPlayer } from 'vue-video-player'
-	// import 'swiper/dist/css/swiper.css'
-	// import 'video.js/dist/video-js.css'
-	// import 'vue-video-player/src/custom-theme.css'
     export default {
       name: 'Index',
       data () {
+		  var that = this;
         return {
 			complete:false,
 			DayIndex:1,
@@ -91,8 +179,28 @@
 			  speed: 1000,
 			},
 			swiperOptionForMedia:{
-				autoplay: true,
+				autoplay: false,
 				speed: 1000,
+				effect : 'coverflow',
+				slidesPerView: 3,
+				centeredSlides: true,
+				initialSlide: 2,
+				loop:false,
+				slidesPerView: 'auto',
+				slideToClickedSlide: false,
+				coverflowEffect: {
+					rotate: 0,
+					stretch: -20,
+					depth: 100,
+					modifier: 1,
+					slideShadows : true
+				},
+				on:{
+					 slideChangeTransitionEnd:function(){
+						 // console.log('停止了')
+						 that.stopVideo();
+					 }
+				}
 			},
 			playerOptions : [],
 			menuTop:false,
@@ -100,15 +208,27 @@
 			offsetTop:0,
 			screenWidth:0,
 			Imgcomplete:false,
-			goWhere:"what"
+			goWhere:"what",
+			isPlayTop:0,//是否播放15秒视频,
+			videoPlayIndex:''
         }
       },
 		methods:{
+			stopVideo(){
+				this.player0.pause();
+				this.player1.pause();
+				this.player2.pause();
+				this.player3.pause();
+				this.player4.pause();
+			},
 			CplayerPlay(player,type) {
 				if(type == 'swiper'){
 					this.swiper.autoplay.stop()
 				}
 					
+			},
+			onPlayerEnded(player){
+				this.videoPlayIndex = ''
 			},
 			CplayerPause(player,type){
 					
@@ -118,8 +238,67 @@
 			},
 			imgLoad(){
 				this.Imgcomplete = true
-				var h = document.querySelector('#topMennuFormob').offsetHeight
-				document.querySelector('#blankBox').style.height = h +'px'
+				// var h = document.querySelector('#topMennuFormob').offsetHeight
+				// document.querySelector('#blankBox').style.height = h +'px'
+			},
+			playVideo(pos,index){
+				console.log('开始播放',index+'-----'+pos)
+				if(!this.isPlayTop){
+					this.isPlayTop = 1;
+					if(pos == 'top'){
+						this.playerTop.play();
+						this.player0.pause();
+						this.player1.pause();
+						this.player2.pause();
+						this.player3.pause();
+						this.player4.pause();
+					}else if(pos == 'bottom'){
+						this.videoPlayIndex = index
+						this.playerTop.pause();
+						this.swiper.autoplay.stop()
+						if(index == 0){
+							this.player0.play();
+							this.player1.pause();
+							this.player2.pause();
+							this.player3.pause();
+							this.player4.pause();
+						}else if(index == 1){
+							this.player0.pause();
+							this.player1.play();
+							this.player2.pause();
+							this.player3.pause();
+							this.player4.pause();
+						}else if(index ==2){
+							this.player0.pause();
+							this.player1.pause();
+							this.player2.play();
+							this.player3.pause();
+							this.player4.pause();
+						}else if(index == 3){
+							this.player0.pause();
+							this.player1.pause();
+							this.player2.pause();
+							this.player3.play();
+							this.player4.pause();
+						}else if(index == 4){
+							this.player0.pause();
+							this.player1.pause();
+							this.player2.pause();
+							this.player3.pause();
+							this.player4.play();
+						}
+					}
+				}else{
+					this.videoPlayIndex =''
+					this.isPlayTop = 0
+					this.playerTop.pause();
+					this.player0.pause();
+					this.player1.pause();
+					this.player2.pause();
+					this.player3.pause();
+					this.player4.pause();
+				}
+				
 			},
 			handleScroll(){
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
@@ -142,7 +321,7 @@
 					this.playerTop.pause()
 				}
 				if(this.imgList.xgPlayMedias.isShow){
-					var videoBottom = document.querySelector('#videoBottom').clientHeight + document.querySelector('#bannerAndLogo').clientHeight
+					var videoBottom = document.querySelector('#videoBottom').clientHeight
 					var pauseTop = document.querySelector('#videoBottom').offsetTop - document.querySelector('#videoBottom').clientHeight
 					if(scrollTop < (pauseTop - videoBottom)){
 						//停止下面的播放器
@@ -178,6 +357,9 @@
 					// this.index = setInterval(that.scrollEvent,8)
 					that.scrollEvent(type)
 				}
+			},
+			goRule(){
+				window.location.href='https://www.ixigua.com/';
 			},
 			scrollEvent(type){
 				if(this._isMobile()){
@@ -215,6 +397,12 @@
 			},
 			player2() {
 				return this.$refs.videoPlayerBottom2.player
+			},
+			player3() {
+				return this.$refs.videoPlayerBottom3.player
+			},
+			player4() {
+				return this.$refs.videoPlayerBottom4.player
 			},
 			playerTop() {
 				return this.$refs.videoPlayerTop.player

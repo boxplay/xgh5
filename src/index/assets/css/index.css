@@ -7,6 +7,33 @@
     display: flex;
     overflow: hidden;
 }
+.videoPage{
+	background-color: rgba(0,0,0,0.5);
+	position:absolute;
+	bottom:0;width: 100%;
+	height: 3rem;
+	text-align: center;
+	color:white;
+	line-height:3rem ;
+}
+.videoPageHide{
+	opacity: 0;
+}
+.swiper-slide{
+		width: 48.8%;
+	}
+	.vPage{
+		position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    z-index: 200;
+	    opacity: 1;
+	}
+	#videoBottom{
+		position: absolute;
+		width: 100%;
+		top: 70.5%;
+	}
 .menu-list-mob-pc span img{
 	width: 90%;
 }
@@ -63,7 +90,7 @@
     height: 1%;
     position: absolute;
     background-color: white;
-    top: 76.3%;
+    top: 66.8%;
     left: 0.8%;
     right: 0;
     margin: 0 auto;
@@ -72,18 +99,18 @@
 	text-align: center;
 }
 #what_pc{
-	top:32.5%;
+	top:28.5%;
 }
 #where_pc{
-	top:46.5%;
+	top:40.5%;
 }
 #who_pc{
-	top:64.5%;
+	top:56.5%;
 }
 .imgBoxImg_pc{
 	width: 48.8%;
     position: absolute;
-    top: 15%;
+    top: 13.1%;
     left: -0.6%;
     right: 0;
     margin: 0 auto;
