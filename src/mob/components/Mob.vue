@@ -16,40 +16,26 @@
 						活动日程
 					</div>
 					<div class="mob-day-container">
-						<div class="mob-day-container-btn">
-							<div v-show="daySelect == 0">
-								<img src="https://xgh5.someet.cc/day.png" width="100%" alt="">
-							</div>
-							<div v-show="daySelect == 1">
-								<img src="https://xgh5.someet.cc/day.png" width="100%" alt="">
-							</div>
-							<div v-show="daySelect == 2">
-								<img src="https://xgh5.someet.cc/day.png" width="100%" alt="">
-							</div>
-							<div v-show="daySelect == 3">
-								<img src="https://xgh5.someet.cc/day.png" width="100%" alt="">
-							</div>
-						</div>
 						<div class="mob-day-container-img">
 							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(0)">
-								1
+								<img :src="daySelect == 0?'https://xgh5.someet.cc/day22_red.png':'https://xgh5.someet.cc/day22.png'" width="100%" alt="">
 							</div>
 							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(1)">
-								2
+								<img :src="daySelect == 1?'https://xgh5.someet.cc/day23_red.png':'https://xgh5.someet.cc/day23.png'" width="100%" alt="">
 							</div>
 							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(2)">
-								3
+								<img :src="daySelect == 2?'https://xgh5.someet.cc/day24_red.png':'https://xgh5.someet.cc/day24.png'" width="100%" alt="">
 							</div>
 							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(3)">
-								4
+								<img :src="daySelect == 3?'https://xgh5.someet.cc/day25_red.png':'https://xgh5.someet.cc/day25.png'" width="100%" alt="">
 							</div>
 						</div>
 					</div>
 					<div class="mob-day-content">
-						<img width="100%" src="https://xgh5.someet.cc/act.png" alt="" v-show="daySelect == 0">
-						<img width="100%" src="https://xgh5.someet.cc/act.png" alt="" v-show="daySelect == 1">
-						<img width="100%" src="https://xgh5.someet.cc/act.png" alt="" v-show="daySelect == 2">
-						<img width="100%" src="https://xgh5.someet.cc/act.png" alt="" v-show="daySelect == 3">
+						<img width="100%" src="https://xgh5.someet.cc/act22.png" alt="" v-show="daySelect == 0">
+						<img width="100%" src="https://xgh5.someet.cc/act23.png" alt="" v-show="daySelect == 1">
+						<img width="100%" src="https://xgh5.someet.cc/act24.png" alt="" v-show="daySelect == 2">
+						<img width="100%" src="https://xgh5.someet.cc/act25.png" alt="" v-show="daySelect == 3">
 					</div>
 				</div>
 			</div>
@@ -145,7 +131,7 @@
 									</div>
 								</div>
 								<div class="videoBackBox">
-									<img src="https://xgh5planb.someet.cc/videoBack.png" alt="" width="100%">
+									<img src="https://xgh5.someet.cc/videoBack.png" alt="" width="100%">
 								</div>
 								<div class="video-vue-box">
 									<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin smallVideo"
@@ -856,6 +842,42 @@
 		}
 	}
 	.mob-day-main{
+		width: 100%;height: 25rem;box-sizing: border-box;
+	}
+	.mob-day-main .mob-day-box{
+		width: 90%;
+		height: 100%;
+		border: 1px solid green;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		border: 5px solid red;
+		border-radius: 1rem;
+		margin: 0 auto;
+	}
+	.mob-day-box .mob-day-title{
+		width: 100%;height: 3rem;background-color: palegreen;text-align: center;
+		border-radius: 0.6rem 0.6rem 0rem 0rem;
+	}
+	.mob-day-container{
+		width: 100%;background-color: brown;text-align: center;position: relative;
+	}
+	.mob-day-container-btn{
+		position: absolute;top:0;width: 100%;
+	}
+	.mob-day-container-img{
+		width: 100%;z-index:2;background-color: #42B983;display: flex;height: 100%;
+	}
+	.mob-day-content{
+		overflow: scroll;height: 73%;
+		border-radius: 0rem 0rem 0.6rem 0.6rem;
+	}
+	.mob-banner-div{
+		width: 100%;position: absolute;top:81.3%;box-sizing: border-box;
+	}
+	.mob-banner-swiper{
+		width: 85%;margin: 0 auto;box-sizing: border-box;
+	}
+	/* .mob-day-main{
 		width: 100%;height: 25rem;border: 1px solid #FF0000;box-sizing: border-box;position: relative;
 	}
 	.mob-day-main .mob-day-box{
@@ -881,7 +903,7 @@
 	}
 	.mob-banner-swiper{
 		width: 85%;margin: 0 auto;box-sizing: border-box;
-	}
+	} */
 </style>
 <style scoped>
 	.mob-main{

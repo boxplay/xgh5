@@ -39,6 +39,37 @@
 			<div class='positionBlock' id='rule_pc' @click="goRule">
 				这是分界线
 			</div>
+			<!-- 活动日程开始 -->
+			<div class="pc-day-main">
+				<div class="pc-day-box">
+					<div class="pc-day-title">
+						活动日程
+					</div>
+					<div class="pc-day-container">
+						<div class="pc-day-container-img">
+							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(0)">
+								<img :src="daySelect == 0?'https://xgh5.someet.cc/day22_red.png':'https://xgh5.someet.cc/day22.png'" width="100%" alt="">
+							</div>
+							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(1)">
+								<img :src="daySelect == 1?'https://xgh5.someet.cc/day23_red.png':'https://xgh5.someet.cc/day23.png'" width="100%" alt="">
+							</div>
+							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(2)">
+								<img :src="daySelect == 2?'https://xgh5.someet.cc/day24_red.png':'https://xgh5.someet.cc/day24.png'" width="100%" alt="">
+							</div>
+							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(3)">
+								<img :src="daySelect == 3?'https://xgh5.someet.cc/day25_red.png':'https://xgh5.someet.cc/day25.png'" width="100%" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="pc-day-content">
+						<img width="100%" src="https://xgh5.someet.cc/act22.png" alt="" v-show="daySelect == 0">
+						<img width="100%" src="https://xgh5.someet.cc/act23.png" alt="" v-show="daySelect == 1">
+						<img width="100%" src="https://xgh5.someet.cc/act25.png" alt="" v-show="daySelect == 2">
+						<img width="100%" src="https://xgh5.someet.cc/act25.png" alt="" v-show="daySelect == 3">
+					</div>
+				</div>
+			</div>
+			<!-- 活动日程结束 -->
 			<!-- video-swiper -->
 			<div id='videoBottomForPC' class="imgBoxImg relativeBox" v-show="imgList.xgPlayMedias.isShow  && Imgcomplete==true">
 				<div class="swiper2" v-if="complete == true" v-show="imgList.xgPlayMedias.isShow">
@@ -204,7 +235,7 @@
 			diySiwperBtnShowleft:true,
 			diySiwperBtnShowright:true,
 			complete:false,
-			DayIndex:1,
+			daySelect:0,
 			DayList:[],//活动日程
 			imgList:[],//页面图片集合
 			swiperOption: {//swiper3
@@ -287,9 +318,6 @@
 			},
 			CplayerPause(player,type){
 					
-			},
-			changeDay(index){
-				 this.DayIndex = index
 			},
 			imgLoad(){
 				this.Imgcomplete = true
@@ -388,6 +416,11 @@
 						this.player4.pause();
 					}
 				}
+			},
+			//活动日程切换
+			changeDay(index){
+				 this.daySelect = index
+				 console.log(this.daySelect)
 			},
 			goTicket(){
 				window.location.href = 'https://traveldetail.fliggy.com/item.htm?id=596217589260'
