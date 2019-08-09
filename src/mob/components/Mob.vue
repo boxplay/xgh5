@@ -9,6 +9,51 @@
 			<img src="https://xgh5.someet.cc/718-1.jpg" @load="imgLoad" style="display: block;" alt="" width="100%">
 			<img src="https://xgh5.someet.cc/718-2.jpg" style="display: block;" alt="" width="100%">
 			<img src="https://xgh5.someet.cc/718-3.jpg" style="display: block;" alt="" width="100%">
+			<!-- 活动日程开始 -->
+			<div class="mob-day-main">
+				<div class="mob-day-box">
+					<div class="mob-day-title">
+						活动日程
+					</div>
+					<div class="mob-day-container">
+						<div class="mob-day-container-btn">
+							<div v-show="daySelect == 0">
+								<img src="https://xgh5.someet.cc/day.png" width="100%" alt="">
+							</div>
+							<div v-show="daySelect == 1">
+								<img src="https://xgh5.someet.cc/day.png" width="100%" alt="">
+							</div>
+							<div v-show="daySelect == 2">
+								<img src="https://xgh5.someet.cc/day.png" width="100%" alt="">
+							</div>
+							<div v-show="daySelect == 3">
+								<img src="https://xgh5.someet.cc/day.png" width="100%" alt="">
+							</div>
+						</div>
+						<div class="mob-day-container-img">
+							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(0)">
+								1
+							</div>
+							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(1)">
+								2
+							</div>
+							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(2)">
+								3
+							</div>
+							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(3)">
+								4
+							</div>
+						</div>
+					</div>
+					<div class="mob-day-content">
+						<img width="100%" src="https://xgh5.someet.cc/act.png" alt="" v-show="daySelect == 0">
+						<img width="100%" src="https://xgh5.someet.cc/act.png" alt="" v-show="daySelect == 1">
+						<img width="100%" src="https://xgh5.someet.cc/act.png" alt="" v-show="daySelect == 2">
+						<img width="100%" src="https://xgh5.someet.cc/act.png" alt="" v-show="daySelect == 3">
+					</div>
+				</div>
+			</div>
+			<!-- 活动日程结束 -->
 			<img src="https://xgh5.someet.cc/718-4.jpg" style="display: block;" alt="" width="100%">
 			
 			<div class="mob-slideBox" v-show="Imgcomplete==true">
@@ -73,6 +118,21 @@
 			<div class='mob-positionBlock' id='mob-rule_pc' @click="goRule">
 				这是分界线
 			</div>
+			<!-- banner -->
+			<div class="mob-banner-div">
+				<div class="mob-banner-swiper">
+					<!-- https://xgh5.someet.cc/xgposter.jpg -->
+					<swiper id='BannerSwiper' ref='BannerSwiper' v-if="complete==true" :options="swiperOptionForBanner">
+						<swiper-slide class='swiper1-video'>
+							<img src="https://xgh5.someet.cc/xgposter.jpg" width="100%" alt="">
+						</swiper-slide>
+						<swiper-slide class='swiper1-video'>
+							<img src="https://xgh5.someet.cc/xgposter.jpg" width="100%" alt="">
+						</swiper-slide>
+					</swiper>
+				</div>
+			</div>
+			<!-- banner -->
 			<!-- video-swiper -->
 			<div id='videoBottom' class="imgBoxImg relativeBox" v-show="imgList.xgPlayMedias.isShow  && Imgcomplete==true && complete == true">
 				<div class="swiper2" v-if="complete == true" v-show="imgList.xgPlayMedias.isShow">
@@ -213,13 +273,17 @@
       data () {
 		  var that = this
         return {
+			daySelect:0,
 			complete:false,
-			DayIndex:1,
 			DayList:[],//活动日程
 			imgList:[],//页面图片集合
 			swiperOption: {//swiper3
 			  autoplay: true,
 			  speed: 1000,
+			},
+			swiperOptionForBanner:{
+				autoplay: false,
+				speed: 2000,
 			},
 			swiperOptionForMedia:{
 				autoplay: false,
@@ -339,7 +403,8 @@
 			},
 			//活动日程切换
 			changeDay(index){
-				 this.DayIndex = index
+				 this.daySelect = index
+				 console.log(this.daySelect)
 			},
 			//图片加载完成
 			imgLoad(){
@@ -602,7 +667,7 @@
 	#videoBottom{
 		position: absolute;
 		width: 100%;
-		top: 80.3%;
+		top: 85.3%;
 	}
 	#topMenuForPc{
 		width: 100%;
@@ -684,7 +749,7 @@
 		height: 0.6%;
 		position: absolute;
 		background-color: white;
-		top: 78.1%;
+		top: 79.5%;
 		left: 0.8%;
 		right: 0;
 		margin: 0 auto;
@@ -693,18 +758,18 @@
 		text-align: center;
 	}
 	#mob-what_pc{
-		top: 26%;
+		top: 24%;
 	}
 	#mob-where_pc{
-		top:44.1%;
+		top:41.1%;
 	}
 	#mob-who_pc{
-		top:69.9%;
+		top:72.4%;
 	}
 	.mob-imgBoxImg_pc{
 		width: 87.8%;
 		position: absolute;
-		top: 15.3%;
+		top: 14.3%;
 		left: -0.6%;
 		right: 0;
 		margin: 0 auto;
@@ -791,6 +856,33 @@
 		100% {
 			top: calc(0.57rem * 4);
 		}
+	}
+	.mob-day-main{
+		width: 100%;height: 25rem;border: 1px solid #FF0000;box-sizing: border-box;position: relative;
+	}
+	.mob-day-main .mob-day-box{
+		width: 90%;height: 100%;border: 1px solid green;box-sizing: border-box;position: absolute;left:5%;right: 5%;
+	}
+	.mob-day-box .mob-day-title{
+		width: 100%;height: 3rem;background-color: palegreen;text-align: center;
+	}
+	.mob-day-container{
+		width: 100%;height: 3rem;background-color: brown;text-align: center;position: relative;
+	}
+	.mob-day-container-btn{
+		position: absolute;top:0;width: 100%;
+	}
+	.mob-day-container-img{
+		position: absolute;top:0;width: 100%;z-index:2;background-color: #42B983;display: flex;height: 100%;
+	}
+	.mob-day-content{
+		overflow: scroll;height: 75%;
+	}
+	.mob-banner-div{
+		width: 100%;position: absolute;top:81.3%;box-sizing: border-box;
+	}
+	.mob-banner-swiper{
+		width: 85%;margin: 0 auto;box-sizing: border-box;
 	}
 </style>
 <style scoped>
