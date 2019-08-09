@@ -398,8 +398,7 @@
 					this.player2.pause();
 					this.player3.pause();
 					this.player4.pause();
-				}
-				
+				}	
 			},
 			//活动日程切换
 			changeDay(index){
