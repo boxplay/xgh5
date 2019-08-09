@@ -85,7 +85,6 @@
 				</div>
 			</div>
 			<!-- 顶部悬浮框结束 -->
-			
 			<!-- 15秒了解视屏 如果明天换图则去掉style-->
 			<div class="mob-imgBoxImg_pc" v-show="imgList.xgPlayVideoTop.isShow && Imgcomplete==true && complete==true">
 				<div class="videoBox1" @click="playVideo('top',0)">
