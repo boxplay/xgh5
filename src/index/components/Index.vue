@@ -39,6 +39,21 @@
 			<div class='positionBlock' id='rule_pc' @click="goRule">
 				这是分界线
 			</div>
+			<!-- banner -->
+			<div class="pc-banner-div">
+				<div class="pc-banner-swiper">
+					<!-- https://xgh5.someet.cc/xgposter.jpg -->
+					<swiper id='BannerSwiper' ref='BannerSwiper' v-if="complete==true" :options="swiperOptionForBanner">
+						<swiper-slide class='swiper1-video'>
+							<img src="https://xgh5.someet.cc/xgposter.jpg" width="100%" alt="">
+						</swiper-slide>
+						<swiper-slide class='swiper1-video'>
+							<img src="https://xgh5.someet.cc/xgposter.jpg" width="100%" alt="">
+						</swiper-slide>
+					</swiper>
+				</div>
+			</div>
+			<!-- banner -->
 			<!-- 活动日程开始 -->
 			<div class="pc-day-main">
 				<div class="pc-day-box">
