@@ -44,4 +44,10 @@ export default {
     height: 1px;
     overflow: hidden;
 }
+.scrollbar-rail > .scroll-element .scroll-bar{
+	background-color: red;
+}
+.scrollbar-rail > .scroll-element.scroll-y .scroll-bar{
+	max-height: 40px;
+}
 </style>

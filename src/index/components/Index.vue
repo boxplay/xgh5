@@ -76,7 +76,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="pc-day-content">
+					<div class="pc-day-content scrollbar-rail">
 						<img width="100%" src="https://xgh5.someet.cc/act22.png" alt="" v-show="daySelect == 0">
 						<img width="100%" src="https://xgh5.someet.cc/act23.png" alt="" v-show="daySelect == 1">
 						<img width="100%" src="https://xgh5.someet.cc/act25.png" alt="" v-show="daySelect == 2">
@@ -339,6 +339,11 @@
 				//获取屏幕宽度
 				this.swiper.init()
 				// this.swiperOptionForMedia.coverflowEffect.stretch = (this.screenWidth/10) * -1
+				this.$nextTick(function(){
+					$(document).ready(function(){
+					    $('.scrollbar-rail').scrollbar();
+					});
+				})
 			},
 			playVideo(pos,index){
 				console.log('开始播放',index+'-----'+pos)
