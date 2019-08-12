@@ -595,10 +595,6 @@
 		top: 12%;
 		position: absolute;
 		text-align: center;
-		/* background: -webkit-linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.6));
-		background: -o-linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.6));
-		background: -moz-linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.6));
-		background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.6)); */
 	}
 	.mob-slideBoxList{
 		margin:0 auto;
