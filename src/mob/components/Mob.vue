@@ -8,25 +8,25 @@
 		<div class="mob-main relativeBox mobCss" ref='main' v-if="complete==true">
 			<img src="https://xgh5.someet.cc/718-1.jpg" @load="imgLoad" style="display: block;" alt="" width="100%">
 			<img src="https://xgh5.someet.cc/718-2.jpg" style="display: block;" alt="" width="100%">
-			<img src="https://xgh5.someet.cc/811-3.jpg" style="display: block;" alt="" width="100%">
+			<img src="https://xgh5.someet.cc/812-3.jpg" style="display: block;" alt="" width="100%">
 			<!-- 活动日程开始 -->
 			<div class="mob-day-main">
+				<div>
+					<img src="https://xgh5.someet.cc/812-day.jpg" alt="" width="">
+				</div>
 				<div class="mob-day-box">
-					<div class="mob-day-title">
-						活动日程
-					</div>
 					<div class="mob-day-container">
 						<div class="mob-day-container-img">
-							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(0)">
+							<div @click="changeDay(0)">
 								<img :src="daySelect == 0?'https://xgh5.someet.cc/day22_red.png':'https://xgh5.someet.cc/day22.png'" width="100%" alt="">
 							</div>
-							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(1)">
+							<div  @click="changeDay(1)">
 								<img :src="daySelect == 1?'https://xgh5.someet.cc/day23_red.png':'https://xgh5.someet.cc/day23.png'" width="100%" alt="">
 							</div>
-							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(2)">
+							<div @click="changeDay(2)">
 								<img :src="daySelect == 2?'https://xgh5.someet.cc/day24_red.png':'https://xgh5.someet.cc/day24.png'" width="100%" alt="">
 							</div>
-							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(3)">
+							<div @click="changeDay(3)">
 								<img :src="daySelect == 3?'https://xgh5.someet.cc/day25_red.png':'https://xgh5.someet.cc/day25.png'" width="100%" alt="">
 							</div>
 						</div>
@@ -34,13 +34,13 @@
 					<div class="mob-day-content scrollbar-rail">
 						<img width="100%" src="https://xgh5.someet.cc/act22.png" alt="" v-show="daySelect == 0">
 						<img width="100%" src="https://xgh5.someet.cc/act23.png" alt="" v-show="daySelect == 1">
-						<img width="100%" src="https://xgh5.someet.cc/act24.png" alt="" v-show="daySelect == 2">
+						<img width="100%" src="https://xgh5.someet.cc/act24.jpg" alt="" v-show="daySelect == 2">
 						<img width="100%" src="https://xgh5.someet.cc/act25.png" alt="" v-show="daySelect == 3">
 					</div>
 				</div>
 			</div>
 			<!-- 活动日程结束 -->
-			<img src="https://xgh5.someet.cc/718-4.jpg" style="display: block;" alt="" width="100%">
+			<img src="https://xgh5.someet.cc/812-4.jpg" style="display: block;" alt="" width="100%">
 			
 			<div class="mob-slideBox" v-show="Imgcomplete==true">
 				<div class="mob-slideBoxList">
@@ -109,10 +109,10 @@
 					<!-- https://xgh5.someet.cc/xgposter.jpg -->
 					<swiper id='BannerSwiper' ref='BannerSwiper' v-if="complete==true" :options="swiperOptionForBanner">
 						<swiper-slide class='swiper1-video'>
-							<img src="https://xgh5.someet.cc/xgposter.jpg" width="100%" alt="">
+							<img src="https://xgh5.someet.cc/ft_mobile.jpg" width="100%" alt="">
 						</swiper-slide>
 						<swiper-slide class='swiper1-video'>
-							<img src="https://xgh5.someet.cc/xgposter.jpg" width="100%" alt="">
+							<img src="https://xgh5.someet.cc/ss.jpg" width="100%" alt="">
 						</swiper-slide>
 					</swiper>
 				</div>
@@ -122,13 +122,10 @@
 			<div id='videoBottom' class="imgBoxImg relativeBox" v-show="imgList.xgPlayMedias.isShow  && Imgcomplete==true && complete == true">
 				<div class="swiper2" v-if="complete == true" v-show="imgList.xgPlayMedias.isShow">
 					<div class="videoBox1" @click="playVideo('bottom',0)">
-						<div class="vPage" id='vPage' style="position: absolute;">
-							
-						</div>
 						<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin"
 						ref="videoPlayerBottom0"
 						:playsinline="true"
-						:options="imgList.xgPlayVideoTop.options"
+						:options="imgList.xgPlayMedias.options[0]"
 						></video-player>
 					</div>
 				</div>
@@ -463,10 +460,10 @@
 	}
 	#videoBottom{
 		position: absolute;
-		width: 70%;
-		top: 85.3%;
-		left: 15%;
-		right: 15%;
+		width: 88%;
+		top: 84%;
+		left: 6%;
+		right: 6%;
 	}
 	#topMenuForPc{
 		width: 100%;
@@ -568,7 +565,7 @@
 	.mob-imgBoxImg_pc{
 		width: 87.8%;
 		position: absolute;
-		top: 15.3%;
+		top: 14.25%;
 		left: -0.6%;
 		right: 0;
 		margin: 0 auto;
@@ -657,49 +654,46 @@
 		}
 	}
 	.mob-day-main{
-		width: 100%;height: 25rem;box-sizing: border-box;
-		position: absolute;
+		width: 100%;box-sizing: border-box;
+		position: relative;
 	}
 	.mob-day-main .mob-day-box{
-		width: 90%;
+		width: 82%;
 		height: 100%;
-		border: 1px solid green;
-		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
-		border: 5px solid red;
-		border-radius: 1rem;
+		box-sizing: border-box;
 		margin: 0 auto;
 	}
 	.mob-day-box{
 		position: absolute;
-		left:5%;
-		right: 5%;
-		top:0%;
+		left:9%;
+		right: 9%;
+		top:40%;
 	}
 	.mob-day-box .mob-day-title{
 		width: 100%;height: 3rem;background-color: palegreen;text-align: center;
-		border-radius: 0.6rem 0.6rem 0rem 0rem;
+		/* border-radius: 0.6rem 0.6rem 0rem 0rem; */
 		overflow-x:hidden; 
 	}
 	.mob-day-container{
-		width: 100%;background-color: brown;text-align: center;position: relative;
+		width: 100%;text-align: center;position: relative;
 	}
 	.mob-day-container-btn{
 		position: absolute;top:0;width: 100%;
 	}
 	.mob-day-container-img{
-		width: 100%;z-index:2;background-color: #42B983;display: flex;height: 100%;
+		width: 100%;z-index:2;display: flex;height: 100%;
 	}
 	.mob-day-content{
 		overflow: hidden;
-		overflow-y: scroll;height: 73%;
-		border-radius: 0rem 0rem 0.6rem 0.6rem;
+		overflow-y: scroll;height: 44%;
+		/* border-radius: 0rem 0rem 0.6rem 0.6rem; */
 	}
 	.mob-banner-div{
-		width: 100%;position: absolute;top:81.3%;box-sizing: border-box;
+		width: 100%;position: absolute;top:81.7%;box-sizing: border-box;
 	}
 	.mob-banner-swiper{
-		width: 85%;margin: 0 auto;box-sizing: border-box;
+		width: 89%;margin: 0 auto;box-sizing: border-box;
 	}
 </style>
 <style scoped>
@@ -707,5 +701,8 @@
 		width: 100%;
 		max-width: 700px;
 		margin: 0 auto;
+	}
+	.mob-main img{
+		display: block;
 	}
 </style>

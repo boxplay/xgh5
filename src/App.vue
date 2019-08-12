@@ -45,9 +45,20 @@ export default {
     overflow: hidden;
 }
 .scrollbar-rail > .scroll-element .scroll-bar{
-	background-color: red;
+	background-color: rgb(159,45,219);
 }
 .scrollbar-rail > .scroll-element.scroll-y .scroll-bar{
 	max-height: 40px;
+	max-width: 6px;
+	left: 2px;
+}
+.scrollbar-rail > .scroll-element.scroll-y .scroll-element_outer{
+	width:10px;
+}
+.scrollbar-rail > .scroll-element.scroll-y{
+	padding: 0px 2px 0px 0px;
+}
+.scrollbar-rail > .scroll-content.scroll-scrolly_visible{
+	left: -10px;
 }
 </style>
