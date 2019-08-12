@@ -43,7 +43,7 @@
 			<div class="pc-banner-div">
 				<div class="pc-banner-swiper">
 					<div>
-						<img src="https://xgh5.someet.cc/ft_pc.jpg" width="100%" alt="">
+						<a href="https://www.toutiao.com/i6721317691421901326/"><img src="https://xgh5.someet.cc/ft_pc.jpg" width="100%" alt=""></a>
 					</div>
 				</div>
 			</div>
@@ -67,7 +67,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="pc-day-content scrollbar-rail">
+					<div class="pc-day-content scrollbar-rail" :class="daySelect == 0 || daySelect == 2?'scroll-scrolly_visible':''">
 						<img width="100%" src="https://xgh5.someet.cc/act22.png" alt="" v-show="daySelect == 0">
 						<img width="100%" src="https://xgh5.someet.cc/act23.png" alt="" v-show="daySelect == 1">
 						<img width="100%" src="https://xgh5.someet.cc/act24.jpg" alt="" v-show="daySelect == 2">

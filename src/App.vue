@@ -61,4 +61,10 @@ export default {
 .scrollbar-rail > .scroll-content.scroll-scrolly_visible{
 	left: -10px;
 }
+* { -webkit-tap-highlight-color: rgba(0,0,0,0); } 
+a,button,input,span{ 
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);    
+	outline: none;
+	border:none;
+}
 </style>

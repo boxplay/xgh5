@@ -31,7 +31,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="mob-day-content scrollbar-rail">
+					<div class="mob-day-content scrollbar-rail" :class="daySelect == 0 || daySelect == 2?'scroll-scrolly_visible':''">
 						<img width="100%" src="https://xgh5.someet.cc/act22.png" alt="" v-show="daySelect == 0">
 						<img width="100%" src="https://xgh5.someet.cc/act23.png" alt="" v-show="daySelect == 1">
 						<img width="100%" src="https://xgh5.someet.cc/act24.jpg" alt="" v-show="daySelect == 2">
@@ -50,7 +50,7 @@
 					<div class="mob-chevron"></div>
 				</div>
 			</div>
-			<div ref='topMennuFormobBox' id='topMennuFormobBox' v-show="complete==true &&  Imgcomplete==true" style="position: absolute;top: 13%">
+			<div ref='topMennuFormobBox' id='topMennuFormobBox' v-show="complete==true &&  Imgcomplete==true" style="position: absolute;top: 12.8%">
 				<div id="topMennuFormob" :class="menuTop?'mob-fixedMenu':'mob-relativeMenu'" style="max-width: 700px;">
 					<div style="width: 100%;position: relative;">
 						<img id='imgHeight' v-show="goWhere == 'who'" src="https://xgh5.someet.cc/who.png" alt="" width="100%" ref='imgHeight'>
@@ -109,10 +109,10 @@
 					<!-- https://xgh5.someet.cc/xgposter.jpg -->
 					<swiper id='BannerSwiper' ref='BannerSwiper' v-if="complete==true" :options="swiperOptionForBanner">
 						<swiper-slide class='swiper1-video'>
-							<img src="https://xgh5.someet.cc/ft_mobile.jpg" width="100%" alt="">
+							<a href="https://www.toutiao.com/i6721317691421901326/"><img src="https://xgh5.someet.cc/ft_mobile.jpg" width="100%" alt=""></a>
 						</swiper-slide>
 						<swiper-slide class='swiper1-video'>
-							<img src="https://xgh5.someet.cc/ss.jpg" width="100%" alt="">
+							<a href="https://www.ixigua.com/i6719331585704854024/"><img src="https://xgh5.someet.cc/ss.jpg" width="100%" alt=""></a>
 						</swiper-slide>
 					</swiper>
 				</div>
@@ -158,6 +158,7 @@
 			swiperOptionForBanner:{
 				autoplay: true,
 				speed: 2000,
+				loop : true,
 			},
 			playerOptions : [],
 			menuTop:false,
@@ -394,6 +395,9 @@
     }
 </script>
 <style scope>
+	.smallWidth{
+		width: 100%;
+	}
 	.videoBox1{
 		position: relative;
 	}
@@ -542,10 +546,10 @@
 	}
 	.mob-positionBlock{
 		width: 26%;
-		height: 0.6%;
+		height: 1%;
 		position: absolute;
 		background-color: white;
-		top: 79.5%;
+		top: 80.2%;
 		left: 0.8%;
 		right: 0;
 		margin: 0 auto;
@@ -686,11 +690,11 @@
 	}
 	.mob-day-content{
 		overflow: hidden;
-		overflow-y: scroll;height: 44%;
+		overflow-y: scroll;height: 40%;
 		/* border-radius: 0rem 0rem 0.6rem 0.6rem; */
 	}
 	.mob-banner-div{
-		width: 100%;position: absolute;top:81.7%;box-sizing: border-box;
+		width: 100%;position: absolute;top:81.75%;box-sizing: border-box;
 	}
 	.mob-banner-swiper{
 		width: 89%;margin: 0 auto;box-sizing: border-box;

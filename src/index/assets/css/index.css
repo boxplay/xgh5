@@ -185,7 +185,7 @@
   margin-top: -1em !important
 }
 .pc-day-main{
-	width: 100%;height: 40rem;box-sizing: border-box;position: absolute;
+	width: 100%;height: 7.5%;box-sizing: border-box;position: absolute;
 	top:51.3%;
 }
 .pc-day-main .pc-day-box{
@@ -208,7 +208,7 @@
 }
 .pc-day-content{
 	overflow: hidden;
-	overflow-y: scroll;height: 82%;
+	overflow-y: scroll;height: 83%;
 	border-radius: 0rem;
 }
 .pc-banner-div{
