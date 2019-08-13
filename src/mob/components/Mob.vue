@@ -153,7 +153,7 @@
 			imgList:[],//页面图片集合
 			swiperOption: {//swiper3
 			  autoplay: true,
-			  speed: 1000,
+			  speed: 1000
 			},
 			swiperOptionForBanner:{
 				autoplay: true,
