@@ -10,9 +10,6 @@
 			<!-- 15秒了解视屏 如果明天换图则去掉style-->
 			<div class="imgBoxImg_pc" v-show="imgList.xgPlayVideoTop.isShow">
 				<div class="videoBox1">
-					<!-- <iframe :src="imgList.xgPlayVideoTop.val[0]" frameborder="0" allowfullscreen="true">
-						
-					</iframe> -->
 					<video-player  class="video-player vjs-custom-skin"
 					ref="videoPlayerTop"
 					:playsinline="true"

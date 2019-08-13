@@ -120,8 +120,11 @@
 			<!-- banner -->
 			<!-- video-swiper -->
 			<div id='videoBottom' class="imgBoxImg relativeBox" v-show="imgList.xgPlayMedias.isShow  && Imgcomplete==true && complete == true">
-				<div class="swiper2" v-if="complete == true" v-show="imgList.xgPlayMedias.isShow">
-					<div class="videoBox1" @click="playVideo('bottom',0)">
+				<div class="swiper2" @click="playVideo('bottom',0)" v-if="complete == true" v-show="imgList.xgPlayMedias.isShow">
+					<div class="vPage" id='vPage' style="position: absolute;">
+						
+					</div>
+					<div class="videoBox1">
 						<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin"
 						ref="videoPlayerBottom0"
 						:playsinline="true"
@@ -200,7 +203,6 @@
 					}else if(pos == 'bottom'){
 						this.videoPlayIndex = index
 						this.playerTop.pause();
-						this.swiper.autoplay.stop()
 						if(index == 0){
 							this.player0.play();
 						}
@@ -208,6 +210,7 @@
 				}else{
 					this.isPlayTop = 0
 					this.playerTop.pause();
+					this.player0.pause();
 				}	
 			},
 			//活动日程切换
@@ -246,6 +249,7 @@
 				var videoTop = document.querySelector('#mob-what_pc').offsetTop
 				if(scrollTop > videoTop){
 					this.playerTop.pause()
+					this.isPlayTop = 0;
 				}
 				if(this.imgList.xgPlayMedias.isShow){
 					var videoBottom = document.querySelector('#videoBottom').clientHeight
@@ -253,6 +257,7 @@
 					if(scrollTop < (pauseTop - videoBottom)){
 						//停止下面的播放器
 						this.player0.pause();
+						this.isPlayTop = 0;
 					}
 				}
 			},
