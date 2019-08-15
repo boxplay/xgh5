@@ -136,10 +136,10 @@
 			<!-- video-swiper -->
 		</div>
 		<!-- 预约抢票 -->
-		<div id='goTicket' @click="goTicket" class='goTicket' v-show='Imgcomplete==true'>
+		<!-- <div id='goTicket' @click="goTicket" class='goTicket' v-show='Imgcomplete==true'> -->
 		<!-- <span style='margin-top:0.6rem;'>预约</span><span>抢票</span> -->
-			<img src="https://xgh5.someet.cc/goTicket.png" width="100%" alt="">
-		</div>
+			<!-- <img src="https://xgh5.someet.cc/goTicket.png" width="100%" alt="">
+		</div> -->
 		<!-- 预约抢票 -->
 	</div>
 </template>
