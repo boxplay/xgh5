@@ -348,7 +348,7 @@
 				that.$nextTick(function(){
 					that.screenWidth = that.$refs.main.clientWidth?that.$refs.main.clientWidth:'414'
 					var w = that.screenWidth - 20
-					document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
+					// document.getElementById('goTicket').style.right = 'calc(50% - '+w/2+'px)'
 					window.addEventListener('scroll', that.handleScroll)
 					if(that.isInIOS()){
 						window.addEventListener('touchmove',that.handleScroll)
