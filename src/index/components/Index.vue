@@ -102,6 +102,9 @@
 			<div class="menuChildBox child-right">
 				<!-- 四个选择项 -->
 				<div class="menu-list-mob-pc">
+					<span>
+						<!-- <img src="https://xgh5planb.someet.cc/btn/goTicket_btn_blue.png" alt="" width="100%"> -->
+					</span>
 					<span @click="goPoint('what')">
 						<img v-show="goWhere!='what'" src="https://xgh5.someet.cc/btn/what_btn.png" alt="" width="100%">
 						<img v-show="goWhere=='what'" src="https://xgh5.someet.cc/btn/what_btn_blue.png" alt="" width="100%">
@@ -114,13 +117,13 @@
 						<img v-show="goWhere!='who'" src="https://xgh5.someet.cc/btn/who_btn.png" alt="" width="100%">
 						<img v-show="goWhere=='who'" src="https://xgh5.someet.cc/btn/who_btn_blue.png" alt="" width="100%">
 					</span>
-					<span @click="goTicket">
-						<img src="https://xgh5.someet.cc/btn/goTicket_btn_blue.png" alt="" width="100%">
-					</span>
+					<!-- <span> -->
+						<!-- <img src="https://xgh5.someet.cc/btn/goTicket_btn_blue.png" alt="" width="100%"> -->
+					<!-- </span> -->
 				</div>
 			</div>
-			<div class="menuChildBox child-blank">
-			</div>
+			<!-- <div class="menuChildBox child-blank">
+			</div> -->
 		</div>
 	</div>
 </template>
