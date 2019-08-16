@@ -285,7 +285,29 @@
 				}
 			},
 			goRule(){
-				window.location.href='sslocal://webcast_webview?url=https://webcast.ixigua.com/falcon/xigua_activity/xigua_play_2019.html&hide_nav_bar=1&status_bar_color=white&status_bar_bg_color=#00000000'
+				if(this.openInWebview()){
+					window.location.href='sslocal://webcast_webview?url=https://webcast.ixigua.com/falcon/xigua_activity/xigua_play_2019.html&hide_nav_bar=1&status_bar_color=white&status_bar_bg_color=#00000000'
+				}else{
+					window.location.href='https://d.toutiao.com/k99/';
+				}
+			},
+			openInWebview () {
+				var ua = navigator.userAgent.toLowerCase()
+				if (ua.match(/MicroMessenger/i) == 'micromessenger') { // 微信浏览器判断
+					return false
+				} else if (ua.match(/QQ/i) == 'qq') { // QQ浏览器判断
+					return false
+				} else if (ua.match(/WeiBo/i) == "weibo") {
+					return false
+				} else {
+					if (ua.match(/Android/i) != null) {
+						return ua.match(/browser/i) == null
+					} else if (ua.match(/iPhone/i) != null) {
+						return ua.match(/safari/i) == null
+					} else {
+						return (ua.match(/macintosh/i) == null && ua.match(/windows/i) == null)
+					}
+				}
 			},
 			scrollEvent(type){//导航栏滚动事件
 				if(this._isMobile()){
