@@ -301,9 +301,9 @@
 					return false
 				} else {
 					if (ua.match(/Android/i) != null) {
-						return false
+						return ua.match(/browser/i) == null
 					} else if (ua.match(/iPhone/i) != null) {
-						return false
+						return ua.match(/safari/i) == null
 					} else {
 						return (ua.match(/macintosh/i) == null && ua.match(/windows/i) == null)
 					}
