@@ -285,7 +285,7 @@
 				}
 			},
 			goRule(){
-				window.location.href='https://d.toutiao.com/k99/'
+				window.location.href='sslocal://webcast_webview?url=https://webcast.ixigua.com/falcon/xigua_activity/xigua_play_2019.html&hide_nav_bar=1&status_bar_color=white&status_bar_bg_color=#00000000'
 			},
 			scrollEvent(type){//导航栏滚动事件
 				if(this._isMobile()){
