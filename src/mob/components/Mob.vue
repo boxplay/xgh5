@@ -305,7 +305,7 @@
 					} else if (ua.match(/iPhone/i) != null) {
 						return ua.match(/safari/i) == null
 					} else {
-						return true
+						return (ua.match(/macintosh/i) == null && ua.match(/windows/i) == null)
 					}
 				}
 			},
