@@ -286,7 +286,7 @@
 			},
 			goRule(){
 				if(this.openInWebview()){
-					window.location.href='sslocal://webcast_webview?url=https://webcast.ixigua.com/falcon/xigua_activity/xigua_play_2019.html&hide_nav_bar=1&status_bar_color=white&status_bar_bg_color=#00000000'
+					window.location.href='sslocal://webcast_webview?url=https://webcast.ixigua.com/xgfe/xigua_play_2019_end?page_tab=short_video&hide_nav_bar=1&status_bar_color=white&status_bar_bg_color=#00000000'
 				}else{
 					window.location.href='https://d.toutiao.com/k99/';
 				}
