@@ -54,11 +54,11 @@
 		],
 		"options":[
 				{
-					"poster": "https://xgh5.someet.cc/ftposter_mobile.jpg",
+					"poster": "https://xgh5.someet.cc/905-poster.jpg",
 					"aspectRatio": "16:9",
 					"preload":"none",
 					"sources": [{
-						"src": "https://xgh5.someet.cc/ft.mp4",
+						"src": "https://xgh5.someet.cc/905.mp4",
 						"type": "video/mp4" 
 					}]
 				}
