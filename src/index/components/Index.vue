@@ -6,7 +6,7 @@
 			</div>
 		</div>
 		<div class="main relativeBox" style="min-width: 1200px;margin-top: 5%;" ref='main' v-if="complete==true">
-			<img src="https://xgh5.someet.cc/812-pc.jpg" @load="imgLoad" style="display: block;" alt="" width="100%">
+			<img src="https://xgh5.someet.cc/905-pc.jpg" @load="imgLoad" style="display: block;" alt="" width="100%">
 			<!-- 15秒了解视屏 如果明天换图则去掉style-->
 			<div class="imgBoxImg_pc" v-show="imgList.xgPlayVideoTop.isShow">
 				<div class="videoBox1">
@@ -37,13 +37,13 @@
 				这是分界线
 			</div>
 			<!-- banner -->
-			<div class="pc-banner-div">
+			<!-- <div class="pc-banner-div">
 				<div class="pc-banner-swiper">
 					<div>
 						<a href="https://www.toutiao.com/i6721317691421901326/"><img src="https://xgh5.someet.cc/ft_pc.jpg" width="100%" alt=""></a>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- banner -->
 			<!-- 活动日程开始 -->
 			<div class="pc-day-main">
@@ -154,11 +154,11 @@
 			videoPlayIndex:'',
 			swiperInit:false,
 			xgPlayMedias:{
-				"poster": "https://xgh5.someet.cc/ftposter.jpg",
+				"poster": "https://xgh5.someet.cc/905-poster.jpg",
 				"aspectRatio": "16:9",
 				"preload":"none",
 				"sources": [{
-					"src": "https://xgh5.someet.cc/ft.mp4",
+					"src": "https://xgh5.someet.cc/905.mp4",
 					"type": "video/mp4" 
 				}]
 			},
