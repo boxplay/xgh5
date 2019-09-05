@@ -40,7 +40,7 @@
 				</div>
 			</div>
 			<!-- 活动日程结束 -->
-			<img src="https://xgh5.someet.cc/812-4.jpg" style="display: block;" alt="" width="100%">
+			<img src="https://xgh5.someet.cc/905-4.jpg" style="display: block;" alt="" width="100%">
 			
 			<div class="mob-slideBox" v-show="Imgcomplete==true">
 				<div class="mob-slideBoxList">
@@ -104,9 +104,8 @@
 				这是分界线
 			</div>
 			<!-- banner -->
-			<div class="mob-banner-div">
+			<!-- <div class="mob-banner-div">
 				<div class="mob-banner-swiper">
-					<!-- https://xgh5.someet.cc/xgposter.jpg -->
 					<swiper id='BannerSwiper' ref='BannerSwiper' v-if="complete==true" :options="swiperOptionForBanner">
 						<swiper-slide class='swiper1-video'>
 							<a href="https://www.toutiao.com/i6721317691421901326/"><img src="https://xgh5.someet.cc/ft_mobile.jpg" width="100%" alt=""></a>
@@ -116,7 +115,7 @@
 						</swiper-slide>
 					</swiper>
 				</div>
-			</div>
+			</div> -->
 			<!-- banner -->
 			<!-- video-swiper -->
 			<div id='videoBottom' class="imgBoxImg relativeBox" v-show="imgList.xgPlayMedias.isShow  && Imgcomplete==true && complete == true">
@@ -478,7 +477,7 @@
 	#videoBottom{
 		position: absolute;
 		width: 88%;
-		top: 84%;
+		top: 83.4%;
 		left: 6%;
 		right: 6%;
 	}
@@ -562,7 +561,7 @@
 		height: 1%;
 		position: absolute;
 		background-color: white;
-		top: 80.2%;
+		top: 81.5%;
 		left: 0.8%;
 		right: 0;
 		margin: 0 auto;
@@ -577,12 +576,12 @@
 		top:41.1%;
 	}
 	#mob-who_pc{
-		top:72.4%;
+		top:74%;
 	}
 	.mob-imgBoxImg_pc{
 		width: 87.8%;
 		position: absolute;
-		top: 14.25%;
+		top: 14.5%;
 		left: -0.6%;
 		right: 0;
 		margin: 0 auto;
