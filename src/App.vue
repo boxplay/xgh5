@@ -1,9 +1,9 @@
 <template>
   <div id="app">
 		<div id='blankText'>
-			西瓜PLAY视频嘉年华是西瓜视频年度最大规模的线下品牌活动，是国内视频行业最全面、最先锋、最有趣的嘉年华盛会，也是链接行业、创作人与用户的桥梁。
-			2019年西瓜PLAY全面升级——海上邮轮嘉年华，8月22日-8月26日，将满载数千名视频创作人、明星大咖、行业领袖在上海起航。
-			「2019 西瓜PLAY」与首席共创伙伴「福特领界」一起驾着「创作人方舟，领你看世界」！
+			西瓜 PLAY 视频嘉年华是西瓜视频年度最大规模的品牌活动，通过活动将西瓜视频站内的优质创作人和丰富内容展现给消费者，为创作人提供一个彼此交流共创的自由空间，以及和粉丝了解互动的机会。
+今年的「西瓜 PLAY」全面升级为海上邮轮嘉年华，8月22日-8月26日，将满载数千名视频创作人、明星大咖、行业领袖与幸运粉丝在上海起航。
+「2019 西瓜PLAY」与首席共创伙伴「福特领界」一起乘着「创作人方舟，领你看世界」！
 		</div>
 		<keep-alive>
 			<router-view />
@@ -43,5 +43,11 @@ export default {
     width: 1px;
     height: 1px;
     overflow: hidden;
+}
+.scrollbar-rail > .scroll-element .scroll-bar{
+	background-color: red;
+}
+.scrollbar-rail > .scroll-element.scroll-y .scroll-bar{
+	max-height: 40px;
 }
 </style>

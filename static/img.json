@@ -51,40 +51,62 @@
 	},
 	"xgPlayMedias":{
 		"val":[
-			"https://i.snssdk.com/videofe/xigua/detail?group_id=6661814481565254158",
-			"https://i.snssdk.com/videofe/xigua/detail?group_id=6661814481565254158",
-			"https://i.snssdk.com/videofe/xigua/detail?group_id=6661814481565254158"
+		],
+		"title":[
+			"「创作人请回答」第一期",
+			"「创作人请回答」第二期",
+			"「创作人请回答」第三期",
+			"「创作人请回答」第四期",
+			"「创作人请回答」第五期"
 		],
 		"options":[
 				{
-					"poster": "https://xgh5.someet.cc/xgposter.jpg",
+					"poster": "https://xgh5.someet.cc/718poster.jpg",
 					"aspectRatio": "16:9",
 					"preload":"none",
 					"sources": [{
-						"src": "https://xgh5.someet.cc/15.mp4",
+						"src": "https://xgh5.someet.cc/1.mp4",
 						"type": "video/mp4" 
 					}]
 				},
 				{
-					"poster": "https://xgh5.someet.cc/xgposter.jpg",
+					"poster": "https://xgh5.someet.cc/718poster.jpg",
 					"aspectRatio": "16:9",
 					"preload":"none",
 					"sources": [{
-						"src": "https://xgh5.someet.cc/15.mp4",
+						"src": "https://xgh5.someet.cc/2.mp4",
 						"type": "video/mp4" 
 					}]
 				},
 				{
-					"poster": "https://xgh5.someet.cc/xgposter.jpg",
+					"poster": "https://xgh5.someet.cc/718poster.jpg",
 					"aspectRatio": "16:9",
 					"preload":"none",
 					"sources": [{
-						"src": "https://xgh5.someet.cc/15.mp4",
+						"src": "https://xgh5.someet.cc/3.mp4",
+						"type": "video/mp4" 
+					}]
+				},
+				{
+					"poster": "https://xgh5.someet.cc/718poster.jpg",
+					"aspectRatio": "16:9",
+					"preload":"none",
+					"sources": [{
+						"src": "https://xgh5.someet.cc/4.mp4",
+						"type": "video/mp4" 
+					}]
+				},
+				{
+					"poster": "https://xgh5.someet.cc/718poster.jpg",
+					"aspectRatio": "16:9",
+					"preload":"none",
+					"sources": [{
+						"src": "https://xgh5.someet.cc/5.mp4",
 						"type": "video/mp4" 
 					}]
 				}
 			],
-		"isShow":0
+		"isShow":1
 	},
 	"xgPlayHzLogo":{
 		"val":["http://xgh5.someet.cc/foot.png"],

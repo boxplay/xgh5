@@ -8,7 +8,7 @@
 		<div class="mob-main relativeBox mobCss" ref='main' v-if="complete==true">
 			<img src="https://xgh5.someet.cc/718-1.jpg" @load="imgLoad" style="display: block;" alt="" width="100%">
 			<img src="https://xgh5.someet.cc/718-2.jpg" style="display: block;" alt="" width="100%">
-			<img src="https://xgh5.someet.cc/718-3.jpg" style="display: block;" alt="" width="100%">
+			<img src="https://xgh5.someet.cc/811-3.jpg" style="display: block;" alt="" width="100%">
 			<!-- 活动日程开始 -->
 			<div class="mob-day-main">
 				<div class="mob-day-box">
@@ -16,40 +16,26 @@
 						活动日程
 					</div>
 					<div class="mob-day-container">
-						<div class="mob-day-container-btn">
-							<div v-show="daySelect == 0">
-								<img src="https://xgh5.someet.cc/day.png" width="100%" alt="">
-							</div>
-							<div v-show="daySelect == 1">
-								<img src="https://xgh5.someet.cc/day.png" width="100%" alt="">
-							</div>
-							<div v-show="daySelect == 2">
-								<img src="https://xgh5.someet.cc/day.png" width="100%" alt="">
-							</div>
-							<div v-show="daySelect == 3">
-								<img src="https://xgh5.someet.cc/day.png" width="100%" alt="">
-							</div>
-						</div>
 						<div class="mob-day-container-img">
 							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(0)">
-								111
+								<img :src="daySelect == 0?'https://xgh5.someet.cc/day22_red.png':'https://xgh5.someet.cc/day22.png'" width="100%" alt="">
 							</div>
 							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(1)">
-								2222
+								<img :src="daySelect == 1?'https://xgh5.someet.cc/day23_red.png':'https://xgh5.someet.cc/day23.png'" width="100%" alt="">
 							</div>
 							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(2)">
-								3333
+								<img :src="daySelect == 2?'https://xgh5.someet.cc/day24_red.png':'https://xgh5.someet.cc/day24.png'" width="100%" alt="">
 							</div>
 							<div style="width: calc(100% / 4);box-sizing: border-box;"  @click="changeDay(3)">
-								4444
+								<img :src="daySelect == 3?'https://xgh5.someet.cc/day25_red.png':'https://xgh5.someet.cc/day25.png'" width="100%" alt="">
 							</div>
 						</div>
 					</div>
-					<div class="mob-day-content">
-						<img width="100%" src="https://xgh5.someet.cc/act.png" alt="" v-show="daySelect == 0">
-						<img width="100%" src="https://xgh5.someet.cc/act.png" alt="" v-show="daySelect == 1">
-						<img width="100%" src="https://xgh5.someet.cc/act.png" alt="" v-show="daySelect == 2">
-						<img width="100%" src="https://xgh5.someet.cc/act.png" alt="" v-show="daySelect == 3">
+					<div class="mob-day-content scrollbar-rail">
+						<img width="100%" src="https://xgh5.someet.cc/act22.png" alt="" v-show="daySelect == 0">
+						<img width="100%" src="https://xgh5.someet.cc/act23.png" alt="" v-show="daySelect == 1">
+						<img width="100%" src="https://xgh5.someet.cc/act24.png" alt="" v-show="daySelect == 2">
+						<img width="100%" src="https://xgh5.someet.cc/act25.png" alt="" v-show="daySelect == 3">
 					</div>
 				</div>
 			</div>
@@ -135,124 +121,16 @@
 			<!-- video-swiper -->
 			<div id='videoBottom' class="imgBoxImg relativeBox" v-show="imgList.xgPlayMedias.isShow  && Imgcomplete==true && complete == true">
 				<div class="swiper2" v-if="complete == true" v-show="imgList.xgPlayMedias.isShow">
-					<swiper id='videoSwiper' ref='videoSwiper' v-if="imgList.xgPlayMedias.isShow  && complete==true" :options="swiperOptionForMedia">
-						<swiper-slide class='swiper1-video'>
-							<div class="videoBox1" @click="playVideo('bottom',0)">
-								<div class="vPage" id='vPage' style="position: absolute;">
-									<!-- 底栏 -->
-									<div :class="videoPlayIndex === 0?'videoPage videoPageHide':'videoPage'">
-										{{imgList.xgPlayMedias.title[0]}}
-									</div>
-								</div>
-								<div class="videoBackBox">
-									<img src="https://xgh5planb.someet.cc/videoBack.png" alt="" width="100%">
-								</div>
-								<div class="video-vue-box">
-									<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin smallVideo"
-									ref="videoPlayerBottom0"
-									:playsinline="true"
-									:options="imgList.xgPlayMedias.options[0]"
-									@play="CplayerPlay($event,'top')"
-									@pause="CplayerPause($event,'top')"
-									@ended="onPlayerEnded($event)"
-									></video-player>
-								</div>
-							</div>
-						</swiper-slide>
-						<swiper-slide class='swiper1-video'>
-							<div class="videoBox1" @click="playVideo('bottom',1)">
-								<div class="vPage" id='vPage' style="position: absolute;">
-									<!-- 底栏 -->
-									<div :class="videoPlayIndex === 1?'videoPage videoPageHide':'videoPage'">
-										{{imgList.xgPlayMedias.title[1]}}
-									</div>
-								</div>
-								<div class="videoBackBox">
-									<img src="https://xgh5planb.someet.cc/videoBack.png" alt="" width="100%">
-								</div>
-								<div class="video-vue-box">
-									<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin smallVideo"
-									ref="videoPlayerBottom1"
-									:playsinline="true"
-									:options="imgList.xgPlayMedias.options[1]"
-									@play="CplayerPlay($event,'top')"
-									@pause="CplayerPause($event,'top')"
-									@ended="onPlayerEnded($event)"
-									></video-player>
-								</div>
-							</div>
-						</swiper-slide>
-						<swiper-slide class='swiper1-video'>
-							<div class="videoBox1" @click="playVideo('bottom',2)">
-								<div class="vPage" id='vPage' style="position: absolute;">
-									<!-- 底栏 -->
-									<div :class="videoPlayIndex === 2?'videoPage videoPageHide':'videoPage'">
-										{{imgList.xgPlayMedias.title[2]}}
-									</div>
-								</div>
-								<div class="videoBackBox">
-									<img src="https://xgh5planb.someet.cc/videoBack.png" alt="" width="100%">
-								</div>
-								<div class="video-vue-box">
-									<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin smallVideo"
-									ref="videoPlayerBottom2"
-									:playsinline="true"
-									:options="imgList.xgPlayMedias.options[2]"
-									@play="CplayerPlay($event,'top')"
-									@pause="CplayerPause($event,'top')"
-									@ended="onPlayerEnded($event)"
-									></video-player>
-								</div>
-							</div>
-						</swiper-slide>
-						<swiper-slide class='swiper1-video'>
-							<div class="videoBox1" @click="playVideo('bottom',3)">
-								<div class="vPage" id='vPage' style="position: absolute;">
-									<!-- 底栏 -->
-									<div :class="videoPlayIndex === 3?'videoPage videoPageHide':'videoPage'">
-										{{imgList.xgPlayMedias.title[3]}}
-									</div>
-								</div>
-								<div class="videoBackBox">
-									<img src="https://xgh5planb.someet.cc/videoBack.png" alt="" width="100%">
-								</div>
-								<div class="video-vue-box">
-									<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin smallVideo"
-									ref="videoPlayerBottom3"
-									:playsinline="true"
-									:options="imgList.xgPlayMedias.options[3]"
-									@play="CplayerPlay($event,'top')"
-									@pause="CplayerPause($event,'top')"
-									@ended="onPlayerEnded($event)"
-									></video-player>
-								</div>
-							</div>
-						</swiper-slide>
-						<swiper-slide class='swiper1-video'>
-							<div class="videoBox1" @click="playVideo('bottom',4)">
-								<div class="vPage" id='vPage' style="position: absolute;">
-									<!-- 底栏 -->
-									<div :class="videoPlayIndex === 4?'videoPage videoPageHide':'videoPage'">
-										{{imgList.xgPlayMedias.title[4]}}
-									</div>
-								</div>
-								<div class="videoBackBox">
-									<img src="https://xgh5planb.someet.cc/videoBack.png" alt="" width="100%">
-								</div>
-								<div class="video-vue-box">
-									<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin smallVideo"
-									ref="videoPlayerBottom4"
-									:playsinline="true"
-									:options="imgList.xgPlayMedias.options[4]"
-									@play="CplayerPlay($event,'top')"
-									@pause="CplayerPause($event,'top')"
-									@ended="onPlayerEnded($event)"
-									></video-player>
-								</div>
-							</div>
-						</swiper-slide>
-						
-					</swiper> 
+					<div class="videoBox1" @click="playVideo('bottom',0)">
+						<div class="vPage" id='vPage' style="position: absolute;">
+							
+						</div>
+						<video-player  id='mob-imgBoxImg_pc' class="video-player vjs-custom-skin"
+						ref="videoPlayerBottom0"
+						:playsinline="true"
+						:options="imgList.xgPlayVideoTop.options"
+						></video-player>
+					</div>
 				</div>
 			</div>
 			<!-- video-swiper -->
@@ -281,32 +159,8 @@
 			  speed: 1000,
 			},
 			swiperOptionForBanner:{
-				autoplay: false,
+				autoplay: true,
 				speed: 2000,
-			},
-			swiperOptionForMedia:{
-				autoplay: false,
-				speed: 1000,
-				effect : 'coverflow',
-				slidesPerView: 3,
-				centeredSlides: true,
-				initialSlide: 2,
-				loop:false,
-				slidesPerView: 'auto',
-				slideToClickedSlide: false,
-				coverflowEffect: {
-					rotate: 0,
-					stretch: -40,
-					depth: 200,
-					modifier: 2,
-					slideShadows : true
-				},
-				on:{
-					 slideChangeTransitionEnd:function(){
-						 // console.log('停止了')
-						 that.stopVideo();
-					 }
-				}
 			},
 			playerOptions : [],
 			menuTop:false,
@@ -322,10 +176,6 @@
 		methods:{
 			stopVideo(){
 				this.player0.pause();
-				this.player1.pause();
-				this.player2.pause();
-				this.player3.pause();
-				this.player4.pause();
 			},
 			CplayerPlay(player,type) {
 				if(type == 'swiper'){
@@ -349,54 +199,17 @@
 					if(pos == 'top'){
 						this.playerTop.play();
 						this.player0.pause();
-						this.player1.pause();
-						this.player2.pause();
-						this.player3.pause();
-						this.player4.pause();
 					}else if(pos == 'bottom'){
 						this.videoPlayIndex = index
 						this.playerTop.pause();
 						this.swiper.autoplay.stop()
 						if(index == 0){
 							this.player0.play();
-							this.player1.pause();
-							this.player2.pause();
-							this.player3.pause();
-							this.player4.pause();
-						}else if(index == 1){
-							this.player0.pause();
-							this.player1.play();
-							this.player2.pause();
-							this.player3.pause();
-							this.player4.pause();
-						}else if(index ==2){
-							this.player0.pause();
-							this.player1.pause();
-							this.player2.play();
-							this.player3.pause();
-							this.player4.pause();
-						}else if(index == 3){
-							this.player0.pause();
-							this.player1.pause();
-							this.player2.pause();
-							this.player3.play();
-							this.player4.pause();
-						}else if(index == 4){
-							this.player0.pause();
-							this.player1.pause();
-							this.player2.pause();
-							this.player3.pause();
-							this.player4.play();
 						}
 					}
 				}else{
 					this.isPlayTop = 0
 					this.playerTop.pause();
-					this.player0.pause();
-					this.player1.pause();
-					this.player2.pause();
-					this.player3.pause();
-					this.player4.pause();
 				}	
 			},
 			//活动日程切换
@@ -408,6 +221,11 @@
 			imgLoad(){
 				this.Imgcomplete = true
 				this.getSwiperHeight();
+				this.$nextTick(function(){
+					$(document).ready(function(){
+					    $('.scrollbar-rail').scrollbar();
+					});
+				})
 			},
 			//页面滚动事件
 			handleScroll(){
@@ -437,10 +255,6 @@
 					if(scrollTop < (pauseTop - videoBottom)){
 						//停止下面的播放器
 						this.player0.pause();
-						this.player1.pause();
-						this.player2.pause();
-						this.player3.pause();
-						this.player4.pause();
 					}
 				}
 			},
@@ -558,23 +372,8 @@
 			player0() {
 				return this.$refs.videoPlayerBottom0.player
 			},
-			player1() {
-				return this.$refs.videoPlayerBottom1.player
-			},
-			player2() {
-				return this.$refs.videoPlayerBottom2.player
-			},
-			player3() {
-				return this.$refs.videoPlayerBottom3.player
-			},
-			player4() {
-				return this.$refs.videoPlayerBottom4.player
-			},
 			playerTop() {
 				return this.$refs.videoPlayerTop.player
-			},
-			swiper() {
-				return this.$refs.videoSwiper.swiper
 			}
 		 },
 		mounted(){
@@ -664,8 +463,10 @@
 	}
 	#videoBottom{
 		position: absolute;
-		width: 100%;
+		width: 70%;
 		top: 85.3%;
+		left: 15%;
+		right: 15%;
 	}
 	#topMenuForPc{
 		width: 100%;
@@ -767,7 +568,7 @@
 	.mob-imgBoxImg_pc{
 		width: 87.8%;
 		position: absolute;
-		top: 14.3%;
+		top: 15.3%;
 		left: -0.6%;
 		right: 0;
 		margin: 0 auto;
@@ -856,25 +657,43 @@
 		}
 	}
 	.mob-day-main{
-		width: 100%;height: 25rem;border: 1px solid #FF0000;box-sizing: border-box;position: relative;
+		width: 100%;height: 25rem;box-sizing: border-box;
+		position: absolute;
 	}
 	.mob-day-main .mob-day-box{
-		width: 90%;height: 100%;border: 1px solid green;box-sizing: border-box;position: absolute;left:5%;right: 5%;
+		width: 90%;
+		height: 100%;
+		border: 1px solid green;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		border: 5px solid red;
+		border-radius: 1rem;
+		margin: 0 auto;
+	}
+	.mob-day-box{
+		position: absolute;
+		left:5%;
+		right: 5%;
+		top:0%;
 	}
 	.mob-day-box .mob-day-title{
 		width: 100%;height: 3rem;background-color: palegreen;text-align: center;
+		border-radius: 0.6rem 0.6rem 0rem 0rem;
+		overflow-x:hidden; 
 	}
 	.mob-day-container{
-		width: 100%;height: 3rem;background-color: brown;text-align: center;position: relative;
+		width: 100%;background-color: brown;text-align: center;position: relative;
 	}
 	.mob-day-container-btn{
 		position: absolute;top:0;width: 100%;
 	}
 	.mob-day-container-img{
-		position: absolute;top:0;width: 100%;z-index:2;background-color: #42B983;display: flex;height: 100%;
+		width: 100%;z-index:2;background-color: #42B983;display: flex;height: 100%;
 	}
 	.mob-day-content{
-		overflow: scroll;height: 75%;
+		overflow: hidden;
+		overflow-y: scroll;height: 73%;
+		border-radius: 0rem 0rem 0.6rem 0.6rem;
 	}
 	.mob-banner-div{
 		width: 100%;position: absolute;top:81.3%;box-sizing: border-box;
